@@ -7,42 +7,68 @@
       "safari_version": "26.6.2",
       "macos": "26.6.2",
       "active_normal": [
-        25,
-        25
-      ],
-      "active_webdriver": [
         0,
         25
       ],
+      "active_webdriver": [
+        25,
+        25
+      ],
       "blocking_source": "normal window",
-      "network_blocked": 25,
+      "network_blocked": 0,
       "network_reachable": 25,
-      "network_block_pct": 100,
+      "network_block_pct": 0,
       "cosmetic_hidden": 0,
       "cosmetic_total": 10,
       "cosmetic_pct": 0,
       "no_breakage": true,
-      "missed": [],
-      "load_baseline": 775.0,
-      "load_ext": 682.0,
+      "missed": [
+        "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+        "https://securepubads.g.doubleclick.net/tag/js/gpt.js",
+        "https://www.googletagservices.com/tag/js/gpt.js",
+        "https://static.doubleclick.net/instream/ad_status.js",
+        "https://www.google-analytics.com/analytics.js",
+        "https://www.googletagmanager.com/gtag/js?id=G-TEST000000",
+        "https://connect.facebook.net/en_US/fbevents.js",
+        "https://static.ads-twitter.com/uwt.js",
+        "https://c.amazon-adsystem.com/aax2/apstag.js",
+        "https://cdn.taboola.com/libtrc/unip/loader.js",
+        "https://widgets.outbrain.com/outbrain.js",
+        "https://acdn.adnxs.com/ast/ast.js",
+        "https://bat.bing.com/bat.js",
+        "https://snap.licdn.com/li.lms-analytics/insight.min.js",
+        "https://static.hotjar.com/c/hotjar-1.js?sv=6",
+        "https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js",
+        "https://sb.scorecardresearch.com/beacon.js",
+        "https://www.clarity.ms/tag/test",
+        "https://static.criteo.net/js/ld/publishertag.js",
+        "https://ads.pubmatic.com/AdServer/js/showad.js",
+        "https://mc.yandex.ru/metrika/tag.js",
+        "https://secure.quantserve.com/quant.js",
+        "https://js-agent.newrelic.com/nr-loader-spa-current.min.js",
+        "https://s.pinimg.com/ct/core.js",
+        "https://analytics.tiktok.com/i18n/pixel/events.js"
+      ],
+      "load_baseline": 902.0,
+      "load_ext": 917.0,
       "sites_compared": 8,
-      "ads_baseline": 68.5,
+      "ads_baseline": 55.0,
       "ads_ext": 1.5,
-      "requests_baseline": 205.0,
-      "requests_ext": 117.5,
-      "transfer_baseline": 170.0,
-      "transfer_ext": 99.5,
-      "load_delta_pct": -12.0,
-      "ads_reduction_pct": 97.8,
-      "transfer_delta_pct": -41.5,
-      "mem_idle_baseline": 477.7,
-      "mem_idle_ext": 1387.8,
-      "mem_idle_delta": 910.1,
-      "mem_loaded_baseline": 2893.4,
-      "mem_loaded_ext": 2863.0,
-      "mem_loaded_delta": -30.4,
-      "speedometer_baseline": 14.3,
-      "speedometer_ext": 13.7,
+      "requests_baseline": 187.5,
+      "requests_ext": 117.0,
+      "transfer_baseline": 196.5,
+      "transfer_ext": 106.0,
+      "load_delta_pct": 1.7,
+      "ads_reduction_pct": 97.3,
+      "transfer_delta_pct": -46.1,
+      "mem_idle_baseline": 482.7,
+      "mem_idle_ext": 1277.9,
+      "mem_idle_delta": 795.2,
+      "mem_loaded_baseline": 3296.3,
+      "mem_loaded_ext": 3047.2,
+      "mem_loaded_delta": -249.1,
+      "speedometer_baseline": 9.58,
+      "speedometer_ext": 14.5,
       "test_sites": {
         "adblock-tester.com": {
           "baseline": 41,
@@ -50,14 +76,19 @@
           "raw": "91"
         },
         "AdBlock Tester (turtlecute)": {
-          "baseline": null,
-          "ext": null,
-          "raw": "Total : 132 | 80 blocked | 52 not blocked | Some setups, like Firefox with uBlock Origin, can skew results. | What do \u201cBlocked\u201d and \u201cNot Blocked\u201d mean? | How is my score calculated, and what do the colors mean?"
+          "baseline": 7.6,
+          "ext": 60.6,
+          "raw": "Total : 132 | 80 blocked | 52 not blocked | Cosmetic Filter | Static Ad | Dynamic Ad | Why does the Cosmetic Filter test fail? | Ad Scripts Loading | ads.js | pagead.js | Why does the Ad Script Loading test fail? | Ad networks | Amazon | adtago.s3.amazonaws.com | analyticsengine.s3.amazonaws.com | a"
         },
-        "d3ward Toolz": {
-          "baseline": null,
-          "ext": null,
-          "raw": null
+        "Super Adblock Test": {
+          "baseline": 11,
+          "ext": 64,
+          "raw": "64"
+        },
+        "Blockify Ad-Blocker Test": {
+          "baseline": 33,
+          "ext": 81,
+          "raw": "At 81%, you have solid protection but some specialized trackers are bypassing your filters. Fine-tuning can get you to excellent protection."
         }
       }
     },
@@ -109,26 +140,26 @@
         "https://s.pinimg.com/ct/core.js",
         "https://analytics.tiktok.com/i18n/pixel/events.js"
       ],
-      "load_baseline": 497.5,
+      "load_baseline": 1512.0,
       "load_ext": 1089.0,
-      "sites_compared": 9,
-      "ads_baseline": 53,
+      "sites_compared": 8,
+      "ads_baseline": 40,
       "ads_ext": 42,
-      "requests_baseline": 195.0,
-      "requests_ext": 198.5,
-      "transfer_baseline": 112,
-      "transfer_ext": 80,
-      "load_delta_pct": 118.9,
-      "ads_reduction_pct": 20.8,
-      "transfer_delta_pct": -28.6,
-      "mem_idle_baseline": 472.4,
-      "mem_idle_ext": 740.9,
-      "mem_idle_delta": 268.5,
-      "mem_loaded_baseline": 3324.5,
-      "mem_loaded_ext": 3440.3,
-      "mem_loaded_delta": 115.8,
-      "speedometer_baseline": 12.3,
-      "speedometer_ext": 15,
+      "requests_baseline": 171.5,
+      "requests_ext": 180.5,
+      "transfer_baseline": 197.0,
+      "transfer_ext": 98.5,
+      "load_delta_pct": -28.0,
+      "ads_reduction_pct": -5.0,
+      "transfer_delta_pct": -50.0,
+      "mem_idle_baseline": 459.3,
+      "mem_idle_ext": 748.6,
+      "mem_idle_delta": 289.3,
+      "mem_loaded_baseline": 3124.5,
+      "mem_loaded_ext": 3488.3,
+      "mem_loaded_delta": 363.8,
+      "speedometer_baseline": 10.7,
+      "speedometer_ext": 18.1,
       "test_sites": {
         "adblock-tester.com": {
           "baseline": 41,
@@ -136,14 +167,19 @@
           "raw": "41"
         },
         "AdBlock Tester (turtlecute)": {
-          "baseline": null,
-          "ext": null,
-          "raw": "Total : 132 | 10 blocked | 122 not blocked | Some setups, like Firefox with uBlock Origin, can skew results. | What do \u201cBlocked\u201d and \u201cNot Blocked\u201d mean? | How is my score calculated, and what do the colors mean?"
+          "baseline": 7.6,
+          "ext": 7.6,
+          "raw": "Total : 132 | 10 blocked | 122 not blocked | Cosmetic Filter | Static Ad | Dynamic Ad | Why does the Cosmetic Filter test fail? | Ad Scripts Loading | ads.js | pagead.js | Why does the Ad Script Loading test fail? | Ad networks | Amazon | adtago.s3.amazonaws.com | analyticsengine.s3.amazonaws.com | "
         },
-        "d3ward Toolz": {
-          "baseline": null,
-          "ext": null,
-          "raw": null
+        "Super Adblock Test": {
+          "baseline": 11,
+          "ext": 11,
+          "raw": "11"
+        },
+        "Blockify Ad-Blocker Test": {
+          "baseline": 33,
+          "ext": 33,
+          "raw": "Your ad blocker scored 33%. For comprehensive protection against ads, trackers, and malware, try Blockify."
         }
       }
     }

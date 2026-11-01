@@ -1,60 +1,9 @@
 total 16
-drwx------@  8 runner  staff   256 Nov  1 20:01 .
-drwx------  82 runner  staff  2624 Nov  1 20:01 ..
--rw-r--r--   1 runner  staff   595 Nov  1 20:01 .com.apple.containermanagerd.metadata.plist
--rw-r--r--@  1 runner  staff   283 Nov  1 20:01 auto_update.log
--rw-------@  1 runner  staff     0 Nov  1 20:01 filter-update-popup.lock
-drwx------   6 runner  staff   192 Nov  1 20:01 Library
-drwxr-xr-x@  5 runner  staff   160 Nov  1 20:01 ProtobufData
-drwxr-xr-x@  3 runner  staff    96 Nov  1 20:01 userscripts
-
-/Users/runner/Library/Group Containers/DNP7DGUB7B.group.skula.wBlock/Library:
-total 0
-drwx------  6 runner  staff  192 Nov  1 20:01 .
-drwx------@ 8 runner  staff  256 Nov  1 20:01 ..
-drwx------  3 runner  staff   96 Nov  1 20:01 Application Scripts
-drwx------  2 runner  staff   64 Nov  1 20:01 Application Support
-drwx------  3 runner  staff   96 Nov  1 20:01 Caches
-drwx------  3 runner  staff   96 Nov  1 20:01 Preferences
-
-/Users/runner/Library/Group Containers/DNP7DGUB7B.group.skula.wBlock/Library/Application Scripts:
-total 0
-drwx------  3 runner  staff   96 Nov  1 20:01 .
-drwx------  6 runner  staff  192 Nov  1 20:01 ..
-lrwxr-xr-x  1 runner  staff   61 Nov  1 20:01 DNP7DGUB7B.group.skula.wBlock -> ../../../../Application Scripts/DNP7DGUB7B.group.skula.wBlock
-
-/Users/runner/Library/Group Containers/DNP7DGUB7B.group.skula.wBlock/Library/Application Support:
-total 0
-drwx------  2 runner  staff   64 Nov  1 20:01 .
-drwx------  6 runner  staff  192 Nov  1 20:01 ..
-
-/Users/runner/Library/Group Containers/DNP7DGUB7B.group.skula.wBlock/Library/Caches:
-total 0
-drwx------  3 runner  staff   96 Nov  1 20:01 .
-drwx------  6 runner  staff  192 Nov  1 20:01 ..
-drwxr-xr-x@ 2 runner  staff   64 Nov  1 20:01 FilterCompilation
-
-/Users/runner/Library/Group Containers/DNP7DGUB7B.group.skula.wBlock/Library/Caches/FilterCompilation:
-total 0
-drwxr-xr-x@ 2 runner  staff  64 Nov  1 20:01 .
-drwx------  3 runner  staff  96 Nov  1 20:01 ..
-
-/Users/runner/Library/Group Containers/DNP7DGUB7B.group.skula.wBlock/Library/Preferences:
-total 8
-drwx------  3 runner  staff   96 Nov  1 20:01 .
-drwx------  6 runner  staff  192 Nov  1 20:01 ..
--rw-------@ 1 runner  staff  503 Nov  1 20:01 DNP7DGUB7B.group.skula.wBlock.plist
-
-/Users/runner/Library/Group Containers/DNP7DGUB7B.group.skula.wBlock/ProtobufData:
-total 88
-drwxr-xr-x@ 5 runner  staff    160 Nov  1 20:01 .
-drwx------@ 8 runner  staff    256 Nov  1 20:01 ..
--rw-r--r--@ 1 runner  staff  19042 Nov  1 20:01 wblock_data_backup.pb
--rw-r--r--@ 1 runner  staff  19126 Nov  1 20:01 wblock_data.pb
--rw-r--r--@ 1 runner  staff      1 Nov  1 20:01 wblock_data.version
-
-/Users/runner/Library/Group Containers/DNP7DGUB7B.group.skula.wBlock/userscripts:
-total 2480
-drwxr-xr-x@ 3 runner  staff       96 Nov  1 20:01 .
-drwx------@ 8 runner  staff      256 Nov  1 20:01 ..
--rw-r--r--@ 1 runner  staff  1268863 Nov  1 20:01 659A6835-8FCB-4BD6-A2FF-71A317F7246A.user.js
+drwx------@  8 runner  staff   256 Nov  1 20:44 .
+drwx------  82 runner  staff  2624 Nov  1 20:44 ..
+-rw-r--r--   1 runner  staff   612 Nov  1 20:44 .com.apple.containermanagerd.metadata.plist
+-rw-r--r--@  1 runner  staff   283 Nov  1 20:44 auto_update.log
+-rw-------@  1 runner  staff     0 Nov  1 20:44 filter-update-popup.lock
+drwx------   6 runner  staff   192 Nov  1 20:44 Library
+drwxr-xr-x@  5 runner  staff   160 Nov  1 20:44 ProtobufData
+drwxr-xr-x@  3 runner  staff    96 Nov  1 20:44 userscripts

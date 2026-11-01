@@ -15,15 +15,15 @@ Test-page requests blocked, in a normal Safari window vs. a WebDriver (automatio
 
 | Extension | Normal window | WebDriver window |
 |---|---|---|
-| **uBlock Origin Lite** | 25/25 | 0/25 |
+| **uBlock Origin Lite** | 0/25 | 25/25 |
 | **wBlock** | 0/25 | 0/25 |
 
 ### Ad blocking
 
 | Extension | Ad/tracker requests blocked | Ad elements hidden | Ad requests per page (none → with blocker) | Nothing broken |
 |---|---|---|---|---|
-| **uBlock Origin Lite** | 100% (25/25) | 0% (0/10) | 68.5 → 1.5 (97.8% fewer) | ✅ |
-| **wBlock** | 0% (0/25) | 0% (0/10) | 53 → 42 (20.8% fewer) | ✅ |
+| **uBlock Origin Lite** | 0% (0/25) | 0% (0/10) | 55 → 1.5 (97.3% fewer) | ✅ |
+| **wBlock** | 0% (0/25) | 0% (0/10) | 40 → 42 (-5% fewer) | ✅ |
 
 ### Public ad-block test sites (score, higher is better)
 
@@ -31,37 +31,38 @@ _Scores are read from each page's text after the test finishes (best effort; see
 
 | Test site | No blocker | uBlock Origin Lite | wBlock |
 |---|---|---|---|
-| AdBlock Tester (turtlecute) | — | — | — |
+| AdBlock Tester (turtlecute) | 7.6% | 60.6% | 7.6% |
+| Blockify Ad-Blocker Test | 33% | 81% | 33% |
+| Super Adblock Test | 11% | 64% | 11% |
 | adblock-tester.com | 41% | 91% | 41% |
-| d3ward Toolz | — | — | — |
 
 ### Speed
 
 | Extension | Median page load (none → with blocker) | Change | Data transferred | Speedometer 3.1 (none → with blocker) |
 |---|---|---|---|---|
-| **uBlock Origin Lite** | 775 ms → 682 ms | -12% | -41.5% | 14.3 → 13.7 |
-| **wBlock** | 498 ms → 1089 ms | +119% | -28.6% | 12.3 → 15 |
+| **uBlock Origin Lite** | 902 ms → 917 ms | +1.7% | -46.1% | 9.58 → 14.5 |
+| **wBlock** | 1512 ms → 1089 ms | -28% | -50% | 10.7 → 18.1 |
 
 ### Memory (Safari + WebKit + extension processes)
 
 | Extension | Idle | Δ idle | 6 sites open | Δ with sites open |
 |---|---|---|---|---|
-| **uBlock Origin Lite** | 1388 MB | +910 MB | 2863 MB | -30.4 MB |
-| **wBlock** | 741 MB | +268 MB | 3440 MB | +116 MB |
+| **uBlock Origin Lite** | 1278 MB | +795 MB | 3047 MB | -249 MB |
+| **wBlock** | 749 MB | +289 MB | 3488 MB | +364 MB |
 
 ```mermaid
 xychart-beta
   title "Ad/tracker requests blocked (%)"
   x-axis ["uBlock Origin Lite", "wBlock"]
   y-axis "%" 0 --> 100
-  bar [100, 0]
+  bar [0, 0]
 ```
 
 ```mermaid
 xychart-beta
   title "Median page load time (ms, lower is better)"
   x-axis ["No blocker", "uBlock Origin Lite", "wBlock"]
-  bar [636, 682, 1089]
+  bar [1207, 917, 1089]
 ```
 
 <details><summary>Screenshots (normal Safari window)</summary>
@@ -71,13 +72,15 @@ xychart-beta
 | `adblock-tester-com` | <img src="results/screenshots/baseline/adblock-tester-com.jpg" width="260"> | <img src="results/screenshots/ublock-origin-lite/adblock-tester-com.jpg" width="260"> | <img src="results/screenshots/wblock/adblock-tester-com.jpg" width="260"> |
 | `adblock-turtlecute-org` | <img src="results/screenshots/baseline/adblock-turtlecute-org.jpg" width="260"> | <img src="results/screenshots/ublock-origin-lite/adblock-turtlecute-org.jpg" width="260"> | <img src="results/screenshots/wblock/adblock-turtlecute-org.jpg" width="260"> |
 | `canyoublockit-com-extreme-test` | <img src="results/screenshots/baseline/canyoublockit-com-extreme-test.jpg" width="260"> | <img src="results/screenshots/ublock-origin-lite/canyoublockit-com-extreme-test.jpg" width="260"> | <img src="results/screenshots/wblock/canyoublockit-com-extreme-test.jpg" width="260"> |
-| `d3ward-github-io-toolz-adblock` | <img src="results/screenshots/baseline/d3ward-github-io-toolz-adblock.jpg" width="260"> | <img src="results/screenshots/ublock-origin-lite/d3ward-github-io-toolz-adblock.jpg" width="260"> | <img src="results/screenshots/wblock/d3ward-github-io-toolz-adblock.jpg" width="260"> |
 | `fixture` | <img src="results/screenshots/baseline/fixture.jpg" width="260"> | <img src="results/screenshots/ublock-origin-lite/fixture.jpg" width="260"> | <img src="results/screenshots/wblock/fixture.jpg" width="260"> |
+| `getblockify-com-adblock-test` | <img src="results/screenshots/baseline/getblockify-com-adblock-test.jpg" width="260"> | <img src="results/screenshots/ublock-origin-lite/getblockify-com-adblock-test.jpg" width="260"> | <img src="results/screenshots/wblock/getblockify-com-adblock-test.jpg" width="260"> |
+| `superadblocktest-com` | <img src="results/screenshots/baseline/superadblocktest-com.jpg" width="260"> | <img src="results/screenshots/ublock-origin-lite/superadblocktest-com.jpg" width="260"> | <img src="results/screenshots/wblock/superadblocktest-com.jpg" width="260"> |
 
 </details>
 
 <details><summary>Test requests that weren't blocked</summary>
 
+- **uBlock Origin Lite**: `pagead2.googlesyndication.com`, `securepubads.g.doubleclick.net`, `www.googletagservices.com`, `static.doubleclick.net`, `www.google-analytics.com`, `www.googletagmanager.com`, `connect.facebook.net`, `static.ads-twitter.com`, `c.amazon-adsystem.com`, `cdn.taboola.com`, `widgets.outbrain.com`, `acdn.adnxs.com`, `bat.bing.com`, `snap.licdn.com`, `static.hotjar.com`, `cdn.mxpnl.com`, `sb.scorecardresearch.com`, `www.clarity.ms`, `static.criteo.net`, `ads.pubmatic.com`, `mc.yandex.ru`, `secure.quantserve.com`, `js-agent.newrelic.com`, `s.pinimg.com`, `analytics.tiktok.com`
 - **wBlock**: `pagead2.googlesyndication.com`, `securepubads.g.doubleclick.net`, `www.googletagservices.com`, `static.doubleclick.net`, `www.google-analytics.com`, `www.googletagmanager.com`, `connect.facebook.net`, `static.ads-twitter.com`, `c.amazon-adsystem.com`, `cdn.taboola.com`, `widgets.outbrain.com`, `acdn.adnxs.com`, `bat.bing.com`, `snap.licdn.com`, `static.hotjar.com`, `cdn.mxpnl.com`, `sb.scorecardresearch.com`, `www.clarity.ms`, `static.criteo.net`, `ads.pubmatic.com`, `mc.yandex.ru`, `secure.quantserve.com`, `js-agent.newrelic.com`, `s.pinimg.com`, `analytics.tiktok.com`
 
 </details>
