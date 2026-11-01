@@ -194,6 +194,10 @@ def main():
         # Screenshots -> results/screenshots/<id>/ (each job's "baseline" set overwrites the previous one).
         for sub in (d / "shots").glob("*") if (d / "shots").exists() else []:
             shutil.copytree(sub, shots_dir / sub.name, dirs_exist_ok=True)
+        diag = ROOT / "results" / "diag" / d.name
+        shutil.rmtree(diag, ignore_errors=True)
+        if (d / "diag").exists():
+            shutil.copytree(d / "diag", diag)
     if not rows:
         sys.exit("no results")
     rows.sort(key=lambda r: -(r["network_block_pct"] or 0))

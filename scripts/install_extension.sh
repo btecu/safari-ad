@@ -43,10 +43,18 @@ if [[ -n "$HOOK" ]]; then
 fi
 
 echo "::group::Enable in Safari"
+# Safari must be quit while its extension-state plists are edited.
 osascript -e 'tell application "Safari" to quit' 2>/dev/null || true
 sleep 2
-osascript scripts/enable_in_safari.applescript "$DIAG/safari-settings-ui.txt" "${NAMES[@]}" \
-  || echo "::warning::Safari UI enable script failed (see diagnostics)"
+if ! python3 scripts/enable_in_safari.py "$APP_PATH"; then
+  echo "::warning::Couldn't write Safari's settings files; falling back to clicking through Safari Settings"
+  osascript scripts/enable_in_safari.applescript "$DIAG/safari-settings-ui.txt" "${NAMES[@]}" \
+    || echo "::warning::Safari UI enable script failed (see diagnostics)"
+  osascript -e 'tell application "Safari" to quit' 2>/dev/null || true
+fi
+# Launch Safari once so it picks up the new state (and compiles content-blocker rules), then screenshot.
+open -a Safari "http://127.0.0.1:8000/fixtures/adtest.html"
+sleep 15
 screencapture -x "$DIAG/after-enable.png" || true
 osascript -e 'tell application "Safari" to quit' 2>/dev/null || true
 echo "::endgroup::"

@@ -32,7 +32,7 @@ jobs:
     outputs:
       ids: ${{ steps.m.outputs.ids }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - id: m
         run: |
           ids=$(jq -c --arg only "${{ inputs.only }}" '[.extensions[].id | select($only == "" or . == $only)]' extensions/manifest.json)
@@ -50,7 +50,7 @@ jobs:
       ITER: ${{ inputs.iterations || '3' }}
       SPEEDO: ${{ (github.event_name == 'schedule' || inputs.speedometer) && '--speedometer' || '' }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Prepare Safari automation
         run: |
@@ -72,7 +72,6 @@ jobs:
         run: |
           osascript -e 'tell application "Safari" to quit' || true
           scripts/install_extension.sh "${{ matrix.id }}" out/diag
-          echo "::group::Safari Settings UI dump"; cat out/diag/safari-settings-ui.txt || echo "(no dump: UI script failed before writing it)"; echo "::endgroup::"
           echo "::group::pluginkit (+ = enabled)"; cat out/diag/pluginkit-*.txt; echo "::endgroup::"
 
       - name: With ${{ matrix.id }} - normal Safari window
@@ -91,14 +90,21 @@ jobs:
         run: |
           screencapture -x out/diag/final.png || true
           pluginkit -mAvvv -p com.apple.Safari.content-blocker > out/diag/pluginkit-final.txt 2>&1 || true
+          # Text diagnostics + downscaled screenshots are committed with the results (results/diag/<id>/),
+          # so they can be read without downloading artifacts.
+          mkdir -p out/results/diag
+          cp out/diag/*.txt out/diag/*.log out/results/diag/ 2>/dev/null || true
+          for f in out/diag/*.png; do
+            [ -f "$f" ] && sips -Z 1400 -s format jpeg -s formatOptions 70 "$f" --out "out/results/diag/$(basename "${f%.png}").jpg" >/dev/null
+          done
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: results-${{ matrix.id }}
           path: out/results/
           if-no-files-found: ignore
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: diag-${{ matrix.id }}
@@ -109,8 +115,8 @@ jobs:
     if: ${{ !cancelled() }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/download-artifact@v4
+      - uses: actions/checkout@v7
+      - uses: actions/download-artifact@v8
         with:
           pattern: results-*
           path: results-in
