@@ -105,6 +105,45 @@ def run_adtest(s):
     raise RuntimeError("ad test fixture did not finish")
 
 
+SCORE_JS = """
+const [sel, max] = arguments;
+const el = sel ? document.querySelector(sel) : null;
+let lines = ((el ? el.innerText : document.body.innerText) || '').split('\\n').map(l => l.trim()).filter(Boolean);
+if (!el) lines = lines.filter(l => /score|blocked|result|total/i.test(l));
+for (const l of lines) {
+  let m = l.match(/(\\d+(?:\\.\\d+)?)\\s*(?:\\/|out of)\\s*(\\d+)/i);
+  if (m && +m[2] > 0) return {pct: 100 * m[1] / m[2], raw: l};
+  m = l.match(/(\\d+(?:\\.\\d+)?)\\s*%/);
+  if (m) return {pct: +m[1], raw: l};
+  if (el && (m = l.match(/^(\\d+(?:\\.\\d+)?)$/))) return {pct: 100 * m[1] / (max || 100), raw: l};
+}
+return {pct: null, raw: lines.slice(0, 15).join(' | ').slice(0, 600)};
+"""
+
+
+def run_test_sites(s):
+    """Public ad-blocker test pages: best-effort score extraction (raw text kept for debugging)."""
+    sites = json.loads((ROOT / "harness/test_sites.json").read_text())["sites"]
+    out = {}
+    for t in sites:
+        if t.get("score") is False:
+            continue
+        try:
+            s.get(t["url"])
+            if t.get("click"):
+                time.sleep(3)
+                s.js("const b = document.querySelector(arguments[0]); if (b) b.click();", t["click"])
+            time.sleep(t.get("wait", 20))
+            r = s.js(SCORE_JS, t.get("score_selector"), t.get("max"))
+            if r["pct"] is not None:
+                r["pct"] = round(r["pct"], 1)
+        except Exception as e:
+            r = {"pct": None, "error": str(e)[:200]}
+        out[t["name"]] = r
+        print(f"  {t['name']}: {r.get('pct')}  ({(r.get('raw') or r.get('error') or '')[:120]})", flush=True)
+    return out
+
+
 def run_sites(s, sites, iterations, hosts):
     out = {}
     for url in sites:
@@ -228,6 +267,9 @@ def main():
         print(f"  network blocked {result['adtest']['network_blocked']}/{result['adtest']['network_total']}, "
               f"cosmetic hidden {result['adtest']['cosmetic_hidden']}/{result['adtest']['cosmetic_total']}",
               flush=True)
+
+        print(f"[{a.label}] public test sites", flush=True)
+        result["test_sites"] = run_test_sites(s)
 
         print(f"[{a.label}] page loads x{a.iterations}", flush=True)
         result["sites"] = run_sites(s, sites, a.iterations, hosts)

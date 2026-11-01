@@ -8,6 +8,7 @@ so the deltas aren't skewed by differences between runner machines.
 """
 import json
 import re
+import shutil
 import statistics
 import sys
 import time
@@ -39,10 +40,24 @@ def paired(base, ext, key):
     return med([b[u] for u in common]), med([e[u] for u in common]), len(common)
 
 
-def summarize(ext_id, name, base, ext):
+def blocked_count(bt, et):
+    """(blocked, reachable) for the fixture's network probes, or None if either run is missing."""
+    if not bt or not et:
+        return None
+    reachable = [i for i, r in enumerate(bt["network"]) if r["requested"]]
+    return sum(not et["network"][i]["requested"] for i in reachable), len(reachable)
+
+
+def summarize(ext_id, name, base, ext, nbase, next_):
     s = {"id": ext_id, "name": name, "safari_version": ext.get("safari_version"), "macos": ext.get("macos")}
-    # Ad blocking: only count probes that actually loaded in the baseline (reachable from the runner).
-    bt, et = base["adtest"], ext["adtest"]
+    # Is the extension active at all? Compare the fixture in a normal window vs. a WebDriver window.
+    s["active_normal"] = blocked_count((nbase or {}).get("adtest"), (next_ or {}).get("adtest"))
+    s["active_webdriver"] = blocked_count(base["adtest"], ext["adtest"])
+    # Ad blocking: prefer the normal-window run (WebDriver windows may not load extensions).
+    # Only count probes that actually loaded in the baseline (reachable from the runner).
+    use_normal = bool(s["active_normal"])
+    s["blocking_source"] = "normal window" if use_normal else "WebDriver"
+    bt, et = (nbase["adtest"], next_["adtest"]) if use_normal else (base["adtest"], ext["adtest"])
     reachable = [i for i, r in enumerate(bt["network"]) if r["requested"]]
     blocked = [i for i in reachable if not et["network"][i]["requested"]]
     s["network_blocked"], s["network_reachable"] = len(blocked), len(reachable)
@@ -65,6 +80,9 @@ def summarize(ext_id, name, base, ext):
         s[f"mem_{phase}_baseline"], s[f"mem_{phase}_ext"] = b.get("total_mb"), e.get("total_mb")
         s[f"mem_{phase}_delta"] = round(e["total_mb"] - b["total_mb"], 1) if b and e else None
     s["speedometer_baseline"], s["speedometer_ext"] = base.get("speedometer"), ext.get("speedometer")
+    s["test_sites"] = {k: {"baseline": (base.get("test_sites") or {}).get(k, {}).get("pct"),
+                           "ext": v.get("pct"), "raw": v.get("raw") or v.get("error")}
+                       for k, v in (ext.get("test_sites") or {}).items()}
     return s
 
 
@@ -85,7 +103,16 @@ def render(rows, generated):
          f"· GitHub-hosted runner. Deltas compare each blocker with a no-blocker baseline "
          f"measured on the same runner._", ""]
 
-    L += ["### Ad blocking", "",
+    L += ["### Was the blocker active?", "",
+          "Test-page requests blocked, in a normal Safari window vs. a WebDriver (automation) window. "
+          "If the WebDriver column is 0 but the normal column isn't, Safari isn't loading extensions in "
+          "automation windows, and the WebDriver-based speed/real-site numbers mostly reflect no blocking.", "",
+          "| Extension | Normal window | WebDriver window |", "|---|---|---|"]
+    for r in rows:
+        f = lambda t: f"{t[0]}/{t[1]}" if t else "—"
+        L.append(f"| **{r['name']}** | {f(r['active_normal'])} | {f(r['active_webdriver'])} |")
+
+    L += ["", "### Ad blocking", "",
           "| Extension | Ad/tracker requests blocked | Ad elements hidden | Ad requests per page (none → with blocker) | Nothing broken |",
           "|---|---|---|---|---|"]
     for r in rows:
@@ -93,6 +120,17 @@ def render(rows, generated):
                  f"| {fmt(r['cosmetic_pct'], '%')} ({r['cosmetic_hidden']}/{r['cosmetic_total']}) "
                  f"| {fmt(r['ads_baseline'])} → {fmt(r['ads_ext'])} ({fmt(r['ads_reduction_pct'], '% fewer')}) "
                  f"| {'✅' if r['no_breakage'] else '⚠️'} |")
+
+    sites = sorted({k for r in rows for k in r["test_sites"]})
+    if sites:
+        L += ["", "### Public ad-block test sites (score, higher is better)", "",
+              "_Scores are read from each page's text after the test finishes (best effort; see screenshots)._", "",
+              "| Test site | No blocker | " + " | ".join(r["name"] for r in rows) + " |",
+              "|---|---|" + "---|" * len(rows)]
+        for site in sites:
+            base = next((r["test_sites"][site]["baseline"] for r in rows if site in r["test_sites"]), None)
+            L.append(f"| {site} | {fmt(base, '%')} | "
+                     + " | ".join(fmt(r["test_sites"].get(site, {}).get("ext"), "%") for r in rows) + " |")
 
     L += ["", "### Speed", "",
           "| Extension | Median page load (none → with blocker) | Change | Data transferred | Speedometer 3.1 (none → with blocker) |",
@@ -117,6 +155,18 @@ def render(rows, generated):
           f"  bar [{round(med([r['load_baseline'] for r in rows]) or 0)}, "
           f"{', '.join(str(round(r['load_ext'] or 0)) for r in rows)}]", "```"]
 
+    shots = ROOT / "results" / "screenshots"
+    if (shots / "baseline").exists():
+        cols = ["baseline"] + [r["id"] for r in rows]
+        heads = ["No blocker"] + [r["name"] for r in rows]
+        L += ["", "<details><summary>Screenshots (normal Safari window)</summary>", "",
+              "| Page | " + " | ".join(heads) + " |", "|---|" + "---|" * len(cols)]
+        for img in sorted((shots / "baseline").glob("*.jpg")):
+            cells = [f'<img src="results/screenshots/{c}/{img.name}" width="260">'
+                     if (shots / c / img.name).exists() else "—" for c in cols]
+            L.append(f"| `{img.stem}` | " + " | ".join(cells) + " |")
+        L += ["", "</details>"]
+
     missed = [r for r in rows if r["missed"]]
     if missed:
         L += ["", "<details><summary>Test requests that weren't blocked</summary>", ""]
@@ -130,13 +180,20 @@ def main():
     src = Path(sys.argv[1])
     manifest = {e["id"]: e for e in json.loads((ROOT / "extensions/manifest.json").read_text())["extensions"]}
     rows = []
+    shots_dir = ROOT / "results" / "screenshots"
+    shutil.rmtree(shots_dir, ignore_errors=True)
     for d in sorted(p for p in src.iterdir() if p.is_dir()):
         b, e = d / "baseline.json", d / "extension.json"
         if not (b.exists() and e.exists()):
             print(f"skipping {d.name}: missing results", file=sys.stderr)
             continue
         name = manifest.get(d.name, {}).get("name", d.name)
-        rows.append(summarize(d.name, name, json.loads(b.read_text()), json.loads(e.read_text())))
+        load = lambda f: json.loads(f.read_text()) if f.exists() else None
+        rows.append(summarize(d.name, name, load(b), load(e),
+                              load(d / "normal-baseline.json"), load(d / "normal-extension.json")))
+        # Screenshots -> results/screenshots/<id>/ (each job's "baseline" set overwrites the previous one).
+        for sub in (d / "shots").glob("*") if (d / "shots").exists() else []:
+            shutil.copytree(sub, shots_dir / sub.name, dirs_exist_ok=True)
     if not rows:
         sys.exit("no results")
     rows.sort(key=lambda r: -(r["network_block_pct"] or 0))

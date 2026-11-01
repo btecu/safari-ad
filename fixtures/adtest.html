@@ -99,6 +99,11 @@ function hidden(el) {
     controls_ok: controls.every(c => c.requested)
   };
   document.title = "done";
+  // When opened in a normal Safari window (no WebDriver), post results back to harness/server.py.
+  const report = new URLSearchParams(location.search).get("report");
+  if (report) {
+    fetch("/report?name=" + encodeURIComponent(report), { method: "POST", body: JSON.stringify(window.__adtest) });
+  }
 })();
 </script>
 </body>

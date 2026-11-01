@@ -1,0 +1,9 @@
+{
+  "_comment": "Public ad-blocker test pages. score_selector (optional) is the element holding the score; without it the score is pulled from lines mentioning score/blocked/result. click (optional) starts the test. score:false = screenshot only.",
+  "sites": [
+    { "name": "adblock-tester.com", "url": "https://adblock-tester.com/", "wait": 25, "score_selector": ".final-score-value", "max": 100 },
+    { "name": "AdBlock Tester (turtlecute)", "url": "https://adblock.turtlecute.org/", "click": "#start_test", "wait": 40 },
+    { "name": "d3ward Toolz", "url": "https://d3ward.github.io/toolz/adblock", "wait": 30 },
+    { "name": "Can You Block It (extreme)", "url": "https://canyoublockit.com/extreme-test/", "wait": 15, "score": false }
+  ]
+}

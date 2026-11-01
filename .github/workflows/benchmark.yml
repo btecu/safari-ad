@@ -58,19 +58,27 @@ jobs:
           defaults read /Applications/Safari.app/Contents/Info.plist CFBundleShortVersionString
           sudo safaridriver --enable
           mkdir -p out/results out/diag
-          nohup python3 -m http.server 8000 --bind 127.0.0.1 > out/diag/http.log 2>&1 &
+          nohup python3 harness/server.py > out/diag/http.log 2>&1 &
           nohup safaridriver -p 4444 > out/diag/safaridriver.log 2>&1 &
           sleep 3
 
-      - name: Baseline (no blocker)
+      - name: Baseline (no blocker) - normal Safari window
+        run: python3 harness/normal_check.py --label baseline --out out/results/normal-baseline.json --shots out/results/shots/baseline
+
+      - name: Baseline (no blocker) - WebDriver benchmarks
         run: python3 harness/run.py --label baseline --out out/results/baseline.json --iterations "$ITER" $SPEEDO
 
       - name: Install and enable ${{ matrix.id }}
         run: |
           osascript -e 'tell application "Safari" to quit' || true
           scripts/install_extension.sh "${{ matrix.id }}" out/diag
+          echo "::group::Safari Settings UI dump"; cat out/diag/safari-settings-ui.txt || echo "(no dump: UI script failed before writing it)"; echo "::endgroup::"
+          echo "::group::pluginkit (+ = enabled)"; cat out/diag/pluginkit-*.txt; echo "::endgroup::"
 
-      - name: With ${{ matrix.id }}
+      - name: With ${{ matrix.id }} - normal Safari window
+        run: python3 harness/normal_check.py --label extension --out out/results/normal-extension.json --shots "out/results/shots/${{ matrix.id }}"
+
+      - name: With ${{ matrix.id }} - WebDriver benchmarks
         run: |
           APP=$(jq -r --arg id "${{ matrix.id }}" '.extensions[] | select(.id == $id) | .app' extensions/manifest.json)
           # Quit the containing app; only its Safari extensions should be running during the test.
