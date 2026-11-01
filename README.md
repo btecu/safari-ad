@@ -7,7 +7,50 @@ they break pages.
 ## Results
 
 <!-- RESULTS:START -->
-_No results yet. Run the **Benchmark Safari ad blockers** workflow._
+_Last run: 2026-11-01 · Safari 26.6.2 · macOS 26.6.2 · GitHub-hosted runner. Deltas compare each blocker with a no-blocker baseline measured on the same runner._
+
+### Ad blocking
+
+| Extension | Ad/tracker requests blocked | Ad elements hidden | Ad requests per page (none → with blocker) | Nothing broken |
+|---|---|---|---|---|
+| **uBlock Origin Lite** | 0% (0/25) | 0% (0/10) | 51 → 40 (21.6% fewer) | ✅ |
+| **wBlock** | 0% (0/25) | 0% (0/10) | 46 → 54 (-17.4% fewer) | ✅ |
+
+### Speed
+
+| Extension | Median page load (none → with blocker) | Change | Data transferred | Speedometer 3.1 (none → with blocker) |
+|---|---|---|---|---|
+| **uBlock Origin Lite** | 518 ms → 723 ms | +39.6% | -24.5% | 11.5 → 12.2 |
+| **wBlock** | 684 ms → 486 ms | -28.9% | +0.5% | 10.3 → 12.9 |
+
+### Memory (Safari + WebKit + extension processes)
+
+| Extension | Idle | Δ idle | 6 sites open | Δ with sites open |
+|---|---|---|---|---|
+| **uBlock Origin Lite** | 485 MB | +32.8 MB | 3118 MB | -59.5 MB |
+| **wBlock** | 505 MB | +91.4 MB | 3389 MB | +316 MB |
+
+```mermaid
+xychart-beta
+  title "Ad/tracker requests blocked (%)"
+  x-axis ["uBlock Origin Lite", "wBlock"]
+  y-axis "%" 0 --> 100
+  bar [0, 0]
+```
+
+```mermaid
+xychart-beta
+  title "Median page load time (ms, lower is better)"
+  x-axis ["No blocker", "uBlock Origin Lite", "wBlock"]
+  bar [601, 723, 486]
+```
+
+<details><summary>Test requests that weren't blocked</summary>
+
+- **uBlock Origin Lite**: `pagead2.googlesyndication.com`, `securepubads.g.doubleclick.net`, `www.googletagservices.com`, `static.doubleclick.net`, `www.google-analytics.com`, `www.googletagmanager.com`, `connect.facebook.net`, `static.ads-twitter.com`, `c.amazon-adsystem.com`, `cdn.taboola.com`, `widgets.outbrain.com`, `acdn.adnxs.com`, `bat.bing.com`, `snap.licdn.com`, `static.hotjar.com`, `cdn.mxpnl.com`, `sb.scorecardresearch.com`, `www.clarity.ms`, `static.criteo.net`, `ads.pubmatic.com`, `mc.yandex.ru`, `secure.quantserve.com`, `js-agent.newrelic.com`, `s.pinimg.com`, `analytics.tiktok.com`
+- **wBlock**: `pagead2.googlesyndication.com`, `securepubads.g.doubleclick.net`, `www.googletagservices.com`, `static.doubleclick.net`, `www.google-analytics.com`, `www.googletagmanager.com`, `connect.facebook.net`, `static.ads-twitter.com`, `c.amazon-adsystem.com`, `cdn.taboola.com`, `widgets.outbrain.com`, `acdn.adnxs.com`, `bat.bing.com`, `snap.licdn.com`, `static.hotjar.com`, `cdn.mxpnl.com`, `sb.scorecardresearch.com`, `www.clarity.ms`, `static.criteo.net`, `ads.pubmatic.com`, `mc.yandex.ru`, `secure.quantserve.com`, `js-agent.newrelic.com`, `s.pinimg.com`, `analytics.tiktok.com`
+
+</details>
 <!-- RESULTS:END -->
 
 ## Extensions tested
