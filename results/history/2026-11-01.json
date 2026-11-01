@@ -49,26 +49,26 @@
         "https://s.pinimg.com/ct/core.js",
         "https://analytics.tiktok.com/i18n/pixel/events.js"
       ],
-      "load_baseline": 902.0,
-      "load_ext": 917.0,
+      "load_baseline": 611.0,
+      "load_ext": 669.5,
       "sites_compared": 8,
-      "ads_baseline": 55.0,
+      "ads_baseline": 44.0,
       "ads_ext": 1.5,
-      "requests_baseline": 187.5,
-      "requests_ext": 117.0,
-      "transfer_baseline": 196.5,
-      "transfer_ext": 106.0,
-      "load_delta_pct": 1.7,
-      "ads_reduction_pct": 97.3,
-      "transfer_delta_pct": -46.1,
-      "mem_idle_baseline": 482.7,
-      "mem_idle_ext": 1277.9,
-      "mem_idle_delta": 795.2,
-      "mem_loaded_baseline": 3296.3,
-      "mem_loaded_ext": 3047.2,
-      "mem_loaded_delta": -249.1,
-      "speedometer_baseline": 9.58,
-      "speedometer_ext": 14.5,
+      "requests_baseline": 180.5,
+      "requests_ext": 117.5,
+      "transfer_baseline": 183.5,
+      "transfer_ext": 82.0,
+      "load_delta_pct": 9.6,
+      "ads_reduction_pct": 96.6,
+      "transfer_delta_pct": -55.3,
+      "mem_idle_baseline": 341.4,
+      "mem_idle_ext": 1475.5,
+      "mem_idle_delta": 1134.1,
+      "mem_loaded_baseline": 2998.3,
+      "mem_loaded_ext": 2848.2,
+      "mem_loaded_delta": -150.1,
+      "speedometer_baseline": 13.1,
+      "speedometer_ext": 14.1,
       "test_sites": {
         "adblock-tester.com": {
           "baseline": 41,
@@ -86,9 +86,9 @@
           "raw": "64"
         },
         "Blockify Ad-Blocker Test": {
-          "baseline": 33,
-          "ext": 81,
-          "raw": "At 81%, you have solid protection but some specialized trackers are bypassing your filters. Fine-tuning can get you to excellent protection."
+          "baseline": 34,
+          "ext": 84,
+          "raw": "At 84%, you have solid protection but some specialized trackers are bypassing your filters. Fine-tuning can get you to excellent protection."
         }
       }
     },
@@ -102,7 +102,7 @@
         25
       ],
       "active_webdriver": [
-        0,
+        3,
         25
       ],
       "blocking_source": "normal window",
@@ -140,26 +140,26 @@
         "https://s.pinimg.com/ct/core.js",
         "https://analytics.tiktok.com/i18n/pixel/events.js"
       ],
-      "load_baseline": 1512.0,
-      "load_ext": 1089.0,
+      "load_baseline": 526.0,
+      "load_ext": 783.5,
       "sites_compared": 8,
-      "ads_baseline": 40,
-      "ads_ext": 42,
-      "requests_baseline": 171.5,
-      "requests_ext": 180.5,
-      "transfer_baseline": 197.0,
-      "transfer_ext": 98.5,
-      "load_delta_pct": -28.0,
-      "ads_reduction_pct": -5.0,
-      "transfer_delta_pct": -50.0,
-      "mem_idle_baseline": 459.3,
-      "mem_idle_ext": 748.6,
-      "mem_idle_delta": 289.3,
-      "mem_loaded_baseline": 3124.5,
-      "mem_loaded_ext": 3488.3,
-      "mem_loaded_delta": 363.8,
-      "speedometer_baseline": 10.7,
-      "speedometer_ext": 18.1,
+      "ads_baseline": 53,
+      "ads_ext": 37,
+      "requests_baseline": 201.0,
+      "requests_ext": 192.5,
+      "transfer_baseline": 185.5,
+      "transfer_ext": 103.5,
+      "load_delta_pct": 49.0,
+      "ads_reduction_pct": 30.2,
+      "transfer_delta_pct": -44.2,
+      "mem_idle_baseline": 344.2,
+      "mem_idle_ext": 771.8,
+      "mem_idle_delta": 427.6,
+      "mem_loaded_baseline": 3269.8,
+      "mem_loaded_ext": 3491.7,
+      "mem_loaded_delta": 221.9,
+      "speedometer_baseline": 12.6,
+      "speedometer_ext": 15,
       "test_sites": {
         "adblock-tester.com": {
           "baseline": 41,
@@ -178,8 +178,8 @@
         },
         "Blockify Ad-Blocker Test": {
           "baseline": 33,
-          "ext": 33,
-          "raw": "Your ad blocker scored 33%. For comprehensive protection against ads, trackers, and malware, try Blockify."
+          "ext": 36,
+          "raw": "Your ad blocker scored 36%. For comprehensive protection against ads, trackers, and malware, try Blockify."
         }
       }
     }

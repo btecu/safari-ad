@@ -1,40 +1,7 @@
-+    skula.wBlock.wBlock-Security(3.2.2)
-	            Path = /Applications/wBlock.app/Contents/PlugIns/wBlock Security.appex
-	            UUID = 70700751-B3C3-4D06-9977-4C97D6996071
-	       Timestamp = 2026-11-01 20:44:26 +0000
-	             SDK = com.apple.Safari.content-blocker
-	   Parent Bundle = /Applications/wBlock.app
-	    Display Name = wBlock 3
-	      Short Name = wBlock 3
-	     Parent Name = wBlock
-	        Platform = macOS
-
-+    skula.wBlock.wBlock-Foreign(3.2.2)
-	            Path = /Applications/wBlock.app/Contents/PlugIns/wBlock Foreign.appex
-	            UUID = 9348198A-CCA6-4B93-B616-92010C1F3716
-	       Timestamp = 2026-11-01 20:44:26 +0000
-	             SDK = com.apple.Safari.content-blocker
-	   Parent Bundle = /Applications/wBlock.app
-	    Display Name = wBlock 4
-	      Short Name = wBlock 4
-	     Parent Name = wBlock
-	        Platform = macOS
-
-+    skula.wBlock.wBlock-Custom(3.2.2)
-	            Path = /Applications/wBlock.app/Contents/PlugIns/wBlock Custom.appex
-	            UUID = 1F8BA1EE-D228-4D50-863F-AD53291D5D55
-	       Timestamp = 2026-11-01 20:44:26 +0000
-	             SDK = com.apple.Safari.content-blocker
-	   Parent Bundle = /Applications/wBlock.app
-	    Display Name = wBlock 5
-	      Short Name = wBlock 5
-	     Parent Name = wBlock
-	        Platform = macOS
-
 +    skula.wBlock.wBlock-Ads(3.2.2)
 	            Path = /Applications/wBlock.app/Contents/PlugIns/wBlock Ads.appex
-	            UUID = 5E6E6DF6-ED49-4A0B-8163-87BAEA67DFB0
-	       Timestamp = 2026-11-01 20:44:26 +0000
+	            UUID = 0D988876-2EBF-48FF-9594-19EF0509D1EB
+	       Timestamp = 2026-11-01 21:28:21 +0000
 	             SDK = com.apple.Safari.content-blocker
 	   Parent Bundle = /Applications/wBlock.app
 	    Display Name = wBlock 1
@@ -42,14 +9,47 @@
 	     Parent Name = wBlock
 	        Platform = macOS
 
++    skula.wBlock.wBlock-Custom(3.2.2)
+	            Path = /Applications/wBlock.app/Contents/PlugIns/wBlock Custom.appex
+	            UUID = 7CCCD080-725C-416F-86E5-6DF4F62A3513
+	       Timestamp = 2026-11-01 21:28:21 +0000
+	             SDK = com.apple.Safari.content-blocker
+	   Parent Bundle = /Applications/wBlock.app
+	    Display Name = wBlock 5
+	      Short Name = wBlock 5
+	     Parent Name = wBlock
+	        Platform = macOS
+
 +    skula.wBlock.wBlock-Privacy(3.2.2)
 	            Path = /Applications/wBlock.app/Contents/PlugIns/wBlock Privacy.appex
-	            UUID = 0367660C-85B0-42AB-9F9D-E26372B58DC8
-	       Timestamp = 2026-11-01 20:44:26 +0000
+	            UUID = CDFDAB57-4BAA-4A43-83BF-C34005950871
+	       Timestamp = 2026-11-01 21:28:22 +0000
 	             SDK = com.apple.Safari.content-blocker
 	   Parent Bundle = /Applications/wBlock.app
 	    Display Name = wBlock 2
 	      Short Name = wBlock 2
+	     Parent Name = wBlock
+	        Platform = macOS
+
++    skula.wBlock.wBlock-Foreign(3.2.2)
+	            Path = /Applications/wBlock.app/Contents/PlugIns/wBlock Foreign.appex
+	            UUID = B0E41EF5-3773-4CD8-8627-D31760FB8A5B
+	       Timestamp = 2026-11-01 21:28:21 +0000
+	             SDK = com.apple.Safari.content-blocker
+	   Parent Bundle = /Applications/wBlock.app
+	    Display Name = wBlock 4
+	      Short Name = wBlock 4
+	     Parent Name = wBlock
+	        Platform = macOS
+
++    skula.wBlock.wBlock-Security(3.2.2)
+	            Path = /Applications/wBlock.app/Contents/PlugIns/wBlock Security.appex
+	            UUID = 29C0DE5D-6FEF-42E8-A4D6-C1FB62CD3EA7
+	       Timestamp = 2026-11-01 21:28:22 +0000
+	             SDK = com.apple.Safari.content-blocker
+	   Parent Bundle = /Applications/wBlock.app
+	    Display Name = wBlock 3
+	      Short Name = wBlock 3
 	     Parent Name = wBlock
 	        Platform = macOS
 

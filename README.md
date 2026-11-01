@@ -16,14 +16,14 @@ Test-page requests blocked, in a normal Safari window vs. a WebDriver (automatio
 | Extension | Normal window | WebDriver window |
 |---|---|---|
 | **uBlock Origin Lite** | 0/25 | 25/25 |
-| **wBlock** | 0/25 | 0/25 |
+| **wBlock** | 0/25 | 3/25 |
 
 ### Ad blocking
 
 | Extension | Ad/tracker requests blocked | Ad elements hidden | Ad requests per page (none → with blocker) | Nothing broken |
 |---|---|---|---|---|
-| **uBlock Origin Lite** | 0% (0/25) | 0% (0/10) | 55 → 1.5 (97.3% fewer) | ✅ |
-| **wBlock** | 0% (0/25) | 0% (0/10) | 40 → 42 (-5% fewer) | ✅ |
+| **uBlock Origin Lite** | 0% (0/25) | 0% (0/10) | 44 → 1.5 (96.6% fewer) | ✅ |
+| **wBlock** | 0% (0/25) | 0% (0/10) | 53 → 37 (30.2% fewer) | ✅ |
 
 ### Public ad-block test sites (score, higher is better)
 
@@ -32,7 +32,7 @@ _Scores are read from each page's text after the test finishes (best effort; see
 | Test site | No blocker | uBlock Origin Lite | wBlock |
 |---|---|---|---|
 | AdBlock Tester (turtlecute) | 7.6% | 60.6% | 7.6% |
-| Blockify Ad-Blocker Test | 33% | 81% | 33% |
+| Blockify Ad-Blocker Test | 34% | 84% | 36% |
 | Super Adblock Test | 11% | 64% | 11% |
 | adblock-tester.com | 41% | 91% | 41% |
 
@@ -40,15 +40,15 @@ _Scores are read from each page's text after the test finishes (best effort; see
 
 | Extension | Median page load (none → with blocker) | Change | Data transferred | Speedometer 3.1 (none → with blocker) |
 |---|---|---|---|---|
-| **uBlock Origin Lite** | 902 ms → 917 ms | +1.7% | -46.1% | 9.58 → 14.5 |
-| **wBlock** | 1512 ms → 1089 ms | -28% | -50% | 10.7 → 18.1 |
+| **uBlock Origin Lite** | 611 ms → 670 ms | +9.6% | -55.3% | 13.1 → 14.1 |
+| **wBlock** | 526 ms → 784 ms | +49% | -44.2% | 12.6 → 15 |
 
 ### Memory (Safari + WebKit + extension processes)
 
 | Extension | Idle | Δ idle | 6 sites open | Δ with sites open |
 |---|---|---|---|---|
-| **uBlock Origin Lite** | 1278 MB | +795 MB | 3047 MB | -249 MB |
-| **wBlock** | 749 MB | +289 MB | 3488 MB | +364 MB |
+| **uBlock Origin Lite** | 1476 MB | +1134 MB | 2848 MB | -150 MB |
+| **wBlock** | 772 MB | +428 MB | 3492 MB | +222 MB |
 
 ```mermaid
 xychart-beta
@@ -62,7 +62,7 @@ xychart-beta
 xychart-beta
   title "Median page load time (ms, lower is better)"
   x-axis ["No blocker", "uBlock Origin Lite", "wBlock"]
-  bar [1207, 917, 1089]
+  bar [568, 670, 784]
 ```
 
 <details><summary>Screenshots (normal Safari window)</summary>
