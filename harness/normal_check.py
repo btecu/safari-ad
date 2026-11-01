@@ -57,6 +57,10 @@ def main():
     report.unlink(missing_ok=True)
 
     quit_safari()
+    # Extensions load their rules a few seconds after Safari launches; a page opened at launch can
+    # load before they're ready. Warm up with a throwaway page first.
+    open_url("https://example.com/")
+    time.sleep(10)
     open_url(f"http://127.0.0.1:8000/fixtures/adtest.html?report=normal-{a.label}")
     for _ in range(60):
         if report.exists():
