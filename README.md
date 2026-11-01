@@ -96,8 +96,9 @@ Each extension gets its own fresh macOS runner (a matrix job). On that runner:
 
 1. **Baseline:** Safari is benchmarked with no blocker installed.
 2. **Install:** the extension's app is unzipped into `/Applications`, registered with
-   LaunchServices/`pluginkit`, and switched on in Safari → Settings → Extensions by UI scripting
-   (`scripts/enable_in_safari.applescript`).
+   LaunchServices/`pluginkit`, and switched on by writing Safari's extension-state files
+   (`scripts/enable_in_safari.py`). Web extensions are also granted "Always allow on every website".
+   Each extension runs with its default settings, after its app's first-run setup if it has one.
 3. **With blocker:** the same benchmark runs again.
 
 Comparing with a baseline from the *same* runner cancels out most of the variation between the
@@ -114,6 +115,7 @@ shared virtual machines GitHub hands out.
 | **Page load time** | `loadEventEnd` from the Navigation Timing API, median of N loads per site after one discarded warm-up load, then the median across sites. |
 | **Data transferred** | Sum of the `transferSize` values reported for the page. |
 | **Memory** | Resident memory (RSS) of Safari, the WebKit helper processes and the extension's own processes, measured idle and with 6 sites open in tabs (median of 5 samples). |
+| **Public test sites** | [adblock-tester.com](https://adblock-tester.com/), [AdBlock Tester](https://adblock.turtlecute.org/), [Super Adblock Test](https://superadblocktest.com/) and [Blockify's test](https://getblockify.com/adblock-test) are run, and each score is read once it stops changing. [Can You Block It](https://canyoublockit.com/extreme-test/) has no score, so it's screenshot only. Screenshots of every page are in the gallery above. Each site uses its own method, so compare blockers within a site rather than across sites. |
 | **Speedometer 3.1** | Browser responsiveness score, to show the overhead a blocker adds on pages without ads. |
 
 ### Caveats
@@ -136,8 +138,9 @@ Then add an entry to `extensions/manifest.json`:
   "app": "Some Blocker.app", "setup_hook": null }
 ```
 
-`setup_hook` is an optional script that runs after install, for apps that need first-run setup
-before blocking (wBlock, for example, downloads and compiles its filter lists in the app).
+`setup_hook` is an optional script that runs after the extension is enabled, for apps that need
+first-run setup before they block anything. wBlock's (`scripts/hooks/wblock.sh`) clicks through its
+onboarding with the default choices, then waits while the app downloads and compiles its filter lists.
 
 ## Running
 

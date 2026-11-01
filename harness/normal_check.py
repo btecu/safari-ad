@@ -72,8 +72,10 @@ def main():
         print(f"::warning::[normal/{a.label}] fixture never reported back (page didn't load or JS failed)")
     screenshot(Path(a.shots) / "fixture.jpg")
 
-    # Public test sites: screenshot in a real window (the WebDriver pass extracts scores).
-    sites = json.loads((ROOT / "harness/test_sites.json").read_text())["sites"]
+    # Screenshot-only test sites in a real window. Scored sites are screenshotted by the WebDriver
+    # pass (harness/run.py) after it has started the test and the score has settled.
+    sites = [s for s in json.loads((ROOT / "harness/test_sites.json").read_text())["sites"]
+             if s.get("score") is False]
     for s in sites:
         quit_safari()
         open_url(s["url"])

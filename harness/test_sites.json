@@ -1,9 +1,10 @@
 {
-  "_comment": "Public ad-blocker test pages. score_selector (optional) is the element holding the score; without it the score is pulled from lines mentioning score/blocked/result. click (optional) starts the test. score:false = screenshot only.",
+  "_comment": "Public ad-blocker test pages. click (CSS selector) or click_text (button label) starts the test. score_selector (optional) is the element holding the score; without it the score is read from text that appeared after the test started. wait = max seconds to poll for a settled score. score:false = screenshot only (normal Safari window).",
   "sites": [
-    { "name": "adblock-tester.com", "url": "https://adblock-tester.com/", "wait": 25, "score_selector": ".final-score-value", "max": 100 },
-    { "name": "AdBlock Tester (turtlecute)", "url": "https://adblock.turtlecute.org/", "click": "#start_test", "wait": 40 },
-    { "name": "d3ward Toolz", "url": "https://d3ward.github.io/toolz/adblock", "wait": 30 },
+    { "name": "adblock-tester.com", "url": "https://adblock-tester.com/", "wait": 45, "score_selector": ".final-score-value", "max": 100 },
+    { "name": "AdBlock Tester (turtlecute)", "url": "https://adblock.turtlecute.org/", "click": "#start_test", "wait": 60 },
+    { "name": "Super Adblock Test", "url": "https://superadblocktest.com/", "click": "#retest", "score_selector": "#percentage", "wait": 120 },
+    { "name": "Blockify Ad-Blocker Test", "url": "https://getblockify.com/adblock-test", "click_text": "Start Ad-Blocker Test", "wait": 120 },
     { "name": "Can You Block It (extreme)", "url": "https://canyoublockit.com/extreme-test/", "wait": 15, "score": false }
   ]
 }
