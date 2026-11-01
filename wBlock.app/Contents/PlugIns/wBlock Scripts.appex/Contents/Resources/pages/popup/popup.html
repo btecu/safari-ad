@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="popup.css">
+    <script type="module" src="popup.js"></script>
+</head>
+<body>
+    <div class="popup">
+        <div class="popup-sticky">
+            <header class="top">
+                <img src="../../assets/images/icon-96.png" alt="" class="app-icon">
+                <div class="top-text">
+                    <div class="title-row">
+                        <div class="title-group">
+                            <div id="site-host" class="title">—</div>
+                        </div>
+                        <div id="blocking-status" class="pill" data-i18n="popup_status_loading">Loading…</div>
+                    </div>
+                </div>
+            </header>
+            <div id="error" class="error" role="alert" hidden></div>
+        </div>
+
+        <div class="popup-body">
+        <div class="section">
+            <div class="toggle-row">
+                <div id="enable-title" class="label" data-i18n="popup_content_filtering">Content Filtering</div>
+                <label class="switch" for="enable-toggle">
+                    <input id="enable-toggle" type="checkbox" aria-labelledby="enable-title" disabled />
+                    <span class="slider" aria-hidden="true"></span>
+                </label>
+            </div>
+            <div id="paused-prompt" class="paused-prompt" hidden>
+                <div id="paused-prompt-title" class="paused-prompt-title" data-i18n="popup_paused_prompt_title">Blocking is paused</div>
+                <div id="paused-prompt-message" class="hint" data-i18n="popup_paused_prompt_message">Resume restores all components.</div>
+            </div>
+            <div id="userscripts-section" hidden>
+                <div class="disclosure-row">
+                    <button id="userscripts-toggle" class="disclosure" type="button" aria-expanded="false" aria-controls="userscripts-panel">
+                        <span id="userscripts-title" data-i18n="popup_userscripts">Userscripts</span>
+                        <span class="disclosure-meta">
+                            <span id="userscripts-chevron" class="chevron" aria-hidden="true"></span>
+                            <span id="userscripts-count" class="value">0</span>
+                        </span>
+                    </button>
+                    <label class="switch" for="userscripts-site-toggle">
+                        <input id="userscripts-site-toggle" type="checkbox" checked aria-labelledby="userscripts-title" />
+                        <span class="slider" aria-hidden="true"></span>
+                    </label>
+                </div>
+                <div id="userscripts-panel" class="disclosure-panel" hidden>
+                    <div class="disclosure-panel-inner">
+                        <div id="userscripts-list" class="userscript-list" hidden></div>
+                        <div id="userscripts-empty" class="hint" hidden data-i18n="popup_userscripts_empty">No userscripts are running on this page.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="row">
+                <div id="zapper-title" class="label" data-i18n="popup_element_zapper">Element Zapper</div>
+                <div class="row-trailing">
+                    <div id="zapper-count" class="value">0</div>
+                    <label class="switch" for="zapper-enabled-toggle">
+                        <input id="zapper-enabled-toggle" type="checkbox" checked aria-labelledby="zapper-title" />
+                        <span class="slider" aria-hidden="true"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="button-row">
+                <button id="zapper-activate" class="btn btn-primary" type="button" data-i18n="popup_button_activate">Activate</button>
+                <button id="zapper-clear" class="btn btn-secondary" type="button" disabled data-i18n="popup_button_clear">Clear</button>
+            </div>
+            <button id="zapper-rules-toggle" class="disclosure" type="button" aria-expanded="false" aria-controls="zapper-rules-panel">
+                <span data-i18n="popup_rules">Rules</span>
+                <span id="zapper-rules-chevron" class="chevron" aria-hidden="true"></span>
+            </button>
+            <div id="zapper-rules-panel" class="disclosure-panel" hidden>
+                <div class="disclosure-panel-inner">
+                    <div id="zapper-rules" class="rules"></div>
+                </div>
+            </div>
+        </div>
+        <div class="hint" data-i18n="popup_hint_tap_to_hide" data-i18n-click="popup_hint_click_to_hide">Tap an element on the page to hide it. Use "Add Rule" in the zapper for manual selectors.</div>
+
+        <div id="no-autoplay-section" class="section">
+            <div id="no-autoplay-site-row" class="toggle-row">
+                <div id="no-autoplay-site-title" class="label" data-i18n="popup_autoplay_site">Autoplay on this site</div>
+                <label class="switch" for="no-autoplay-site-toggle">
+                    <input id="no-autoplay-site-toggle" type="checkbox" aria-labelledby="no-autoplay-site-title" />
+                    <span class="slider" aria-hidden="true"></span>
+                </label>
+            </div>
+        </div>
+        <div class="hint" data-i18n="popup_autoplay_hint">When off, media stays paused until you tap or click it. The site switch overrides the default.</div>
+
+        <div id="userscript-commands" class="section" hidden></div>
+
+        <div class="popup-actions">
+            <div class="popup-action-row">
+                <button id="update-filters" class="btn" type="button" data-i18n="popup_button_update_filters" hidden>Update Filters</button>
+                <button id="resume-blocking" class="btn btn-primary" type="button" data-i18n="popup_button_resume_blocking" aria-live="polite" hidden>Resume Blocking</button>
+            </div>
+            <div id="filter-update-status" class="filter-update-status" role="status" aria-live="polite" hidden></div>
+        </div>
+
+        <footer class="footer"></footer>
+        </div>
+    </div>
+</body>
+</html>

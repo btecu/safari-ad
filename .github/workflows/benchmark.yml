@@ -1,0 +1,120 @@
+name: Benchmark Safari ad blockers
+
+on:
+  workflow_dispatch:
+    inputs:
+      runner:
+        description: macOS runner image
+        default: macos-26
+      iterations:
+        description: Page loads per site (after one warm-up)
+        default: "3"
+      speedometer:
+        description: Run Speedometer 3.1
+        type: boolean
+        default: true
+      only:
+        description: Only test this extension id (blank = all)
+        default: ""
+  schedule:
+    - cron: "0 6 * * 1" # weekly, Monday 06:00 UTC
+
+permissions:
+  contents: write
+
+concurrency:
+  group: benchmark
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      ids: ${{ steps.m.outputs.ids }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: m
+        run: |
+          ids=$(jq -c --arg only "${{ inputs.only }}" '[.extensions[].id | select($only == "" or . == $only)]' extensions/manifest.json)
+          echo "ids=$ids" >> "$GITHUB_OUTPUT"
+
+  bench:
+    needs: prepare
+    runs-on: ${{ inputs.runner || 'macos-26' }}
+    timeout-minutes: 150
+    strategy:
+      fail-fast: false
+      matrix:
+        id: ${{ fromJson(needs.prepare.outputs.ids) }}
+    env:
+      ITER: ${{ inputs.iterations || '3' }}
+      SPEEDO: ${{ (github.event_name == 'schedule' || inputs.speedometer) && '--speedometer' || '' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Prepare Safari automation
+        run: |
+          sw_vers
+          defaults read /Applications/Safari.app/Contents/Info.plist CFBundleShortVersionString
+          sudo safaridriver --enable
+          mkdir -p out/results out/diag
+          nohup python3 -m http.server 8000 --bind 127.0.0.1 > out/diag/http.log 2>&1 &
+          nohup safaridriver -p 4444 > out/diag/safaridriver.log 2>&1 &
+          sleep 3
+
+      - name: Baseline (no blocker)
+        run: python3 harness/run.py --label baseline --out out/results/baseline.json --iterations "$ITER" $SPEEDO
+
+      - name: Install and enable ${{ matrix.id }}
+        run: |
+          osascript -e 'tell application "Safari" to quit' || true
+          scripts/install_extension.sh "${{ matrix.id }}" out/diag
+
+      - name: With ${{ matrix.id }}
+        run: |
+          APP=$(jq -r --arg id "${{ matrix.id }}" '.extensions[] | select(.id == $id) | .app' extensions/manifest.json)
+          # Quit the containing app; only its Safari extensions should be running during the test.
+          pkill -f "/Applications/$APP/Contents/MacOS/" || true
+          python3 harness/run.py --label "${{ matrix.id }}" --out out/results/extension.json \
+            --iterations "$ITER" $SPEEDO --ext-process "/Applications/$APP/"
+
+      - name: Diagnostics
+        if: always()
+        run: |
+          screencapture -x out/diag/final.png || true
+          pluginkit -mAvvv -p com.apple.Safari.content-blocker > out/diag/pluginkit-final.txt 2>&1 || true
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: results-${{ matrix.id }}
+          path: out/results/
+          if-no-files-found: ignore
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: diag-${{ matrix.id }}
+          path: out/diag/
+
+  report:
+    needs: bench
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: results-*
+          path: results-in
+      - name: Build report
+        run: |
+          for d in results-in/results-*; do mv "$d" "results-in/${d#results-in/results-}"; done
+          python3 scripts/report.py results-in >> "$GITHUB_STEP_SUMMARY"
+      - name: Commit results
+        if: github.ref == 'refs/heads/main'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md results/
+          git diff --cached --quiet || git commit -m "Update benchmark results"
+          git push

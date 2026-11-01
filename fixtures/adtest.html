@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ad block fixture</title>
+<style>
+  .probe { width: 300px; height: 50px; background: #fc0; margin: 4px; }
+</style>
+</head>
+<body>
+<h1>Ad block fixture</h1>
+<p>Network probes load well-known ad/tracker scripts; cosmetic probes use class/id names
+targeted by EasyList generic hiding rules. Results are exposed on <code>window.__adtest</code>.</p>
+
+<!-- Cosmetic probes (generic EasyList hiding selectors) -->
+<div id="cosmetic">
+  <ins class="adsbygoogle probe" data-name="ins.adsbygoogle">ad</ins>
+  <div id="ad_banner" class="probe" data-name="#ad_banner">ad</div>
+  <div class="ad-banner probe" data-name=".ad-banner">ad</div>
+  <div class="advertisement probe" data-name=".advertisement">ad</div>
+  <div class="ad-slot probe" data-name=".ad-slot">ad</div>
+  <div id="div-gpt-ad-1234567890-0" class="probe" data-name="div-gpt-ad-*">ad</div>
+  <div class="sponsored-ad probe" data-name=".sponsored-ad">ad</div>
+  <div id="taboola-below-article-thumbnails" class="probe" data-name="#taboola-below-…">ad</div>
+  <div class="OUTBRAIN probe" data-name=".OUTBRAIN">ad</div>
+  <div class="adsbox probe" data-name=".adsbox">ad</div>
+</div>
+<div id="control" class="probe">control (must stay visible)</div>
+
+<script>
+const NETWORK = [
+  "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+  "https://securepubads.g.doubleclick.net/tag/js/gpt.js",
+  "https://www.googletagservices.com/tag/js/gpt.js",
+  "https://static.doubleclick.net/instream/ad_status.js",
+  "https://www.google-analytics.com/analytics.js",
+  "https://www.googletagmanager.com/gtag/js?id=G-TEST000000",
+  "https://connect.facebook.net/en_US/fbevents.js",
+  "https://static.ads-twitter.com/uwt.js",
+  "https://c.amazon-adsystem.com/aax2/apstag.js",
+  "https://cdn.taboola.com/libtrc/unip/loader.js",
+  "https://widgets.outbrain.com/outbrain.js",
+  "https://acdn.adnxs.com/ast/ast.js",
+  "https://bat.bing.com/bat.js",
+  "https://snap.licdn.com/li.lms-analytics/insight.min.js",
+  "https://static.hotjar.com/c/hotjar-1.js?sv=6",
+  "https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js",
+  "https://sb.scorecardresearch.com/beacon.js",
+  "https://www.clarity.ms/tag/test",
+  "https://static.criteo.net/js/ld/publishertag.js",
+  "https://ads.pubmatic.com/AdServer/js/showad.js",
+  "https://mc.yandex.ru/metrika/tag.js",
+  "https://secure.quantserve.com/quant.js",
+  "https://js-agent.newrelic.com/nr-loader-spa-current.min.js",
+  "https://s.pinimg.com/ct/core.js",
+  "https://analytics.tiktok.com/i18n/pixel/events.js"
+];
+const CONTROLS = [
+  "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js",
+  "https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"
+];
+
+function load(url) {
+  return new Promise(resolve => {
+    const s = document.createElement("script");
+    s.async = true;
+    s.src = url;
+    const t = setTimeout(() => resolve("timeout"), 8000);
+    s.onload = () => { clearTimeout(t); resolve("load"); };
+    s.onerror = () => { clearTimeout(t); resolve("error"); };
+    document.head.appendChild(s);
+  });
+}
+
+function hidden(el) {
+  const cs = getComputedStyle(el);
+  return cs.display === "none" || cs.visibility === "hidden" || el.offsetHeight === 0 || !document.contains(el);
+}
+
+(async () => {
+  const urls = NETWORK.concat(CONTROLS);
+  const events = await Promise.all(urls.map(load));
+  await new Promise(r => setTimeout(r, 1500));
+  // A blocked request never reaches the network, so it has no Resource Timing entry.
+  // (A 404/5xx still produces an entry, so server errors aren't miscounted as "blocked".)
+  const seen = new Set(performance.getEntriesByType("resource").map(e => e.name));
+  const res = (url, i) => ({ url, event: events[i], requested: seen.has(url) });
+  const network = NETWORK.map(res);
+  const controls = CONTROLS.map((u, i) => res(u, NETWORK.length + i));
+  const cosmetic = [...document.querySelectorAll("#cosmetic [data-name]")]
+    .map(el => ({ selector: el.dataset.name, hidden: hidden(el) }));
+  window.__adtest = {
+    network, controls, cosmetic,
+    control_element_visible: !hidden(document.getElementById("control")),
+    network_blocked: network.filter(r => !r.requested).length,
+    network_total: network.length,
+    cosmetic_hidden: cosmetic.filter(c => c.hidden).length,
+    cosmetic_total: cosmetic.length,
+    controls_ok: controls.every(c => c.requested)
+  };
+  document.title = "done";
+})();
+</script>
+</body>
+</html>

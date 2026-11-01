@@ -1,0 +1,310 @@
+{
+  "extension_name": {
+    "message": "wBlock Scripts",
+    "description": "The display name for the extension."
+  },
+  "extension_description": {
+    "message": "Blokkolja a legidegesítőbb hirdetéseket és követési módszereket, beleértve a YouTube-ot is.",
+    "description": "Description of what the extension does."
+  },
+  "popup_status_loading": {
+    "message": "Betöltés…",
+    "description": "Popup status shown while loading state is being resolved."
+  },
+  "popup_element_zapper": {
+    "message": "Elemeltávolító",
+    "description": "Section title for the element zapper controls in the popup."
+  },
+  "popup_button_activate": {
+    "message": "Aktiválás",
+    "description": "Button label to activate element zapper mode."
+  },
+  "popup_button_clear": {
+    "message": "Törlés",
+    "description": "Button label to clear all zapper rules for the current site."
+  },
+  "popup_hint_tap_to_hide": {
+    "message": "Koppints az oldalon egy elemre az elrejtéséhez. A kézi szelektorokhoz használd a „Szabály hozzáadása” opciót az elemeltávolítóban.",
+    "description": "Help text shown in the popup for how to use the element zapper."
+  },
+  "popup_hint_click_to_hide": {
+    "message": "Kattints az oldalon egy elemre az elrejtéséhez. A kézi szelektorokhoz használd a „Szabály hozzáadása” opciót az elemeltávolítóban.",
+    "description": "Help text shown in the popup on the Mac for how to use the element zapper."
+  },
+  "popup_rules": {
+    "message": "Szabályok",
+    "description": "Label for the disclosure button that expands saved zapper rules."
+  },
+  "popup_button_open_short": {
+    "message": "wBlock megnyitása",
+    "description": "Button label in the popup header that opens the wBlock app. Keep the product name wBlock."
+  },
+  "popup_rules_empty": {
+    "message": "Nincsenek szabályok",
+    "description": "Empty-state text shown when no zapper rules exist for the current site."
+  },
+  "popup_rule_delete_aria": {
+    "message": "Szabály törlése",
+    "description": "Accessible label for deleting a saved zapper rule."
+  },
+  "popup_error_load_rules": {
+    "message": "Nem sikerült betölteni a szabályokat.",
+    "description": "Error shown when popup fails to load zapper rules."
+  },
+  "popup_error_delete_rule": {
+    "message": "Nem sikerült törölni a szabályt.",
+    "description": "Error shown when popup fails to delete a zapper rule."
+  },
+  "popup_status_disabling": {
+    "message": "Letiltás…",
+    "description": "Transient status shown while disabling blocking on the current site."
+  },
+  "popup_status_enabling": {
+    "message": "Engedélyezés…",
+    "description": "Transient status shown while enabling blocking on the current site."
+  },
+  "popup_status_disabled": {
+    "message": "Letiltva",
+    "description": "Status label indicating blocking is disabled on the current site."
+  },
+  "popup_status_paused": {
+    "message": "Szünetelve",
+    "description": "Status label indicating blocking is globally paused."
+  },
+  "popup_status_partially_paused": {
+    "message": "Részlegesen szüneteltetve",
+    "description": "Status label indicating that some blocking components are paused."
+  },
+  "popup_status_active": {
+    "message": "Aktív",
+    "description": "Status label indicating blocking is active on the current site."
+  },
+  "popup_error_update_site_setting": {
+    "message": "Nem sikerült frissíteni a webhely beállítását.",
+    "description": "Error shown when popup fails to update per-site enabled state."
+  },
+  "popup_warning_open_app_to_apply": {
+    "message": "Nyisd meg a wBlockot a szűrők alkalmazásának befejezéséhez.",
+    "description": "Warning shown when the site toggle persisted but a full filter apply is still required."
+  },
+  "popup_error_zapper_unavailable": {
+    "message": "Az elemeltávolító nem érhető el ezen az oldalon.",
+    "description": "Error shown when zapper cannot be activated on the current tab."
+  },
+  "popup_error_clear_rules": {
+    "message": "Nem sikerült törölni az elemeltávolító szabályait.",
+    "description": "Error shown when popup fails to clear zapper rules for the current site."
+  },
+  "popup_status_unsupported": {
+    "message": "Nem támogatott",
+    "description": "Status label indicating current page does not support popup actions."
+  },
+  "popup_status_unavailable": {
+    "message": "Nem elérhető",
+    "description": "Status label indicating the current site setting could not be read."
+  },
+  "popup_status_checking": {
+    "message": "Ellenőrzés…",
+    "description": "Status label shown while popup checks current page and state."
+  },
+  "popup_error_load_popup": {
+    "message": "Nem sikerült betölteni a felugró ablakot.",
+    "description": "Error shown if popup initialization fails."
+  },
+  "zapper_aria_label": {
+    "message": "wBlock Elemeltávolító",
+    "description": "Accessible label for the in-page element zapper toolbar."
+  },
+  "zapper_status_tap_to_hide": {
+    "message": "Elemeltávolító: koppints egy elemre az elrejtéshez.",
+    "description": "Default status text in the in-page element zapper toolbar."
+  },
+  "zapper_status_click_to_hide": {
+    "message": "Elemeltávolító: kattints egy elemre az elrejtéshez.",
+    "description": "Default status text in the in-page element zapper toolbar on the Mac."
+  },
+  "zapper_button_undo": {
+    "message": "Visszavonás",
+    "description": "Button label to undo last zapper action."
+  },
+  "zapper_button_more": {
+    "message": "További lehetőségek",
+    "description": "Tooltip label for the overflow menu button in zapper toolbar."
+  },
+  "zapper_button_add_custom_rule": {
+    "message": "Egyéni CSS-szabály hozzáadása…",
+    "description": "Menu item label for adding a manual CSS selector rule."
+  },
+  "zapper_button_done": {
+    "message": "Kész",
+    "description": "Button label to finish zapper mode."
+  },
+  "zapper_button_select_parent": {
+    "message": "Szülőelem kijelölése",
+    "description": "Tooltip for choosing the parent element in refine mode."
+  },
+  "zapper_button_select_child": {
+    "message": "Gyermekelem kijelölése",
+    "description": "Tooltip for choosing the child element in refine mode."
+  },
+  "zapper_ancestors_aria_label": {
+    "message": "Szülőelemek",
+    "description": "Accessible label for the horizontal ancestor-chip list in zapper refine mode."
+  },
+  "zapper_button_hide": {
+    "message": "Elrejtés",
+    "description": "Button label for confirming hide action in refine mode."
+  },
+  "zapper_button_cancel": {
+    "message": "Mégse",
+    "description": "Button label to cancel element selection and exit refine mode without hiding."
+  },
+  "zapper_error_enter_selector": {
+    "message": "Adj meg egy CSS-szelektort.",
+    "description": "Validation error shown when manual selector input is empty."
+  },
+  "zapper_error_rule_syntax_invalid": {
+    "message": "A CSS-szabály szintaxisa érvénytelen.",
+    "description": "Validation error shown when manual CSS rule syntax is invalid."
+  },
+  "zapper_error_selector_too_long": {
+    "message": "A szelektor túl hosszú.",
+    "description": "Validation error shown when manual selector exceeds max length."
+  },
+  "zapper_error_selector_syntax_invalid": {
+    "message": "A szelektor szintaxisa érvénytelen.",
+    "description": "Validation error shown when selector cannot be parsed."
+  },
+  "zapper_toast_rule_exists": {
+    "message": "A szabály már létezik.",
+    "description": "Toast shown when trying to add a duplicate manual rule."
+  },
+  "zapper_toast_already_hidden": {
+    "message": "Már el van rejtve.",
+    "description": "Toast shown when picked element is already hidden by existing rule."
+  },
+  "zapper_toast_rule_saved": {
+    "message": "Szabály mentve ehhez a webhelyhez.",
+    "description": "Toast shown after successfully adding a manual rule."
+  },
+  "zapper_toast_hidden_and_saved": {
+    "message": "Elrejtve. Szabály mentve ehhez a webhelyhez.",
+    "description": "Toast shown after hiding selected element and saving generated rule."
+  },
+  "zapper_prompt_enter_selector": {
+    "message": "Adj meg egy CSS-szelektort ehhez a webhelyhez",
+    "description": "Prompt text shown when user adds a manual selector rule."
+  },
+  "zapper_toast_undone": {
+    "message": "Visszavonva.",
+    "description": "Toast shown after undoing the last zapper action."
+  },
+  "zapper_status_refine": {
+    "message": "$1 — ▲▼ a finomításhoz, koppints a(z) $2 gombra a mentéshez",
+    "description": "Refine-mode status text. Placeholder 1 is element label and placeholder 2 is hide action label."
+  },
+  "zapper_status_refine_click": {
+    "message": "$1 — ▲▼ a finomításhoz, kattints a(z) $2 gombra a mentéshez",
+    "description": "Refine-mode status text on the Mac. Placeholder 1 is element label and placeholder 2 is hide action label."
+  },
+  "zapper_toast_unable_create_rule": {
+    "message": "Ehhez az elemhez nem sikerült szabályt létrehozni.",
+    "description": "Toast shown when selector generation fails for selected element."
+  },
+  "zapper_toast_enabled": {
+    "message": "Az elemeltávolító bekapcsolva.",
+    "description": "Toast shown when zapper mode is enabled."
+  },
+  "zapper_toast_disabled": {
+    "message": "Az elemeltávolító kikapcsolva.",
+    "description": "Toast shown when zapper mode is disabled."
+  },
+  "zapper_status_off": {
+    "message": "Elemeltávolító: Kikapcsolva",
+    "description": "Status text shown after disabling zapper while keeping toolbar visible."
+  },
+  "popup_userscripts": {
+    "message": "Userscripts",
+    "description": "Section title for userscripts that match the current page in the popup."
+  },
+  "popup_userscripts_empty": {
+    "message": "No userscripts are running on this page.",
+    "description": "Empty state shown when no userscripts match or run on the current page."
+  },
+  "popup_error_update_userscript": {
+    "message": "Failed to update userscript setting.",
+    "description": "Error shown when popup fails to update a per-site userscript setting."
+  },
+  "popup_paused_prompt_title": {
+    "message": "A blokkolás szünetel",
+    "description": "Title shown in the popup when global blocking is paused."
+  },
+  "popup_paused_partial_prompt_title": {
+    "message": "Egyes blokkoló összetevők szünetelnek",
+    "description": "Title shown in the popup when only some blocking components are paused."
+  },
+  "popup_paused_prompt_message": {
+    "message": "A folytatás visszaállítja az összes összetevőt.",
+    "description": "Prompt explaining how to restore global blocking."
+  },
+  "popup_button_resume_blocking": {
+    "message": "Blokkolás folytatása",
+    "description": "Button that requests the containing app to resume global blocking."
+  },
+  "popup_status_resuming": {
+    "message": "Folytatás…",
+    "description": "Transient status shown while global blocking is being resumed."
+  },
+  "popup_status_error": {
+    "message": "Hiba",
+    "description": "Status shown when popup state cannot be loaded."
+  },
+  "popup_error_resume_blocking": {
+    "message": "Nem sikerült folytatni a blokkolást.",
+    "description": "Error shown when global blocking cannot be resumed."
+  },
+  "popup_error_resume_unavailable": {
+    "message": "Nyisd meg a wBlockot a blokkolás folytatásához. Az alkalmazásnak futnia kell.",
+    "description": "Shown when the containing app is unavailable while resuming blocking."
+  },
+  "popup_button_update_filters": {
+    "message": "Szűrők frissítése",
+    "description": "Button label for starting a background filter update from the popup."
+  },
+  "popup_status_updating_filters": {
+    "message": "Szűrők frissítése…",
+    "description": "Compact status shown while filters are updating in the background."
+  },
+  "popup_status_filters_updated": {
+    "message": "Szűrők frissítve ($1).",
+    "description": "Success status after filters changed. Placeholder 1 is the number of updated filters."
+  },
+  "popup_status_filters_no_change": {
+    "message": "A szűrők naprakészek.",
+    "description": "Status shown when the update found no filter changes."
+  },
+  "popup_error_filter_update": {
+    "message": "A szűrők frissítése sikertelen.",
+    "description": "Error status shown when a background filter update fails."
+  },
+  "popup_error_filter_update_start": {
+    "message": "A szűrőfrissítés nem indítható el.",
+    "description": "Error shown when the background filter update cannot be started."
+  },
+  "popup_content_filtering": {
+    "message": "Tartalomszűrés",
+    "description": "Label for the popup switch that turns filter lists on or off for the current site."
+  },
+  "popup_autoplay": {
+    "message": "Automatikus lejátszás",
+    "description": "Section title for the Autoplay controls in the popup; on by default."
+  },
+  "popup_autoplay_site": {
+    "message": "Automatikus lejátszás ezen a webhelyen",
+    "description": "Label for the per-site autoplay switch; overrides the global default either way."
+  },
+  "popup_autoplay_hint": {
+    "message": "Kikapcsolva a média szünetel, amíg rá nem koppintasz vagy kattintasz. A webhely kapcsolója felülírja az alapértelmezést.",
+    "description": "Hint explaining the Autoplay switches."
+  }
+}

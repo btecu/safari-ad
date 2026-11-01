@@ -1,0 +1,310 @@
+{
+  "extension_name": {
+    "message": "wBlock Scripts",
+    "description": "The display name for the extension."
+  },
+  "extension_description": {
+    "message": "Blochează cele mai enervante reclame și metode de urmărire, inclusiv YouTube.",
+    "description": "Description of what the extension does."
+  },
+  "popup_status_loading": {
+    "message": "Se încarcă…",
+    "description": "Popup status shown while loading state is being resolved."
+  },
+  "popup_element_zapper": {
+    "message": "Eliminator de elemente",
+    "description": "Section title for the element zapper controls in the popup."
+  },
+  "popup_button_activate": {
+    "message": "Activează",
+    "description": "Button label to activate element zapper mode."
+  },
+  "popup_button_clear": {
+    "message": "Șterge",
+    "description": "Button label to clear all zapper rules for the current site."
+  },
+  "popup_hint_tap_to_hide": {
+    "message": "Atinge un element din pagină pentru a-l ascunde. Folosește „Adaugă regulă” în eliminator pentru selectori manuali.",
+    "description": "Help text shown in the popup for how to use the element zapper."
+  },
+  "popup_hint_click_to_hide": {
+    "message": "Fă clic pe un element din pagină pentru a-l ascunde. Folosește „Adaugă regulă” în eliminator pentru selectori manuali.",
+    "description": "Help text shown in the popup on the Mac for how to use the element zapper."
+  },
+  "popup_rules": {
+    "message": "Reguli",
+    "description": "Label for the disclosure button that expands saved zapper rules."
+  },
+  "popup_button_open_short": {
+    "message": "Deschide wBlock",
+    "description": "Button label in the popup header that opens the wBlock app. Keep the product name wBlock."
+  },
+  "popup_rules_empty": {
+    "message": "Nicio regulă",
+    "description": "Empty-state text shown when no zapper rules exist for the current site."
+  },
+  "popup_rule_delete_aria": {
+    "message": "Șterge regula",
+    "description": "Accessible label for deleting a saved zapper rule."
+  },
+  "popup_error_load_rules": {
+    "message": "Nu s-au putut încărca regulile.",
+    "description": "Error shown when popup fails to load zapper rules."
+  },
+  "popup_error_delete_rule": {
+    "message": "Nu s-a putut șterge regula.",
+    "description": "Error shown when popup fails to delete a zapper rule."
+  },
+  "popup_status_disabling": {
+    "message": "Se dezactivează…",
+    "description": "Transient status shown while disabling blocking on the current site."
+  },
+  "popup_status_enabling": {
+    "message": "Se activează…",
+    "description": "Transient status shown while enabling blocking on the current site."
+  },
+  "popup_status_disabled": {
+    "message": "Dezactivat",
+    "description": "Status label indicating blocking is disabled on the current site."
+  },
+  "popup_status_paused": {
+    "message": "În pauză",
+    "description": "Status label indicating blocking is globally paused."
+  },
+  "popup_status_partially_paused": {
+    "message": "Pauză parțială",
+    "description": "Status label indicating that some blocking components are paused."
+  },
+  "popup_status_active": {
+    "message": "Activ",
+    "description": "Status label indicating blocking is active on the current site."
+  },
+  "popup_error_update_site_setting": {
+    "message": "Nu s-a putut actualiza setarea site-ului.",
+    "description": "Error shown when popup fails to update per-site enabled state."
+  },
+  "popup_warning_open_app_to_apply": {
+    "message": "Deschide wBlock pentru a finaliza aplicarea filtrelor.",
+    "description": "Warning shown when the site toggle persisted but a full filter apply is still required."
+  },
+  "popup_error_zapper_unavailable": {
+    "message": "Eliminatorul de elemente nu este disponibil pe această pagină.",
+    "description": "Error shown when zapper cannot be activated on the current tab."
+  },
+  "popup_error_clear_rules": {
+    "message": "Nu s-au putut șterge regulile eliminatorului.",
+    "description": "Error shown when popup fails to clear zapper rules for the current site."
+  },
+  "popup_status_unsupported": {
+    "message": "Nesuportat",
+    "description": "Status label indicating current page does not support popup actions."
+  },
+  "popup_status_unavailable": {
+    "message": "Indisponibil",
+    "description": "Status label indicating the current site setting could not be read."
+  },
+  "popup_status_checking": {
+    "message": "Se verifică…",
+    "description": "Status label shown while popup checks current page and state."
+  },
+  "popup_error_load_popup": {
+    "message": "Nu s-a putut încărca popup-ul.",
+    "description": "Error shown if popup initialization fails."
+  },
+  "zapper_aria_label": {
+    "message": "Eliminator de elemente wBlock",
+    "description": "Accessible label for the in-page element zapper toolbar."
+  },
+  "zapper_status_tap_to_hide": {
+    "message": "Eliminator de elemente: atinge un element pentru a-l ascunde.",
+    "description": "Default status text in the in-page element zapper toolbar."
+  },
+  "zapper_status_click_to_hide": {
+    "message": "Eliminator de elemente: fă clic pe un element pentru a-l ascunde.",
+    "description": "Default status text in the in-page element zapper toolbar on the Mac."
+  },
+  "zapper_button_undo": {
+    "message": "Anulează",
+    "description": "Button label to undo last zapper action."
+  },
+  "zapper_button_more": {
+    "message": "Mai multe opțiuni",
+    "description": "Tooltip label for the overflow menu button in zapper toolbar."
+  },
+  "zapper_button_add_custom_rule": {
+    "message": "Adaugă regulă CSS personalizată…",
+    "description": "Menu item label for adding a manual CSS selector rule."
+  },
+  "zapper_button_done": {
+    "message": "Gata",
+    "description": "Button label to finish zapper mode."
+  },
+  "zapper_button_select_parent": {
+    "message": "Selectează elementul părinte",
+    "description": "Tooltip for choosing the parent element in refine mode."
+  },
+  "zapper_button_select_child": {
+    "message": "Selectează elementul copil",
+    "description": "Tooltip for choosing the child element in refine mode."
+  },
+  "zapper_ancestors_aria_label": {
+    "message": "Elemente părinte",
+    "description": "Accessible label for the horizontal ancestor-chip list in zapper refine mode."
+  },
+  "zapper_button_hide": {
+    "message": "Ascunde",
+    "description": "Button label for confirming hide action in refine mode."
+  },
+  "zapper_button_cancel": {
+    "message": "Renunță",
+    "description": "Button label to cancel element selection and exit refine mode without hiding."
+  },
+  "zapper_error_enter_selector": {
+    "message": "Introdu un selector CSS.",
+    "description": "Validation error shown when manual selector input is empty."
+  },
+  "zapper_error_rule_syntax_invalid": {
+    "message": "Sintaxa regulii CSS este invalidă.",
+    "description": "Validation error shown when manual CSS rule syntax is invalid."
+  },
+  "zapper_error_selector_too_long": {
+    "message": "Selectorul este prea lung.",
+    "description": "Validation error shown when manual selector exceeds max length."
+  },
+  "zapper_error_selector_syntax_invalid": {
+    "message": "Sintaxa selectorului este invalidă.",
+    "description": "Validation error shown when selector cannot be parsed."
+  },
+  "zapper_toast_rule_exists": {
+    "message": "Regula există deja.",
+    "description": "Toast shown when trying to add a duplicate manual rule."
+  },
+  "zapper_toast_already_hidden": {
+    "message": "Deja ascuns.",
+    "description": "Toast shown when picked element is already hidden by existing rule."
+  },
+  "zapper_toast_rule_saved": {
+    "message": "Regulă salvată pentru acest site.",
+    "description": "Toast shown after successfully adding a manual rule."
+  },
+  "zapper_toast_hidden_and_saved": {
+    "message": "Ascuns. Regulă salvată pentru acest site.",
+    "description": "Toast shown after hiding selected element and saving generated rule."
+  },
+  "zapper_prompt_enter_selector": {
+    "message": "Introdu un selector CSS pentru acest site",
+    "description": "Prompt text shown when user adds a manual selector rule."
+  },
+  "zapper_toast_undone": {
+    "message": "Anulat.",
+    "description": "Toast shown after undoing the last zapper action."
+  },
+  "zapper_status_refine": {
+    "message": "$1 — ▲▼ pentru ajustare, atinge $2 pentru salvare",
+    "description": "Refine-mode status text. Placeholder 1 is element label and placeholder 2 is hide action label."
+  },
+  "zapper_status_refine_click": {
+    "message": "$1 — ▲▼ pentru ajustare, fă clic pe $2 pentru salvare",
+    "description": "Refine-mode status text on the Mac. Placeholder 1 is element label and placeholder 2 is hide action label."
+  },
+  "zapper_toast_unable_create_rule": {
+    "message": "Nu s-a putut crea o regulă pentru acel element.",
+    "description": "Toast shown when selector generation fails for selected element."
+  },
+  "zapper_toast_enabled": {
+    "message": "Eliminatorul de elemente a fost activat.",
+    "description": "Toast shown when zapper mode is enabled."
+  },
+  "zapper_toast_disabled": {
+    "message": "Eliminatorul de elemente a fost dezactivat.",
+    "description": "Toast shown when zapper mode is disabled."
+  },
+  "zapper_status_off": {
+    "message": "Eliminator de elemente: Oprit",
+    "description": "Status text shown after disabling zapper while keeping toolbar visible."
+  },
+  "popup_userscripts": {
+    "message": "Userscripts",
+    "description": "Section title for userscripts that match the current page in the popup."
+  },
+  "popup_userscripts_empty": {
+    "message": "No userscripts are running on this page.",
+    "description": "Empty state shown when no userscripts match or run on the current page."
+  },
+  "popup_error_update_userscript": {
+    "message": "Failed to update userscript setting.",
+    "description": "Error shown when popup fails to update a per-site userscript setting."
+  },
+  "popup_paused_prompt_title": {
+    "message": "Blocarea este întreruptă",
+    "description": "Title shown in the popup when global blocking is paused."
+  },
+  "popup_paused_partial_prompt_title": {
+    "message": "Unele componente de blocare sunt puse pe pauză",
+    "description": "Title shown in the popup when only some blocking components are paused."
+  },
+  "popup_paused_prompt_message": {
+    "message": "Reluarea restabilește toate componentele.",
+    "description": "Prompt explaining how to restore global blocking."
+  },
+  "popup_button_resume_blocking": {
+    "message": "Reia blocarea",
+    "description": "Button that requests the containing app to resume global blocking."
+  },
+  "popup_status_resuming": {
+    "message": "Se reia…",
+    "description": "Transient status shown while global blocking is being resumed."
+  },
+  "popup_status_error": {
+    "message": "Eroare",
+    "description": "Status shown when popup state cannot be loaded."
+  },
+  "popup_error_resume_blocking": {
+    "message": "Blocarea nu a putut fi reluată.",
+    "description": "Error shown when global blocking cannot be resumed."
+  },
+  "popup_error_resume_unavailable": {
+    "message": "Deschide wBlock pentru a relua blocarea. Aplicația trebuie să ruleze.",
+    "description": "Shown when the containing app is unavailable while resuming blocking."
+  },
+  "popup_button_update_filters": {
+    "message": "Actualizează filtrele",
+    "description": "Button label for starting a background filter update from the popup."
+  },
+  "popup_status_updating_filters": {
+    "message": "Se actualizează filtrele…",
+    "description": "Compact status shown while filters are updating in the background."
+  },
+  "popup_status_filters_updated": {
+    "message": "Filtre actualizate ($1).",
+    "description": "Success status after filters changed. Placeholder 1 is the number of updated filters."
+  },
+  "popup_status_filters_no_change": {
+    "message": "Filtrele sunt actualizate.",
+    "description": "Status shown when the update found no filter changes."
+  },
+  "popup_error_filter_update": {
+    "message": "Actualizarea filtrelor a eșuat.",
+    "description": "Error status shown when a background filter update fails."
+  },
+  "popup_error_filter_update_start": {
+    "message": "Actualizarea filtrelor nu a putut fi pornită.",
+    "description": "Error shown when the background filter update cannot be started."
+  },
+  "popup_content_filtering": {
+    "message": "Filtrarea conținutului",
+    "description": "Label for the popup switch that turns filter lists on or off for the current site."
+  },
+  "popup_autoplay": {
+    "message": "Redare automată",
+    "description": "Section title for the Autoplay controls in the popup; on by default."
+  },
+  "popup_autoplay_site": {
+    "message": "Redare automată pe acest site",
+    "description": "Label for the per-site autoplay switch; overrides the global default either way."
+  },
+  "popup_autoplay_hint": {
+    "message": "Când este dezactivat, conținutul media rămâne în pauză până când îl atingi sau dai clic. Comutatorul site-ului înlocuiește setarea implicită.",
+    "description": "Hint explaining the Autoplay switches."
+  }
+}

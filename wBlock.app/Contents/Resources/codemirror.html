@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+>
+<title>CodeMirror</title>
+<style>
+:root {
+  color-scheme: light dark;
+  /* The sheet's own surface shows through, so the title bar and the text
+     sit on one color instead of a white bar over gray. */
+  --cm-background: transparent;
+  --cm-foreground: #1f2328;
+  --cm-caret: #0969da;
+  --cm-selection: rgba(9, 105, 218, 0.18);
+  /* One flat color, so a sheet's rounded corners clip only background, not a
+     separate line-number column. */
+  --cm-gutter-background: var(--cm-background);
+  --cm-gutter-foreground: #667085;
+  --cm-active-line: rgba(9, 105, 218, 0.08);
+  --cm-panel-background: #ffffff;
+  --cm-input-background: #ffffff;
+  --cm-button-background: #f4f5f7;
+  --cm-button-hover: #e7eaee;
+  --cm-border: rgba(15, 23, 42, 0.12);
+  --cm-bracket-match: rgba(251, 191, 36, 0.22);
+  --cm-rule-network: #34c759;
+  --cm-rule-element-hiding: #ff9500;
+  --cm-rule-advanced: #007aff;
+  --cm-rule-remove-param: #a00080;
+  --cm-rule-unsupported: #b42318;
+  --cm-rule-duplicate: #5856d6;
+  --cm-rule-comment: #8e8e93;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --cm-foreground: #f5f5f7;
+    --cm-caret: #4da3ff;
+    --cm-selection: rgba(77, 163, 255, 0.26);
+    --cm-gutter-foreground: #8f97a4;
+    --cm-active-line: rgba(77, 163, 255, 0.12);
+    --cm-panel-background: #24262b;
+    --cm-input-background: #1c1d21;
+    --cm-button-background: #2f333a;
+    --cm-button-hover: #3b4048;
+    --cm-border: rgba(255, 255, 255, 0.14);
+    --cm-bracket-match: rgba(250, 204, 21, 0.26);
+    --cm-rule-network: #30d158;
+    --cm-rule-element-hiding: #ff9f0a;
+    --cm-rule-advanced: #0a84ff;
+    --cm-rule-remove-param: #ff375f;
+    --cm-rule-unsupported: #ff453a;
+    --cm-rule-duplicate: #5e5ce6;
+    --cm-rule-comment: #98989d;
+  }
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: var(--cm-background);
+  overscroll-behavior: none;
+}
+
+body {
+  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+#editor {
+  width: 100%;
+  height: 100%;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.cm-panels .cm-search button {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  background: var(--cm-button-background) !important;
+  background-image: none !important;
+  color: var(--cm-foreground) !important;
+  -webkit-text-fill-color: var(--cm-foreground) !important;
+  border: 1px solid var(--cm-border) !important;
+  box-shadow: none !important;
+}
+
+.cm-panels .cm-search button:hover {
+  background: var(--cm-button-hover) !important;
+}
+
+.cm-panels .cm-search button:disabled {
+  opacity: 0.55 !important;
+}
+
+/* One centered row of controls (#921). Mobile WebKit draws native checkboxes
+   and form fonts that don't line up with the buttons, so every control gets
+   the same height and the checkboxes are drawn here. */
+.cm-panel.cm-search {
+  display: flex !important;
+  flex-wrap: wrap;
+  align-items: center;
+  /* The zero-height break between the rows is its own flex line, so each
+     row gap counts twice (#943). */
+  gap: 3px 6px;
+  padding: 6px 40px 6px 10px !important;
+}
+/* A <br> is not a flex item, so a full-width ::after sits between the find
+   row and the replace controls, which are ordered after it. */
+.cm-panel.cm-search br { display: none; }
+.cm-panel.cm-search::after {
+  content: "";
+  order: 1;
+  flex-basis: 100%;
+  height: 0;
+}
+.cm-panel.cm-search br ~ * { order: 2; }
+.cm-panel.cm-search input,
+.cm-panel.cm-search button,
+.cm-panel.cm-search label {
+  margin: 0 !important;
+  box-sizing: border-box;
+  font-size: 12px !important;
+  line-height: 1 !important;
+}
+/* Kept compact so the panel covers less of the document (#932). */
+.cm-panel.cm-search .cm-textfield,
+.cm-panel.cm-search .cm-button {
+  height: 26px;
+  padding: 0 8px !important;
+}
+.cm-panel.cm-search label {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 4px;
+  height: 26px;
+  color: var(--cm-foreground);
+}
+.cm-panel.cm-search input[type=checkbox] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  /* The theme pads search inputs, which stretched the box on macOS (#943). */
+  padding: 0 !important;
+  flex: none;
+  border: 1.5px solid var(--cm-gutter-foreground);
+  border-radius: 5px;
+  background: var(--cm-input-background);
+  display: inline-grid;
+  place-content: center;
+}
+.cm-panel.cm-search input[type=checkbox]:checked {
+  background: var(--cm-caret);
+  border-color: var(--cm-caret);
+}
+.cm-panel.cm-search input[type=checkbox]:checked::after {
+  content: "";
+  width: 9px;
+  height: 5px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: translateY(-1px) rotate(-45deg);
+}
+.cm-panels .cm-search button[name=close] {
+  position: absolute !important;
+  top: 6px !important;
+  right: 6px !important;
+  width: 26px;
+  height: 26px;
+  padding: 0 !important;
+  border-radius: 13px !important;
+  font-size: 18px !important;
+  line-height: 1 !important;
+  display: inline-grid;
+  place-content: center;
+}
+
+/* Source sheets run the editor under the home indicator; this keeps the last
+   line reachable above it. The inset is zero everywhere else. */
+.cm-content {
+  padding-bottom: calc(4px + env(safe-area-inset-bottom)) !important;
+}
+
+body.cm-wrap-lines .cm-scroller {
+  overflow-x: hidden !important;
+}
+
+.wblock-rule-network, .wblock-rule-network *,
+.wblock-rule-elementHiding, .wblock-rule-elementHiding *,
+.wblock-rule-advanced, .wblock-rule-advanced *,
+.wblock-rule-removeParam, .wblock-rule-removeParam *,
+.wblock-rule-unsupported, .wblock-rule-unsupported *,
+.wblock-rule-duplicate, .wblock-rule-duplicate *,
+.wblock-rule-comment, .wblock-rule-comment * { color: var(--cm-rule-color) !important; }
+.wblock-rule-network { --cm-rule-color: var(--cm-rule-network); }
+.wblock-rule-elementHiding { --cm-rule-color: var(--cm-rule-element-hiding); }
+.wblock-rule-advanced { --cm-rule-color: var(--cm-rule-advanced); }
+.wblock-rule-removeParam { --cm-rule-color: var(--cm-rule-remove-param); }
+.wblock-rule-unsupported { --cm-rule-color: var(--cm-rule-unsupported); }
+.wblock-rule-duplicate { --cm-rule-color: var(--cm-rule-duplicate); }
+.wblock-rule-comment { --cm-rule-color: var(--cm-rule-comment); }
+
+body.cm-wrap-lines .cm-content,
+body.cm-wrap-lines .cm-lineWrapping {
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+</style>
+</head>
+<body>
+<div id="editor"></div>
+<script>
+for (const eventName of ["gesturestart", "gesturechange", "gestureend"]) {
+  document.addEventListener(eventName, event => event.preventDefault(), { passive: false });
+}
+</script>
+<script src="codemirror.bundle.js"></script>
+</body>
+</html>

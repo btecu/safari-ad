@@ -1,0 +1,18 @@
+{
+  "extensions": [
+    {
+      "id": "ublock-origin-lite",
+      "name": "uBlock Origin Lite",
+      "archive": "extensions/ublock-origin-lite.zip",
+      "app": "uBlock Origin Lite.app",
+      "setup_hook": null
+    },
+    {
+      "id": "wblock",
+      "name": "wBlock",
+      "archive": "extensions/wblock.zip",
+      "app": "wBlock.app",
+      "setup_hook": "scripts/hooks/wblock.sh"
+    }
+  ]
+}

@@ -1,0 +1,684 @@
+/* System colors, so text, separators, and tints follow the system's
+   palette, Increase Contrast, and the Mac's accent color (#1018). The app's
+   Appearance setting pins the scheme through data-color-scheme. Safari on
+   the Mac has no grouped-background or fill system colors, so those keep
+   the values iOS uses for them. */
+:root {
+  color-scheme: light dark;
+  --background: #ffffff;
+  --group: #ffffff;
+  --fill: rgba(120, 120, 128, 0.16);
+  --separator: -apple-system-separator;
+  --text: -apple-system-label;
+  --subtext: -apple-system-secondary-label;
+  --accent: -apple-system-blue;
+  --switch-off: var(--fill);
+  /* iOS switches are green; Mac switches take the accent color. */
+  --switch-on: -apple-system-green;
+  --danger: -apple-system-red;
+  --success: -apple-system-green;
+  --accent-soft: rgba(0, 122, 255, 0.14);
+  --danger-soft: rgba(255, 59, 48, 0.14);
+  --success-soft: rgba(52, 199, 89, 0.2);
+}
+
+@supports (color: AccentColor) {
+  :root { --accent: AccentColor; }
+}
+
+@supports (color: color-mix(in srgb, red 10%, transparent)) {
+  :root {
+    --accent-soft: color-mix(in srgb, var(--accent) 14%, transparent);
+    --danger-soft: color-mix(in srgb, var(--danger) 14%, transparent);
+    --success-soft: color-mix(in srgb, var(--success) 20%, transparent);
+  }
+}
+
+@media (pointer: fine) {
+  :root { --switch-on: var(--accent); }
+}
+
+:root[data-color-scheme="light"] { color-scheme: light; }
+:root[data-color-scheme="dark"] {
+  color-scheme: dark;
+  --background: #1c1c1e;
+  --group: #2c2c2e;
+  --fill: rgba(120, 120, 128, 0.32);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-color-scheme="light"]) {
+    --background: #1c1c1e;
+    --group: #2c2c2e;
+    --fill: rgba(120, 120, 128, 0.32);
+  }
+
+  :root:not([data-color-scheme="light"]) .app-icon {
+    filter: invert(1);
+  }
+}
+
+:root[data-color-scheme="dark"] .app-icon {
+  filter: invert(1);
+}
+
+:root[data-color-scheme="light"] .app-icon {
+  filter: none;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, system-ui, "SF Pro Text", sans-serif;
+  background: var(--background);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  min-width: 320px;
+}
+
+/* Safari iOS lets author display beat the UA [hidden] rule. */
+[hidden] {
+  display: none !important;
+}
+
+.popup {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 380px;
+  max-height: 600px;
+  min-height: 0;
+  overflow: hidden;
+  padding: 0;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+@supports (-webkit-touch-callout: none) {
+  /* Let Safari paint the popover material through its native corner shape. */
+  html.ios-ipad-popover,
+  html.ios-ipad-popover body {
+    background: transparent;
+  }
+
+  /* iPhone sheets already have their full height; do not stop at 600px. */
+  html.ios-phone-sheet,
+  html.ios-phone-sheet body {
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
+  }
+
+  html.ios-phone-sheet .popup {
+    height: 100%;
+    max-height: 100%;
+  }
+}
+
+.popup-sticky {
+  flex: 0 0 auto;
+  z-index: 3;
+  padding: 10px 12px 8px;
+  background: transparent;
+}
+
+.popup-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 16px 12px 12px;
+  box-sizing: border-box;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.app-icon {
+  width: 28px;
+  height: 28px;
+  flex: 0 0 auto;
+}
+
+.top-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.title-group {
+  display: flex;
+  align-items: center;
+  flex: 1 1 180px;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+  min-width: 0;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: -0.23px;
+  line-height: 1.2;
+  flex: 1 1 120px;
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.pill {
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: -0.08px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--separator);
+  background: var(--fill);
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.pill.is-active {
+  background: var(--success-soft);
+  border-color: var(--success);
+}
+
+.pill.is-disabled {
+  background: var(--fill);
+  border-color: var(--separator);
+}
+
+.pill.is-neutral {
+  background: var(--fill);
+  border-color: var(--separator);
+}
+
+.pill.is-error {
+  background: var(--danger-soft);
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.section {
+  background: var(--group);
+  border-radius: 10px;
+  margin-bottom: 8px;
+  overflow: hidden;
+  border: 0.5px solid var(--separator);
+}
+
+.section > * + * {
+  box-shadow: inset 0 0.5px 0 var(--separator);
+}
+
+.row,
+.toggle-row,
+.disclosure,
+.button-row,
+.userscript-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 6px 14px;
+  box-sizing: border-box;
+}
+
+.label {
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: -0.23px;
+}
+
+.value {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--subtext);
+  font-variant-numeric: tabular-nums;
+}
+
+#no-autoplay-section {
+  margin-top: 8px;
+}
+
+.row-trailing {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+.switch {
+  display: grid;
+  width: 51px;
+  height: 31px;
+  flex: 0 0 auto;
+  place-items: stretch;
+  line-height: 0;
+  overflow: visible;
+  position: relative;
+}
+
+.switch input {
+  appearance: none;
+  -webkit-appearance: none;
+  grid-area: 1 / 1;
+  margin: 0;
+  width: 51px;
+  height: 31px;
+  opacity: 0;
+  z-index: 1;
+  cursor: pointer;
+  border: 0;
+}
+
+.slider {
+  grid-area: 1 / 1;
+  position: relative;
+  display: block;
+  width: 51px;
+  height: 31px;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 15.5px;
+  background: var(--switch-off);
+  background-image: radial-gradient(circle 13.5px at 15.5px 15.5px, #ffffff 13.5px, transparent 14.5px);
+  background-repeat: no-repeat;
+  transition: background-color 0.28s cubic-bezier(0.4, 0, 0.2, 1), background-position 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.switch input:checked + .slider {
+  background: var(--switch-on);
+  background-image: radial-gradient(circle 13.5px at 35.5px 15.5px, #ffffff 13.5px, transparent 14.5px);
+}
+
+.switch input:disabled + .slider {
+  opacity: 0.46;
+}
+
+.paused-prompt {
+  margin: 0;
+  padding: 8px 14px 10px;
+  border: 0;
+  background: var(--accent-soft);
+}
+
+.paused-prompt-title {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.08px;
+}
+
+#resume-blocking[aria-busy="true"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+#resume-blocking[aria-busy="true"]::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  flex: 0 0 auto;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 999px;
+  animation: resume-spin 0.8s linear infinite;
+}
+
+@keyframes resume-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #resume-blocking[aria-busy="true"]::before {
+    animation: none;
+  }
+
+  .slider {
+    transition: none;
+  }
+}
+
+.hint {
+  margin: 0;
+  padding: 6px 14px 10px;
+  font-size: 12px;
+  /* Whole pixels, so a wrapped hint doesn't push the next card's 0.5px
+     hairline onto a fractional y where Safari fades it out. */
+  line-height: 16px;
+  color: var(--subtext);
+}
+
+.paused-prompt .hint {
+  padding: 2px 0 0;
+}
+
+.popup-body > .hint {
+  padding: 6px 16px 12px;
+  margin-top: -2px;
+}
+
+.disclosure {
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: -0.23px;
+  text-align: start;
+}
+
+.disclosure:active {
+  background: var(--fill);
+}
+
+.chevron {
+  width: 7px;
+  height: 7px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  opacity: 0.35;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease-in-out;
+}
+
+.disclosure[aria-expanded="true"] .chevron {
+  transform: rotate(225deg);
+}
+
+.disclosure-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.2s ease-in-out;
+}
+
+.disclosure-panel.is-open {
+  grid-template-rows: 1fr;
+}
+
+.disclosure-panel:not(.is-open) {
+  pointer-events: none;
+}
+
+.disclosure-panel-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .disclosure-panel,
+  .chevron {
+    transition: none;
+  }
+}
+
+.disclosure-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+/* Disclosure with a trailing switch: the button keeps its full-row hit area
+   and the switch sits where every other row places its control. */
+.disclosure-row {
+  display: flex;
+  align-items: center;
+}
+
+.disclosure-row .disclosure {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding-inline-end: 8px;
+}
+
+.disclosure-row .switch {
+  flex: 0 0 auto;
+  margin-inline-end: 14px;
+}
+
+.rules {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.rules[hidden] {
+  display: none !important;
+}
+
+.rule-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 6px 8px 6px 14px;
+  box-shadow: inset 0 0.5px 0 var(--separator);
+}
+
+.rule-text {
+  flex: 1;
+  min-width: 0;
+  font-size: 12px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rule-delete {
+  flex: 0 0 auto;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--subtext);
+  min-width: 34px;
+  min-height: 34px;
+  border-radius: 8px;
+  padding: 4px 6px;
+  font-size: 17px;
+  line-height: 1;
+}
+
+.rule-empty {
+  font-size: 13px;
+  color: var(--subtext);
+  padding: 10px 14px;
+}
+
+.userscript-list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.userscript-list[hidden] {
+  display: none !important;
+}
+
+.userscript-text {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.userscript-name {
+  font-size: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.command-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.command-btn {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  text-align: left;
+  white-space: normal;
+  line-height: 1.3;
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.command-list .command-btn + .command-btn {
+  box-shadow: inset 0 0.5px 0 var(--separator);
+}
+
+.command-label {
+  display: block;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.command-meta {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--subtext);
+}
+
+.button-row {
+  margin: 0;
+}
+
+.popup-actions {
+  margin: 4px 0 0;
+}
+
+.popup-action-row {
+  display: flex;
+  gap: 8px;
+}
+
+.popup-action-row .btn {
+  flex: 1 1 0;
+  width: 0;
+}
+
+.popup-action-row .btn[hidden] {
+  display: none;
+}
+
+.filter-update-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 8px;
+  min-height: 18px;
+  font-size: 12px;
+  text-align: center;
+  color: var(--subtext);
+}
+
+.filter-update-status.is-success {
+  color: var(--success);
+}
+
+.filter-update-status.is-error {
+  color: var(--danger);
+}
+
+.filter-update-status.is-running::before {
+  content: "";
+  width: 11px;
+  height: 11px;
+  flex: 0 0 auto;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 999px;
+  animation: filter-update-spin 0.8s linear infinite;
+}
+
+@keyframes filter-update-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .filter-update-status.is-running::before {
+    animation: none;
+  }
+}
+
+.btn {
+  flex: 1;
+  appearance: none;
+  border: 0;
+  border-radius: 8px;
+  min-height: 34px;
+  padding: 7px 12px;
+  font-size: 15px;
+  font-weight: 590;
+  letter-spacing: -0.23px;
+  background: var(--fill);
+  color: var(--text);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.footer {
+  margin-top: 0;
+}
+
+.error {
+  margin: 8px 0 0;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: var(--danger-soft);
+  font-size: 13px;
+  font-weight: 590;
+  line-height: 1.3;
+  color: var(--danger);
+}
+
