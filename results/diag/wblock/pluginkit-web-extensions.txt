@@ -1,0 +1,12 @@
++    skula.wBlock.wBlock-Scripts(3.2.2)
+	            Path = /Applications/wBlock.app/Contents/PlugIns/wBlock Scripts.appex
+	            UUID = 8B39B25A-A3AE-4F11-9765-BCBB66E21B58
+	       Timestamp = 2026-11-01 20:01:10 +0000
+	             SDK = com.apple.Safari.web-extension
+	   Parent Bundle = /Applications/wBlock.app
+	    Display Name = wBlock Scripts
+	      Short Name = wBlock Scripts
+	     Parent Name = wBlock
+	        Platform = macOS
+
+ (1 plug-in)

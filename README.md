@@ -15,15 +15,15 @@ Test-page requests blocked, in a normal Safari window vs. a WebDriver (automatio
 
 | Extension | Normal window | WebDriver window |
 |---|---|---|
-| **uBlock Origin Lite** | 0/25 | 0/25 |
+| **uBlock Origin Lite** | 25/25 | 0/25 |
 | **wBlock** | 0/25 | 0/25 |
 
 ### Ad blocking
 
 | Extension | Ad/tracker requests blocked | Ad elements hidden | Ad requests per page (none → with blocker) | Nothing broken |
 |---|---|---|---|---|
-| **uBlock Origin Lite** | 0% (0/25) | 0% (0/10) | 52 → 51 (1.9% fewer) | ✅ |
-| **wBlock** | 0% (0/25) | 0% (0/10) | 42 → 41 (2.4% fewer) | ✅ |
+| **uBlock Origin Lite** | 100% (25/25) | 0% (0/10) | 68.5 → 1.5 (97.8% fewer) | ✅ |
+| **wBlock** | 0% (0/25) | 0% (0/10) | 53 → 42 (20.8% fewer) | ✅ |
 
 ### Public ad-block test sites (score, higher is better)
 
@@ -32,36 +32,36 @@ _Scores are read from each page's text after the test finishes (best effort; see
 | Test site | No blocker | uBlock Origin Lite | wBlock |
 |---|---|---|---|
 | AdBlock Tester (turtlecute) | — | — | — |
-| adblock-tester.com | 41% | 41% | 41% |
+| adblock-tester.com | 41% | 91% | 41% |
 | d3ward Toolz | — | — | — |
 
 ### Speed
 
 | Extension | Median page load (none → with blocker) | Change | Data transferred | Speedometer 3.1 (none → with blocker) |
 |---|---|---|---|---|
-| **uBlock Origin Lite** | 690 ms → 547 ms | -20.7% | +13.5% | 18.6 → 17.1 |
-| **wBlock** | 900 ms → 568 ms | -36.9% | -42.6% | 15.1 → 15.5 |
+| **uBlock Origin Lite** | 775 ms → 682 ms | -12% | -41.5% | 14.3 → 13.7 |
+| **wBlock** | 498 ms → 1089 ms | +119% | -28.6% | 12.3 → 15 |
 
 ### Memory (Safari + WebKit + extension processes)
 
 | Extension | Idle | Δ idle | 6 sites open | Δ with sites open |
 |---|---|---|---|---|
-| **uBlock Origin Lite** | 474 MB | +3 MB | 3189 MB | -92.4 MB |
-| **wBlock** | 484 MB | +9 MB | 3227 MB | -26.8 MB |
+| **uBlock Origin Lite** | 1388 MB | +910 MB | 2863 MB | -30.4 MB |
+| **wBlock** | 741 MB | +268 MB | 3440 MB | +116 MB |
 
 ```mermaid
 xychart-beta
   title "Ad/tracker requests blocked (%)"
   x-axis ["uBlock Origin Lite", "wBlock"]
   y-axis "%" 0 --> 100
-  bar [0, 0]
+  bar [100, 0]
 ```
 
 ```mermaid
 xychart-beta
   title "Median page load time (ms, lower is better)"
   x-axis ["No blocker", "uBlock Origin Lite", "wBlock"]
-  bar [795, 547, 568]
+  bar [636, 682, 1089]
 ```
 
 <details><summary>Screenshots (normal Safari window)</summary>
@@ -78,7 +78,6 @@ xychart-beta
 
 <details><summary>Test requests that weren't blocked</summary>
 
-- **uBlock Origin Lite**: `pagead2.googlesyndication.com`, `securepubads.g.doubleclick.net`, `www.googletagservices.com`, `static.doubleclick.net`, `www.google-analytics.com`, `www.googletagmanager.com`, `connect.facebook.net`, `static.ads-twitter.com`, `c.amazon-adsystem.com`, `cdn.taboola.com`, `widgets.outbrain.com`, `acdn.adnxs.com`, `bat.bing.com`, `snap.licdn.com`, `static.hotjar.com`, `cdn.mxpnl.com`, `sb.scorecardresearch.com`, `www.clarity.ms`, `static.criteo.net`, `ads.pubmatic.com`, `mc.yandex.ru`, `secure.quantserve.com`, `js-agent.newrelic.com`, `s.pinimg.com`, `analytics.tiktok.com`
 - **wBlock**: `pagead2.googlesyndication.com`, `securepubads.g.doubleclick.net`, `www.googletagservices.com`, `static.doubleclick.net`, `www.google-analytics.com`, `www.googletagmanager.com`, `connect.facebook.net`, `static.ads-twitter.com`, `c.amazon-adsystem.com`, `cdn.taboola.com`, `widgets.outbrain.com`, `acdn.adnxs.com`, `bat.bing.com`, `snap.licdn.com`, `static.hotjar.com`, `cdn.mxpnl.com`, `sb.scorecardresearch.com`, `www.clarity.ms`, `static.criteo.net`, `ads.pubmatic.com`, `mc.yandex.ru`, `secure.quantserve.com`, `js-agent.newrelic.com`, `s.pinimg.com`, `analytics.tiktok.com`
 
 </details>
