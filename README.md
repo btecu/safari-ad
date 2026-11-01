@@ -9,26 +9,45 @@ they break pages.
 <!-- RESULTS:START -->
 _Last run: 2026-11-01 · Safari 26.6.2 · macOS 26.6.2 · GitHub-hosted runner. Deltas compare each blocker with a no-blocker baseline measured on the same runner._
 
+### Was the blocker active?
+
+Test-page requests blocked, in a normal Safari window vs. a WebDriver (automation) window. If the WebDriver column is 0 but the normal column isn't, Safari isn't loading extensions in automation windows, and the WebDriver-based speed/real-site numbers mostly reflect no blocking.
+
+| Extension | Normal window | WebDriver window |
+|---|---|---|
+| **uBlock Origin Lite** | 0/25 | 0/25 |
+| **wBlock** | 0/25 | 0/25 |
+
 ### Ad blocking
 
 | Extension | Ad/tracker requests blocked | Ad elements hidden | Ad requests per page (none → with blocker) | Nothing broken |
 |---|---|---|---|---|
-| **uBlock Origin Lite** | 0% (0/25) | 0% (0/10) | 51 → 40 (21.6% fewer) | ✅ |
-| **wBlock** | 0% (0/25) | 0% (0/10) | 46 → 54 (-17.4% fewer) | ✅ |
+| **uBlock Origin Lite** | 0% (0/25) | 0% (0/10) | 52 → 51 (1.9% fewer) | ✅ |
+| **wBlock** | 0% (0/25) | 0% (0/10) | 42 → 41 (2.4% fewer) | ✅ |
+
+### Public ad-block test sites (score, higher is better)
+
+_Scores are read from each page's text after the test finishes (best effort; see screenshots)._
+
+| Test site | No blocker | uBlock Origin Lite | wBlock |
+|---|---|---|---|
+| AdBlock Tester (turtlecute) | — | — | — |
+| adblock-tester.com | 41% | 41% | 41% |
+| d3ward Toolz | — | — | — |
 
 ### Speed
 
 | Extension | Median page load (none → with blocker) | Change | Data transferred | Speedometer 3.1 (none → with blocker) |
 |---|---|---|---|---|
-| **uBlock Origin Lite** | 518 ms → 723 ms | +39.6% | -24.5% | 11.5 → 12.2 |
-| **wBlock** | 684 ms → 486 ms | -28.9% | +0.5% | 10.3 → 12.9 |
+| **uBlock Origin Lite** | 690 ms → 547 ms | -20.7% | +13.5% | 18.6 → 17.1 |
+| **wBlock** | 900 ms → 568 ms | -36.9% | -42.6% | 15.1 → 15.5 |
 
 ### Memory (Safari + WebKit + extension processes)
 
 | Extension | Idle | Δ idle | 6 sites open | Δ with sites open |
 |---|---|---|---|---|
-| **uBlock Origin Lite** | 485 MB | +32.8 MB | 3118 MB | -59.5 MB |
-| **wBlock** | 505 MB | +91.4 MB | 3389 MB | +316 MB |
+| **uBlock Origin Lite** | 474 MB | +3 MB | 3189 MB | -92.4 MB |
+| **wBlock** | 484 MB | +9 MB | 3227 MB | -26.8 MB |
 
 ```mermaid
 xychart-beta
@@ -42,8 +61,20 @@ xychart-beta
 xychart-beta
   title "Median page load time (ms, lower is better)"
   x-axis ["No blocker", "uBlock Origin Lite", "wBlock"]
-  bar [601, 723, 486]
+  bar [795, 547, 568]
 ```
+
+<details><summary>Screenshots (normal Safari window)</summary>
+
+| Page | No blocker | uBlock Origin Lite | wBlock |
+|---|---|---|---|
+| `adblock-tester-com` | <img src="results/screenshots/baseline/adblock-tester-com.jpg" width="260"> | <img src="results/screenshots/ublock-origin-lite/adblock-tester-com.jpg" width="260"> | <img src="results/screenshots/wblock/adblock-tester-com.jpg" width="260"> |
+| `adblock-turtlecute-org` | <img src="results/screenshots/baseline/adblock-turtlecute-org.jpg" width="260"> | <img src="results/screenshots/ublock-origin-lite/adblock-turtlecute-org.jpg" width="260"> | <img src="results/screenshots/wblock/adblock-turtlecute-org.jpg" width="260"> |
+| `canyoublockit-com-extreme-test` | <img src="results/screenshots/baseline/canyoublockit-com-extreme-test.jpg" width="260"> | <img src="results/screenshots/ublock-origin-lite/canyoublockit-com-extreme-test.jpg" width="260"> | <img src="results/screenshots/wblock/canyoublockit-com-extreme-test.jpg" width="260"> |
+| `d3ward-github-io-toolz-adblock` | <img src="results/screenshots/baseline/d3ward-github-io-toolz-adblock.jpg" width="260"> | <img src="results/screenshots/ublock-origin-lite/d3ward-github-io-toolz-adblock.jpg" width="260"> | <img src="results/screenshots/wblock/d3ward-github-io-toolz-adblock.jpg" width="260"> |
+| `fixture` | <img src="results/screenshots/baseline/fixture.jpg" width="260"> | <img src="results/screenshots/ublock-origin-lite/fixture.jpg" width="260"> | <img src="results/screenshots/wblock/fixture.jpg" width="260"> |
+
+</details>
 
 <details><summary>Test requests that weren't blocked</summary>
 

@@ -6,6 +6,15 @@
       "name": "uBlock Origin Lite",
       "safari_version": "26.6.2",
       "macos": "26.6.2",
+      "active_normal": [
+        0,
+        25
+      ],
+      "active_webdriver": [
+        0,
+        25
+      ],
+      "blocking_source": "normal window",
       "network_blocked": 0,
       "network_reachable": 25,
       "network_block_pct": 0,
@@ -40,32 +49,58 @@
         "https://s.pinimg.com/ct/core.js",
         "https://analytics.tiktok.com/i18n/pixel/events.js"
       ],
-      "load_baseline": 518.0,
-      "load_ext": 723.0,
+      "load_baseline": 689.5,
+      "load_ext": 547.0,
       "sites_compared": 9,
-      "ads_baseline": 51,
-      "ads_ext": 40,
-      "requests_baseline": 186.5,
-      "requests_ext": 180.5,
-      "transfer_baseline": 110,
-      "transfer_ext": 83,
-      "load_delta_pct": 39.6,
-      "ads_reduction_pct": 21.6,
-      "transfer_delta_pct": -24.5,
-      "mem_idle_baseline": 452.1,
-      "mem_idle_ext": 484.9,
-      "mem_idle_delta": 32.8,
-      "mem_loaded_baseline": 3177.6,
-      "mem_loaded_ext": 3118.1,
-      "mem_loaded_delta": -59.5,
-      "speedometer_baseline": 11.5,
-      "speedometer_ext": 12.2
+      "ads_baseline": 52,
+      "ads_ext": 51,
+      "requests_baseline": 207.0,
+      "requests_ext": 206.0,
+      "transfer_baseline": 74,
+      "transfer_ext": 84,
+      "load_delta_pct": -20.7,
+      "ads_reduction_pct": 1.9,
+      "transfer_delta_pct": 13.5,
+      "mem_idle_baseline": 470.7,
+      "mem_idle_ext": 473.7,
+      "mem_idle_delta": 3.0,
+      "mem_loaded_baseline": 3281.5,
+      "mem_loaded_ext": 3189.1,
+      "mem_loaded_delta": -92.4,
+      "speedometer_baseline": 18.6,
+      "speedometer_ext": 17.1,
+      "test_sites": {
+        "adblock-tester.com": {
+          "baseline": 41,
+          "ext": 41,
+          "raw": "41"
+        },
+        "AdBlock Tester (turtlecute)": {
+          "baseline": null,
+          "ext": null,
+          "raw": "Total : 132 | 10 blocked | 122 not blocked | Some setups, like Firefox with uBlock Origin, can skew results. | What do \u201cBlocked\u201d and \u201cNot Blocked\u201d mean? | How is my score calculated, and what do the colors mean?"
+        },
+        "d3ward Toolz": {
+          "baseline": null,
+          "ext": null,
+          "raw": null
+        }
+      }
     },
     {
       "id": "wblock",
       "name": "wBlock",
       "safari_version": "26.6.2",
       "macos": "26.6.2",
+      "active_normal": [
+        0,
+        25
+      ],
+      "active_webdriver": [
+        0,
+        25
+      ],
+      "blocking_source": "normal window",
       "network_blocked": 0,
       "network_reachable": 25,
       "network_block_pct": 0,
@@ -100,26 +135,43 @@
         "https://s.pinimg.com/ct/core.js",
         "https://analytics.tiktok.com/i18n/pixel/events.js"
       ],
-      "load_baseline": 684.0,
-      "load_ext": 486.5,
+      "load_baseline": 900.5,
+      "load_ext": 568.5,
       "sites_compared": 8,
-      "ads_baseline": 46,
-      "ads_ext": 54,
-      "requests_baseline": 178.5,
-      "requests_ext": 183.5,
-      "transfer_baseline": 95.0,
-      "transfer_ext": 95.5,
-      "load_delta_pct": -28.9,
-      "ads_reduction_pct": -17.4,
-      "transfer_delta_pct": 0.5,
-      "mem_idle_baseline": 413.5,
-      "mem_idle_ext": 504.9,
-      "mem_idle_delta": 91.4,
-      "mem_loaded_baseline": 3073.0,
-      "mem_loaded_ext": 3389.2,
-      "mem_loaded_delta": 316.2,
-      "speedometer_baseline": 10.3,
-      "speedometer_ext": 12.9
+      "ads_baseline": 42,
+      "ads_ext": 41,
+      "requests_baseline": 164.0,
+      "requests_ext": 185.0,
+      "transfer_baseline": 169.0,
+      "transfer_ext": 97.0,
+      "load_delta_pct": -36.9,
+      "ads_reduction_pct": 2.4,
+      "transfer_delta_pct": -42.6,
+      "mem_idle_baseline": 475.4,
+      "mem_idle_ext": 484.4,
+      "mem_idle_delta": 9.0,
+      "mem_loaded_baseline": 3253.5,
+      "mem_loaded_ext": 3226.7,
+      "mem_loaded_delta": -26.8,
+      "speedometer_baseline": 15.1,
+      "speedometer_ext": 15.5,
+      "test_sites": {
+        "adblock-tester.com": {
+          "baseline": 41,
+          "ext": 41,
+          "raw": "41"
+        },
+        "AdBlock Tester (turtlecute)": {
+          "baseline": null,
+          "ext": null,
+          "raw": "Total : 132 | 10 blocked | 122 not blocked | Some setups, like Firefox with uBlock Origin, can skew results. | What do \u201cBlocked\u201d and \u201cNot Blocked\u201d mean? | How is my score calculated, and what do the colors mean?"
+        },
+        "d3ward Toolz": {
+          "baseline": null,
+          "ext": null,
+          "raw": null
+        }
+      }
     }
   ]
 }
