@@ -1,0 +1,164 @@
+{
+  "generated": "2026-11-02",
+  "results": [
+    {
+      "id": "ublock-origin-lite",
+      "name": "uBlock Origin Lite",
+      "safari_version": "26.6.2",
+      "macos": "26.6.2",
+      "active_normal": [
+        25,
+        25
+      ],
+      "active_webdriver": [
+        25,
+        25
+      ],
+      "blocking_source": "normal window",
+      "network_blocked": 25,
+      "network_reachable": 25,
+      "network_block_pct": 100,
+      "cosmetic_hidden": 0,
+      "cosmetic_total": 10,
+      "cosmetic_pct": 0,
+      "no_breakage": true,
+      "missed": [],
+      "load_baseline": 731.0,
+      "load_ext": 877.0,
+      "sites_compared": 2,
+      "ads_baseline": 53.5,
+      "ads_ext": 1.5,
+      "requests_baseline": 218.0,
+      "requests_ext": 115.5,
+      "transfer_baseline": 181.0,
+      "transfer_ext": 107.5,
+      "visible_ads_baseline": 11.0,
+      "visible_ads_ext": 2.5,
+      "load_delta_pct": 20.0,
+      "ads_reduction_pct": 97.2,
+      "visible_ads_reduction_pct": 77.3,
+      "transfer_delta_pct": -40.6,
+      "mem_idle_baseline": 341.4,
+      "mem_idle_ext": 1302.8,
+      "mem_idle_delta": 961.4,
+      "mem_loaded_baseline": 3096.2,
+      "mem_loaded_ext": 3105.1,
+      "mem_loaded_delta": 8.9,
+      "speedometer_baseline": 18.2,
+      "speedometer_ext": 14.1,
+      "test_sites": {
+        "adblock-tester.com": {
+          "baseline": 41,
+          "ext": 91,
+          "raw": "91"
+        },
+        "AdBlock Tester (turtlecute)": {
+          "baseline": 7.6,
+          "ext": 60.6,
+          "raw": "Total : 132 | 80 blocked | 52 not blocked | Cosmetic Filter | Static Ad | Dynamic Ad | Why does the Cosmetic Filter test fail? | Ad Scripts Loading | ads.js | pagead.js | Why does the Ad Script Loading test fail? | Ad networks | Amazon | adtago.s3.amazonaws.com | analyticsengine.s3.amazonaws.com | a"
+        },
+        "Super Adblock Test": {
+          "baseline": 11,
+          "ext": 64,
+          "raw": "64"
+        },
+        "Blockify Ad-Blocker Test": {
+          "baseline": 33,
+          "ext": 84,
+          "raw": "At 84%, you have solid protection but some specialized trackers are bypassing your filters. Fine-tuning can get you to excellent protection."
+        }
+      }
+    },
+    {
+      "id": "wblock",
+      "name": "wBlock",
+      "safari_version": "26.6.2",
+      "macos": "26.6.2",
+      "active_normal": [
+        0,
+        25
+      ],
+      "active_webdriver": [
+        3,
+        25
+      ],
+      "blocking_source": "WebDriver",
+      "network_blocked": 3,
+      "network_reachable": 25,
+      "network_block_pct": 12,
+      "cosmetic_hidden": 0,
+      "cosmetic_total": 10,
+      "cosmetic_pct": 0,
+      "no_breakage": true,
+      "missed": [
+        "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+        "https://static.doubleclick.net/instream/ad_status.js",
+        "https://www.google-analytics.com/analytics.js",
+        "https://www.googletagmanager.com/gtag/js?id=G-TEST000000",
+        "https://connect.facebook.net/en_US/fbevents.js",
+        "https://static.ads-twitter.com/uwt.js",
+        "https://c.amazon-adsystem.com/aax2/apstag.js",
+        "https://cdn.taboola.com/libtrc/unip/loader.js",
+        "https://widgets.outbrain.com/outbrain.js",
+        "https://acdn.adnxs.com/ast/ast.js",
+        "https://bat.bing.com/bat.js",
+        "https://snap.licdn.com/li.lms-analytics/insight.min.js",
+        "https://static.hotjar.com/c/hotjar-1.js?sv=6",
+        "https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js",
+        "https://sb.scorecardresearch.com/beacon.js",
+        "https://www.clarity.ms/tag/test",
+        "https://static.criteo.net/js/ld/publishertag.js",
+        "https://ads.pubmatic.com/AdServer/js/showad.js",
+        "https://secure.quantserve.com/quant.js",
+        "https://js-agent.newrelic.com/nr-loader-spa-current.min.js",
+        "https://s.pinimg.com/ct/core.js",
+        "https://analytics.tiktok.com/i18n/pixel/events.js"
+      ],
+      "load_baseline": 823.0,
+      "load_ext": 841.5,
+      "sites_compared": 6,
+      "ads_baseline": 51.5,
+      "ads_ext": 41.5,
+      "requests_baseline": 225.5,
+      "requests_ext": 224.0,
+      "transfer_baseline": 180.0,
+      "transfer_ext": 110.5,
+      "visible_ads_baseline": 9.0,
+      "visible_ads_ext": 8.5,
+      "load_delta_pct": 2.2,
+      "ads_reduction_pct": 19.4,
+      "visible_ads_reduction_pct": 5.6,
+      "transfer_delta_pct": -38.6,
+      "mem_idle_baseline": 339.7,
+      "mem_idle_ext": 901.8,
+      "mem_idle_delta": 562.1,
+      "mem_loaded_baseline": 3118.3,
+      "mem_loaded_ext": 3448.5,
+      "mem_loaded_delta": 330.2,
+      "speedometer_baseline": 10.4,
+      "speedometer_ext": 13,
+      "test_sites": {
+        "adblock-tester.com": {
+          "baseline": 41,
+          "ext": 46,
+          "raw": "46"
+        },
+        "AdBlock Tester (turtlecute)": {
+          "baseline": 7.6,
+          "ext": 7.6,
+          "raw": "Total : 132 | 10 blocked | 122 not blocked | Cosmetic Filter | Static Ad | Dynamic Ad | Why does the Cosmetic Filter test fail? | Ad Scripts Loading | ads.js | pagead.js | Why does the Ad Script Loading test fail? | Ad networks | Amazon | adtago.s3.amazonaws.com | analyticsengine.s3.amazonaws.com | "
+        },
+        "Super Adblock Test": {
+          "baseline": 11,
+          "ext": 11,
+          "raw": "11"
+        },
+        "Blockify Ad-Blocker Test": {
+          "baseline": 33,
+          "ext": 36,
+          "raw": "Your ad blocker scored 36%. For comprehensive protection against ads, trackers, and malware, try Blockify."
+        }
+      }
+    }
+  ]
+}

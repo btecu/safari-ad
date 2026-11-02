@@ -7,23 +7,27 @@ they break pages.
 ## Results
 
 <!-- RESULTS:START -->
-_Last run: 2026-11-01 · Safari 26.6.2 · macOS 26.6.2 · GitHub-hosted runner. Deltas compare each blocker with a no-blocker baseline measured on the same runner._
+_Last run: 2026-11-02 · Safari 26.6.2 · macOS 26.6.2 · GitHub-hosted runner. Deltas compare each blocker with a no-blocker baseline measured on the same runner._
 
 ### Was the blocker active?
 
-Test-page requests blocked, in a normal Safari window vs. a WebDriver (automation) window. If the WebDriver column is 0 but the normal column isn't, Safari isn't loading extensions in automation windows, and the WebDriver-based speed/real-site numbers mostly reflect no blocking.
+Test-page requests blocked in a normal Safari window and in a WebDriver (automation) window, which runs the speed, real-site and test-site benchmarks. Both should be well above 0; a 0 means the blocker wasn't active in that window for that run (see `results/diag/`).
 
 | Extension | Normal window | WebDriver window |
 |---|---|---|
-| **uBlock Origin Lite** | 0/25 | 25/25 |
+| **uBlock Origin Lite** | 25/25 | 25/25 |
 | **wBlock** | 0/25 | 3/25 |
 
 ### Ad blocking
 
-| Extension | Ad/tracker requests blocked | Ad elements hidden | Ad requests per page (none → with blocker) | Nothing broken |
-|---|---|---|---|---|
-| **uBlock Origin Lite** | 0% (0/25) | 0% (0/10) | 44 → 1.5 (96.6% fewer) | ✅ |
-| **wBlock** | 0% (0/25) | 0% (0/10) | 53 → 37 (30.2% fewer) | ✅ |
+Real-site columns are medians across the sites in `harness/sites.json`, without → with the blocker.
+
+| Extension | Ad/tracker requests blocked (test page) | Ad requests per page (real sites) | Visible ads per page (real sites) | Generic hiding rules (test page) | Nothing broken |
+|---|---|---|---|---|---|
+| **uBlock Origin Lite** | 100% (25/25) | 53.5 → 1.5 (97.2% fewer) | 11 → 2.5 (77.3% fewer) | 0/10 | ✅ |
+| **wBlock** | 12% (3/25) | 51.5 → 41.5 (19.4% fewer) | 9 → 8.5 (5.6% fewer) | 0/10 | ✅ |
+
+_Generic hiding rules hide ad-like elements on any site. Some blockers only use them in a non-default mode (uBlock Origin Lite: "Complete"), so 0 there is expected with default settings. Visible ads on real sites is the better measure of hidden ads._
 
 ### Public ad-block test sites (score, higher is better)
 
@@ -32,37 +36,37 @@ _Scores are read from each page's text after the test finishes (best effort; see
 | Test site | No blocker | uBlock Origin Lite | wBlock |
 |---|---|---|---|
 | AdBlock Tester (turtlecute) | 7.6% | 60.6% | 7.6% |
-| Blockify Ad-Blocker Test | 34% | 84% | 36% |
+| Blockify Ad-Blocker Test | 33% | 84% | 36% |
 | Super Adblock Test | 11% | 64% | 11% |
-| adblock-tester.com | 41% | 91% | 41% |
+| adblock-tester.com | 41% | 91% | 46% |
 
 ### Speed
 
 | Extension | Median page load (none → with blocker) | Change | Data transferred | Speedometer 3.1 (none → with blocker) |
 |---|---|---|---|---|
-| **uBlock Origin Lite** | 611 ms → 670 ms | +9.6% | -55.3% | 13.1 → 14.1 |
-| **wBlock** | 526 ms → 784 ms | +49% | -44.2% | 12.6 → 15 |
+| **uBlock Origin Lite** | 731 ms → 877 ms | +20% | -40.6% | 18.2 → 14.1 |
+| **wBlock** | 823 ms → 842 ms | +2.2% | -38.6% | 10.4 → 13 |
 
 ### Memory (Safari + WebKit + extension processes)
 
 | Extension | Idle | Δ idle | 6 sites open | Δ with sites open |
 |---|---|---|---|---|
-| **uBlock Origin Lite** | 1476 MB | +1134 MB | 2848 MB | -150 MB |
-| **wBlock** | 772 MB | +428 MB | 3492 MB | +222 MB |
+| **uBlock Origin Lite** | 1303 MB | +961 MB | 3105 MB | +8.9 MB |
+| **wBlock** | 902 MB | +562 MB | 3448 MB | +330 MB |
 
 ```mermaid
 xychart-beta
   title "Ad/tracker requests blocked (%)"
   x-axis ["uBlock Origin Lite", "wBlock"]
   y-axis "%" 0 --> 100
-  bar [0, 0]
+  bar [100, 12]
 ```
 
 ```mermaid
 xychart-beta
   title "Median page load time (ms, lower is better)"
   x-axis ["No blocker", "uBlock Origin Lite", "wBlock"]
-  bar [568, 670, 784]
+  bar [777, 877, 842]
 ```
 
 <details><summary>Screenshots (normal Safari window)</summary>
@@ -80,8 +84,7 @@ xychart-beta
 
 <details><summary>Test requests that weren't blocked</summary>
 
-- **uBlock Origin Lite**: `pagead2.googlesyndication.com`, `securepubads.g.doubleclick.net`, `www.googletagservices.com`, `static.doubleclick.net`, `www.google-analytics.com`, `www.googletagmanager.com`, `connect.facebook.net`, `static.ads-twitter.com`, `c.amazon-adsystem.com`, `cdn.taboola.com`, `widgets.outbrain.com`, `acdn.adnxs.com`, `bat.bing.com`, `snap.licdn.com`, `static.hotjar.com`, `cdn.mxpnl.com`, `sb.scorecardresearch.com`, `www.clarity.ms`, `static.criteo.net`, `ads.pubmatic.com`, `mc.yandex.ru`, `secure.quantserve.com`, `js-agent.newrelic.com`, `s.pinimg.com`, `analytics.tiktok.com`
-- **wBlock**: `pagead2.googlesyndication.com`, `securepubads.g.doubleclick.net`, `www.googletagservices.com`, `static.doubleclick.net`, `www.google-analytics.com`, `www.googletagmanager.com`, `connect.facebook.net`, `static.ads-twitter.com`, `c.amazon-adsystem.com`, `cdn.taboola.com`, `widgets.outbrain.com`, `acdn.adnxs.com`, `bat.bing.com`, `snap.licdn.com`, `static.hotjar.com`, `cdn.mxpnl.com`, `sb.scorecardresearch.com`, `www.clarity.ms`, `static.criteo.net`, `ads.pubmatic.com`, `mc.yandex.ru`, `secure.quantserve.com`, `js-agent.newrelic.com`, `s.pinimg.com`, `analytics.tiktok.com`
+- **wBlock**: `pagead2.googlesyndication.com`, `static.doubleclick.net`, `www.google-analytics.com`, `www.googletagmanager.com`, `connect.facebook.net`, `static.ads-twitter.com`, `c.amazon-adsystem.com`, `cdn.taboola.com`, `widgets.outbrain.com`, `acdn.adnxs.com`, `bat.bing.com`, `snap.licdn.com`, `static.hotjar.com`, `cdn.mxpnl.com`, `sb.scorecardresearch.com`, `www.clarity.ms`, `static.criteo.net`, `ads.pubmatic.com`, `secure.quantserve.com`, `js-agent.newrelic.com`, `s.pinimg.com`, `analytics.tiktok.com`
 
 </details>
 <!-- RESULTS:END -->

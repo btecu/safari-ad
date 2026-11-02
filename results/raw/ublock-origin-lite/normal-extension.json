@@ -1,0 +1,192 @@
+{
+  "label": "extension",
+  "adtest": {
+    "network": [
+      {
+        "url": "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+        "event": "load",
+        "requested": false
+      },
+      {
+        "url": "https://securepubads.g.doubleclick.net/tag/js/gpt.js",
+        "event": "load",
+        "requested": false
+      },
+      {
+        "url": "https://www.googletagservices.com/tag/js/gpt.js",
+        "event": "load",
+        "requested": false
+      },
+      {
+        "url": "https://static.doubleclick.net/instream/ad_status.js",
+        "event": "load",
+        "requested": false
+      },
+      {
+        "url": "https://www.google-analytics.com/analytics.js",
+        "event": "load",
+        "requested": false
+      },
+      {
+        "url": "https://www.googletagmanager.com/gtag/js?id=G-TEST000000",
+        "event": "load",
+        "requested": false
+      },
+      {
+        "url": "https://connect.facebook.net/en_US/fbevents.js",
+        "event": "error",
+        "requested": false
+      },
+      {
+        "url": "https://static.ads-twitter.com/uwt.js",
+        "event": "error",
+        "requested": false
+      },
+      {
+        "url": "https://c.amazon-adsystem.com/aax2/apstag.js",
+        "event": "load",
+        "requested": false
+      },
+      {
+        "url": "https://cdn.taboola.com/libtrc/unip/loader.js",
+        "event": "error",
+        "requested": false
+      },
+      {
+        "url": "https://widgets.outbrain.com/outbrain.js",
+        "event": "load",
+        "requested": false
+      },
+      {
+        "url": "https://acdn.adnxs.com/ast/ast.js",
+        "event": "error",
+        "requested": false
+      },
+      {
+        "url": "https://bat.bing.com/bat.js",
+        "event": "error",
+        "requested": false
+      },
+      {
+        "url": "https://snap.licdn.com/li.lms-analytics/insight.min.js",
+        "event": "error",
+        "requested": false
+      },
+      {
+        "url": "https://static.hotjar.com/c/hotjar-1.js?sv=6",
+        "event": "error",
+        "requested": false
+      },
+      {
+        "url": "https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js",
+        "event": "error",
+        "requested": false
+      },
+      {
+        "url": "https://sb.scorecardresearch.com/beacon.js",
+        "event": "load",
+        "requested": false
+      },
+      {
+        "url": "https://www.clarity.ms/tag/test",
+        "event": "error",
+        "requested": false
+      },
+      {
+        "url": "https://static.criteo.net/js/ld/publishertag.js",
+        "event": "error",
+        "requested": false
+      },
+      {
+        "url": "https://ads.pubmatic.com/AdServer/js/showad.js",
+        "event": "error",
+        "requested": false
+      },
+      {
+        "url": "https://mc.yandex.ru/metrika/tag.js",
+        "event": "error",
+        "requested": false
+      },
+      {
+        "url": "https://secure.quantserve.com/quant.js",
+        "event": "error",
+        "requested": false
+      },
+      {
+        "url": "https://js-agent.newrelic.com/nr-loader-spa-current.min.js",
+        "event": "error",
+        "requested": false
+      },
+      {
+        "url": "https://s.pinimg.com/ct/core.js",
+        "event": "error",
+        "requested": false
+      },
+      {
+        "url": "https://analytics.tiktok.com/i18n/pixel/events.js",
+        "event": "error",
+        "requested": false
+      }
+    ],
+    "controls": [
+      {
+        "url": "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js",
+        "event": "load",
+        "requested": true
+      },
+      {
+        "url": "https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js",
+        "event": "load",
+        "requested": true
+      }
+    ],
+    "cosmetic": [
+      {
+        "selector": "ins.adsbygoogle",
+        "hidden": false
+      },
+      {
+        "selector": "#ad_banner",
+        "hidden": false
+      },
+      {
+        "selector": ".ad-banner",
+        "hidden": false
+      },
+      {
+        "selector": ".advertisement",
+        "hidden": false
+      },
+      {
+        "selector": ".ad-slot",
+        "hidden": false
+      },
+      {
+        "selector": "div-gpt-ad-*",
+        "hidden": false
+      },
+      {
+        "selector": ".sponsored-ad",
+        "hidden": false
+      },
+      {
+        "selector": "#taboola-below-\u2026",
+        "hidden": false
+      },
+      {
+        "selector": ".OUTBRAIN",
+        "hidden": false
+      },
+      {
+        "selector": ".adsbox",
+        "hidden": false
+      }
+    ],
+    "control_element_visible": true,
+    "network_blocked": 25,
+    "network_total": 25,
+    "cosmetic_hidden": 0,
+    "cosmetic_total": 10,
+    "controls_ok": true
+  }
+}

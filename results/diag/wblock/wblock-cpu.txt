@@ -1,0 +1,80 @@
+  0.0   2128 bash scripts/install_extension.sh wblock out/diag
+  0.0 214000 /Applications/wBlock.app/Contents/MacOS/wBlock
+  0.0   2000 bash scripts/hooks/wblock.sh /Applications/wBlock.app out/diag
+  0.0   1136 tee -a out/diag/wblock-cpu.txt
+  0.0   2128 bash scripts/install_extension.sh wblock out/diag
+  0.0 214000 /Applications/wBlock.app/Contents/MacOS/wBlock
+  0.8   2032 bash scripts/hooks/wblock.sh /Applications/wBlock.app out/diag
+  0.0    128 tee -a out/diag/wblock-cpu.txt
+  0.0   2128 bash scripts/install_extension.sh wblock out/diag
+  0.0 213936 /Applications/wBlock.app/Contents/MacOS/wBlock
+  0.0   2032 bash scripts/hooks/wblock.sh /Applications/wBlock.app out/diag
+  0.0    176 tee -a out/diag/wblock-cpu.txt
+  0.0   2128 bash scripts/install_extension.sh wblock out/diag
+  0.0 213760 /Applications/wBlock.app/Contents/MacOS/wBlock
+  0.0   2032 bash scripts/hooks/wblock.sh /Applications/wBlock.app out/diag
+  0.0    688 tee -a out/diag/wblock-cpu.txt
+  0.0   2128 bash scripts/install_extension.sh wblock out/diag
+  0.0 213760 /Applications/wBlock.app/Contents/MacOS/wBlock
+  0.1   2032 bash scripts/hooks/wblock.sh /Applications/wBlock.app out/diag
+  0.0   1152 tee -a out/diag/wblock-cpu.txt
+  0.0   2128 bash scripts/install_extension.sh wblock out/diag
+  0.0 213760 /Applications/wBlock.app/Contents/MacOS/wBlock
+  0.0   2032 bash scripts/hooks/wblock.sh /Applications/wBlock.app out/diag
+  0.0    144 tee -a out/diag/wblock-cpu.txt
+  0.0   2128 bash scripts/install_extension.sh wblock out/diag
+  0.0 213760 /Applications/wBlock.app/Contents/MacOS/wBlock
+  0.0   2032 bash scripts/hooks/wblock.sh /Applications/wBlock.app out/diag
+  0.0    112 tee -a out/diag/wblock-cpu.txt
+  0.0   2128 bash scripts/install_extension.sh wblock out/diag
+  0.0 213952 /Applications/wBlock.app/Contents/MacOS/wBlock
+  0.0   2032 bash scripts/hooks/wblock.sh /Applications/wBlock.app out/diag
+  0.0    160 tee -a out/diag/wblock-cpu.txt
+  0.0   2128 bash scripts/install_extension.sh wblock out/diag
+  0.0 213952 /Applications/wBlock.app/Contents/MacOS/wBlock
+  0.0   2032 bash scripts/hooks/wblock.sh /Applications/wBlock.app out/diag
+  0.0   1392 tee -a out/diag/wblock-cpu.txt
+  0.0   2128 bash scripts/install_extension.sh wblock out/diag
+  0.0 213952 /Applications/wBlock.app/Contents/MacOS/wBlock
+  0.0   2032 bash scripts/hooks/wblock.sh /Applications/wBlock.app out/diag
+  0.0     32 tee -a out/diag/wblock-cpu.txt
+  0.0   2128 bash scripts/install_extension.sh wblock out/diag
+  0.0 213952 /Applications/wBlock.app/Contents/MacOS/wBlock
+  0.0   2032 bash scripts/hooks/wblock.sh /Applications/wBlock.app out/diag
+  0.0   1264 tee -a out/diag/wblock-cpu.txt
+  0.0   2128 bash scripts/install_extension.sh wblock out/diag
+  0.0 213952 /Applications/wBlock.app/Contents/MacOS/wBlock
+  0.0   2032 bash scripts/hooks/wblock.sh /Applications/wBlock.app out/diag
+  0.0    656 tee -a out/diag/wblock-cpu.txt
+  0.0   2128 bash scripts/install_extension.sh wblock out/diag
+  0.0 213952 /Applications/wBlock.app/Contents/MacOS/wBlock
+  0.0   2032 bash scripts/hooks/wblock.sh /Applications/wBlock.app out/diag
+  0.0    112 tee -a out/diag/wblock-cpu.txt
+  0.0   2128 bash scripts/install_extension.sh wblock out/diag
+  0.0 213952 /Applications/wBlock.app/Contents/MacOS/wBlock
+  0.0   2032 bash scripts/hooks/wblock.sh /Applications/wBlock.app out/diag
+  0.0   1376 tee -a out/diag/wblock-cpu.txt
+  0.0   2128 bash scripts/install_extension.sh wblock out/diag
+  0.0 213952 /Applications/wBlock.app/Contents/MacOS/wBlock
+  0.0   2032 bash scripts/hooks/wblock.sh /Applications/wBlock.app out/diag
+  0.0    672 tee -a out/diag/wblock-cpu.txt
+  0.0   2128 bash scripts/install_extension.sh wblock out/diag
+  0.0 213952 /Applications/wBlock.app/Contents/MacOS/wBlock
+  0.0   2032 bash scripts/hooks/wblock.sh /Applications/wBlock.app out/diag
+  0.0    800 tee -a out/diag/wblock-cpu.txt
+  0.0   2128 bash scripts/install_extension.sh wblock out/diag
+  0.0 213952 /Applications/wBlock.app/Contents/MacOS/wBlock
+  0.0   2032 bash scripts/hooks/wblock.sh /Applications/wBlock.app out/diag
+  0.0    752 tee -a out/diag/wblock-cpu.txt
+  0.0   2128 bash scripts/install_extension.sh wblock out/diag
+  0.0 213952 /Applications/wBlock.app/Contents/MacOS/wBlock
+  0.0   2032 bash scripts/hooks/wblock.sh /Applications/wBlock.app out/diag
+  0.0   1392 tee -a out/diag/wblock-cpu.txt
+  0.0   2128 bash scripts/install_extension.sh wblock out/diag
+  0.0 213952 /Applications/wBlock.app/Contents/MacOS/wBlock
+  0.0   2032 bash scripts/hooks/wblock.sh /Applications/wBlock.app out/diag
+  0.0    656 tee -a out/diag/wblock-cpu.txt
+  0.0   2128 bash scripts/install_extension.sh wblock out/diag
+  0.0 213952 /Applications/wBlock.app/Contents/MacOS/wBlock
+  0.0   2032 bash scripts/hooks/wblock.sh /Applications/wBlock.app out/diag
+  0.0    672 tee -a out/diag/wblock-cpu.txt

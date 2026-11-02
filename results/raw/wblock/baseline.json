@@ -1,0 +1,570 @@
+{
+  "label": "baseline",
+  "safari_version": "26.6.2",
+  "macos": "26.6.2",
+  "timestamp": "2026-11-02T00:14:07Z",
+  "memory_idle": {
+    "safari_mb": 182.8,
+    "webkit_mb": 156.9,
+    "extension_mb": 0.0,
+    "total_mb": 339.7
+  },
+  "adtest": {
+    "network_total": 25,
+    "network_blocked": 0,
+    "controls_ok": true,
+    "control_element_visible": true,
+    "cosmetic_hidden": 0,
+    "cosmetic": [
+      {
+        "selector": "ins.adsbygoogle",
+        "hidden": false
+      },
+      {
+        "selector": "#ad_banner",
+        "hidden": false
+      },
+      {
+        "selector": ".ad-banner",
+        "hidden": false
+      },
+      {
+        "selector": ".advertisement",
+        "hidden": false
+      },
+      {
+        "selector": ".ad-slot",
+        "hidden": false
+      },
+      {
+        "selector": "div-gpt-ad-*",
+        "hidden": false
+      },
+      {
+        "selector": ".sponsored-ad",
+        "hidden": false
+      },
+      {
+        "selector": "#taboola-below-\u2026",
+        "hidden": false
+      },
+      {
+        "selector": ".OUTBRAIN",
+        "hidden": false
+      },
+      {
+        "selector": ".adsbox",
+        "hidden": false
+      }
+    ],
+    "cosmetic_total": 10,
+    "network": [
+      {
+        "url": "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+        "event": "load",
+        "requested": true
+      },
+      {
+        "url": "https://securepubads.g.doubleclick.net/tag/js/gpt.js",
+        "event": "load",
+        "requested": true
+      },
+      {
+        "url": "https://www.googletagservices.com/tag/js/gpt.js",
+        "event": "load",
+        "requested": true
+      },
+      {
+        "url": "https://static.doubleclick.net/instream/ad_status.js",
+        "event": "load",
+        "requested": true
+      },
+      {
+        "url": "https://www.google-analytics.com/analytics.js",
+        "event": "load",
+        "requested": true
+      },
+      {
+        "url": "https://www.googletagmanager.com/gtag/js?id=G-TEST000000",
+        "event": "load",
+        "requested": true
+      },
+      {
+        "url": "https://connect.facebook.net/en_US/fbevents.js",
+        "event": "load",
+        "requested": true
+      },
+      {
+        "url": "https://static.ads-twitter.com/uwt.js",
+        "event": "load",
+        "requested": true
+      },
+      {
+        "url": "https://c.amazon-adsystem.com/aax2/apstag.js",
+        "event": "load",
+        "requested": true
+      },
+      {
+        "url": "https://cdn.taboola.com/libtrc/unip/loader.js",
+        "event": "load",
+        "requested": true
+      },
+      {
+        "url": "https://widgets.outbrain.com/outbrain.js",
+        "event": "load",
+        "requested": true
+      },
+      {
+        "url": "https://acdn.adnxs.com/ast/ast.js",
+        "event": "load",
+        "requested": true
+      },
+      {
+        "url": "https://bat.bing.com/bat.js",
+        "event": "load",
+        "requested": true
+      },
+      {
+        "url": "https://snap.licdn.com/li.lms-analytics/insight.min.js",
+        "event": "load",
+        "requested": true
+      },
+      {
+        "url": "https://static.hotjar.com/c/hotjar-1.js?sv=6",
+        "event": "load",
+        "requested": true
+      },
+      {
+        "url": "https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js",
+        "event": "load",
+        "requested": true
+      },
+      {
+        "url": "https://sb.scorecardresearch.com/beacon.js",
+        "event": "load",
+        "requested": true
+      },
+      {
+        "url": "https://www.clarity.ms/tag/test",
+        "event": "load",
+        "requested": true
+      },
+      {
+        "url": "https://static.criteo.net/js/ld/publishertag.js",
+        "event": "load",
+        "requested": true
+      },
+      {
+        "url": "https://ads.pubmatic.com/AdServer/js/showad.js",
+        "event": "load",
+        "requested": true
+      },
+      {
+        "url": "https://mc.yandex.ru/metrika/tag.js",
+        "event": "load",
+        "requested": true
+      },
+      {
+        "url": "https://secure.quantserve.com/quant.js",
+        "event": "load",
+        "requested": true
+      },
+      {
+        "url": "https://js-agent.newrelic.com/nr-loader-spa-current.min.js",
+        "event": "load",
+        "requested": true
+      },
+      {
+        "url": "https://s.pinimg.com/ct/core.js",
+        "event": "load",
+        "requested": true
+      },
+      {
+        "url": "https://analytics.tiktok.com/i18n/pixel/events.js",
+        "event": "load",
+        "requested": true
+      }
+    ],
+    "controls": [
+      {
+        "url": "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js",
+        "event": "load",
+        "requested": true
+      },
+      {
+        "url": "https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js",
+        "event": "load",
+        "requested": true
+      }
+    ]
+  },
+  "test_sites": {
+    "adblock-tester.com": {
+      "pct": 41,
+      "raw": "41"
+    },
+    "AdBlock Tester (turtlecute)": {
+      "pct": 7.6,
+      "raw": "Total : 132 | 10 blocked | 122 not blocked | Cosmetic Filter | Static Ad | Dynamic Ad | Why does the Cosmetic Filter test fail? | Ad Scripts Loading | ads.js | pagead.js | Why does the Ad Script Loading test fail? | Ad networks | Amazon | adtago.s3.amazonaws.com | analyticsengine.s3.amazonaws.com | "
+    },
+    "Super Adblock Test": {
+      "pct": 11,
+      "raw": "11"
+    },
+    "Blockify Ad-Blocker Test": {
+      "pct": 33,
+      "raw": "Your ad blocker scored 33%. For comprehensive protection against ads, trackers, and malware, try Blockify."
+    }
+  },
+  "sites": {
+    "https://www.cnn.com/": [
+      {
+        "wall_ms": 4307,
+        "load_ms": 3109,
+        "dcl_ms": 2326,
+        "fcp_ms": 1602,
+        "requests": 172,
+        "third_party_requests": 41,
+        "ad_requests": 8,
+        "transfer_kb": 801,
+        "visible_ads": 10
+      },
+      {
+        "wall_ms": 4147,
+        "load_ms": 3051,
+        "dcl_ms": 2230,
+        "fcp_ms": 1357,
+        "requests": 125,
+        "third_party_requests": 26,
+        "ad_requests": 3,
+        "transfer_kb": 801,
+        "visible_ads": 10
+      },
+      {
+        "wall_ms": 3059,
+        "load_ms": 2818,
+        "dcl_ms": 2144,
+        "fcp_ms": 995,
+        "requests": 128,
+        "third_party_requests": 26,
+        "ad_requests": 3,
+        "transfer_kb": 801,
+        "visible_ads": 10
+      }
+    ],
+    "https://www.theguardian.com/international": [
+      {
+        "wall_ms": 65,
+        "load_ms": 636,
+        "dcl_ms": 199,
+        "fcp_ms": 124,
+        "requests": 214,
+        "third_party_requests": 189,
+        "ad_requests": 54,
+        "transfer_kb": 0,
+        "visible_ads": 12
+      },
+      {
+        "wall_ms": 127,
+        "load_ms": 666,
+        "dcl_ms": 265,
+        "fcp_ms": 182,
+        "requests": 209,
+        "third_party_requests": 186,
+        "ad_requests": 51,
+        "transfer_kb": 0,
+        "visible_ads": 12
+      },
+      {
+        "wall_ms": 621,
+        "load_ms": 602,
+        "dcl_ms": 108,
+        "fcp_ms": 51.00000000000001,
+        "requests": 305,
+        "third_party_requests": 280,
+        "ad_requests": 56,
+        "transfer_kb": 0,
+        "visible_ads": 12
+      }
+    ],
+    "https://www.dailymail.co.uk/home/index.html": [
+      {
+        "wall_ms": 623,
+        "load_ms": 3757,
+        "dcl_ms": 1890.0000000000002,
+        "fcp_ms": 87.00000000000001,
+        "requests": 216,
+        "third_party_requests": 188,
+        "ad_requests": 10,
+        "transfer_kb": 53,
+        "visible_ads": 0
+      },
+      {
+        "wall_ms": 958,
+        "load_ms": null,
+        "dcl_ms": 2904,
+        "fcp_ms": 264,
+        "requests": 250,
+        "third_party_requests": 220,
+        "ad_requests": 19,
+        "transfer_kb": 3,
+        "visible_ads": 0
+      },
+      {
+        "wall_ms": 527,
+        "load_ms": null,
+        "dcl_ms": 1889,
+        "fcp_ms": 92,
+        "requests": 250,
+        "third_party_requests": 223,
+        "ad_requests": 21,
+        "transfer_kb": 9,
+        "visible_ads": 0
+      }
+    ],
+    "https://www.forbes.com/": [
+      {
+        "wall_ms": 403,
+        "load_ms": null,
+        "dcl_ms": 386,
+        "fcp_ms": 354,
+        "requests": 116,
+        "third_party_requests": 92,
+        "ad_requests": 27,
+        "transfer_kb": 425,
+        "visible_ads": 1
+      },
+      {
+        "wall_ms": 599,
+        "load_ms": 5761,
+        "dcl_ms": 426,
+        "fcp_ms": 347.00000000000006,
+        "requests": 101,
+        "third_party_requests": 79,
+        "ad_requests": 19,
+        "transfer_kb": 320,
+        "visible_ads": 0
+      },
+      {
+        "wall_ms": 357,
+        "load_ms": 7113,
+        "dcl_ms": 341,
+        "fcp_ms": 298,
+        "requests": 106,
+        "third_party_requests": 83,
+        "ad_requests": 20,
+        "transfer_kb": 321,
+        "visible_ads": 0
+      }
+    ],
+    "https://weather.com/": [
+      {
+        "wall_ms": 1438,
+        "load_ms": 806,
+        "dcl_ms": 590,
+        "fcp_ms": 250,
+        "requests": 247,
+        "third_party_requests": 144,
+        "ad_requests": 66,
+        "transfer_kb": 73,
+        "visible_ads": 8
+      },
+      {
+        "wall_ms": 1576,
+        "load_ms": 387,
+        "dcl_ms": 177,
+        "fcp_ms": 137,
+        "requests": 203,
+        "third_party_requests": 123,
+        "ad_requests": 63,
+        "transfer_kb": 64,
+        "visible_ads": 8
+      },
+      {
+        "wall_ms": 1790,
+        "load_ms": 419,
+        "dcl_ms": 152,
+        "fcp_ms": 120,
+        "requests": 239,
+        "third_party_requests": 142,
+        "ad_requests": 67,
+        "transfer_kb": 64,
+        "visible_ads": 8
+      }
+    ],
+    "https://www.yahoo.com/": [
+      {
+        "wall_ms": 886,
+        "load_ms": 858,
+        "dcl_ms": 705,
+        "fcp_ms": 659,
+        "requests": 276,
+        "third_party_requests": 125,
+        "ad_requests": 49,
+        "transfer_kb": 457,
+        "visible_ads": 4
+      },
+      {
+        "wall_ms": 734,
+        "load_ms": 688,
+        "dcl_ms": 566.0000000000001,
+        "fcp_ms": 545,
+        "requests": 255,
+        "third_party_requests": 108,
+        "ad_requests": 56,
+        "transfer_kb": 235,
+        "visible_ads": 4
+      },
+      {
+        "wall_ms": 730,
+        "load_ms": 681,
+        "dcl_ms": 677,
+        "fcp_ms": 582,
+        "requests": 218,
+        "third_party_requests": 79,
+        "ad_requests": 32,
+        "transfer_kb": 235,
+        "visible_ads": 2
+      }
+    ],
+    "https://www.cnet.com/": [
+      {
+        "wall_ms": 527,
+        "load_ms": 515,
+        "dcl_ms": 492,
+        "fcp_ms": 397,
+        "requests": 234,
+        "third_party_requests": 130,
+        "ad_requests": 61,
+        "transfer_kb": 0,
+        "visible_ads": 2
+      },
+      {
+        "wall_ms": 442,
+        "load_ms": 406,
+        "dcl_ms": 338,
+        "fcp_ms": 219,
+        "requests": 237,
+        "third_party_requests": 133,
+        "ad_requests": 63,
+        "transfer_kb": 0,
+        "visible_ads": 2
+      },
+      {
+        "wall_ms": 461,
+        "load_ms": 422,
+        "dcl_ms": 386,
+        "fcp_ms": 279,
+        "requests": 237,
+        "third_party_requests": 133,
+        "ad_requests": 63,
+        "transfer_kb": 0,
+        "visible_ads": 2
+      }
+    ],
+    "https://www.independent.co.uk/": [
+      {
+        "wall_ms": 2159,
+        "load_ms": 2033,
+        "dcl_ms": 1251,
+        "fcp_ms": 839,
+        "requests": 148,
+        "third_party_requests": 107,
+        "ad_requests": 43,
+        "transfer_kb": 862,
+        "visible_ads": 4
+      },
+      {
+        "wall_ms": 2106,
+        "load_ms": 2077,
+        "dcl_ms": 1046,
+        "fcp_ms": 501,
+        "requests": 169,
+        "third_party_requests": 128,
+        "ad_requests": 57,
+        "transfer_kb": 294,
+        "visible_ads": 2
+      },
+      {
+        "wall_ms": 1233,
+        "load_ms": 1212,
+        "dcl_ms": 758,
+        "fcp_ms": 544,
+        "requests": 145,
+        "third_party_requests": 104,
+        "ad_requests": 45,
+        "transfer_kb": 294,
+        "visible_ads": 4
+      }
+    ],
+    "https://www.huffpost.com/": [
+      {
+        "error": "timeout: "
+      },
+      {
+        "wall_ms": 10054,
+        "load_ms": 10024,
+        "dcl_ms": 494,
+        "fcp_ms": 222,
+        "requests": 250,
+        "third_party_requests": 218,
+        "ad_requests": 70,
+        "transfer_kb": 125,
+        "visible_ads": 21
+      },
+      {
+        "wall_ms": 9642,
+        "load_ms": 8402.000000000002,
+        "dcl_ms": 737,
+        "fcp_ms": 222,
+        "requests": 250,
+        "third_party_requests": 216,
+        "ad_requests": 63,
+        "transfer_kb": 125,
+        "visible_ads": 21
+      }
+    ],
+    "https://www.allrecipes.com/": [
+      {
+        "wall_ms": 2586,
+        "load_ms": 379,
+        "dcl_ms": 267,
+        "fcp_ms": 188,
+        "requests": 198,
+        "third_party_requests": 139,
+        "ad_requests": 59,
+        "transfer_kb": 235,
+        "visible_ads": 1
+      },
+      {
+        "wall_ms": 2649,
+        "load_ms": 307,
+        "dcl_ms": 205.00000000000003,
+        "fcp_ms": 172,
+        "requests": 194,
+        "third_party_requests": 135,
+        "ad_requests": 58,
+        "transfer_kb": 10,
+        "visible_ads": 1
+      },
+      {
+        "wall_ms": 1350,
+        "load_ms": 217,
+        "dcl_ms": 166,
+        "fcp_ms": 141,
+        "requests": 195,
+        "third_party_requests": 136,
+        "ad_requests": 60,
+        "transfer_kb": 10,
+        "visible_ads": 1
+      }
+    ]
+  },
+  "memory_loaded": {
+    "safari_mb": 145.7,
+    "webkit_mb": 2972.6,
+    "extension_mb": 0.0,
+    "total_mb": 3118.3
+  },
+  "speedometer": 10.4
+}
