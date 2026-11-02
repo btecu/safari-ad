@@ -75,13 +75,17 @@ jobs:
           echo "::group::pluginkit (+ = enabled)"; cat out/diag/pluginkit-*.txt; echo "::endgroup::"
 
       - name: With ${{ matrix.id }} - normal Safari window
-        run: python3 harness/normal_check.py --label extension --out out/results/normal-extension.json --shots "out/results/shots/${{ matrix.id }}"
+        run: |
+          APP=$(jq -r --arg id "${{ matrix.id }}" '.extensions[] | select(.id == $id) | .app' extensions/manifest.json)
+          scripts/ensure_enabled.sh "/Applications/$APP"
+          python3 harness/normal_check.py --label extension --out out/results/normal-extension.json --shots "out/results/shots/${{ matrix.id }}"
 
       - name: With ${{ matrix.id }} - WebDriver benchmarks
         run: |
           APP=$(jq -r --arg id "${{ matrix.id }}" '.extensions[] | select(.id == $id) | .app' extensions/manifest.json)
           # Quit the containing app; only its Safari extensions should be running during the test.
           pkill -f "/Applications/$APP/Contents/MacOS/" || true
+          scripts/ensure_enabled.sh "/Applications/$APP"
           python3 harness/run.py --label "${{ matrix.id }}" --out out/results/extension.json \
             --iterations "$ITER" $SPEEDO --ext-process "/Applications/$APP/"
 

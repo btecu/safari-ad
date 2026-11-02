@@ -13,11 +13,21 @@ osascript "$(dirname "$0")/wblock-onboarding.applescript" "$DIAG" | tee "$DIAG/w
   || echo "::warning::wBlock onboarding script failed"
 
 # Wait for wBlock to download + compile filter lists (rules_*_macos.json in its app group).
-for i in $(seq 1 60); do
-  size=$(find "$GC" -maxdepth 1 -name 'rules_*_macos.json' -size +100k 2>/dev/null | wc -l | tr -d ' ')
-  [[ "$size" -ge 3 ]] && { echo "wBlock rules ready after $((i * 5))s"; break; }
+# Converting ~170k rules is slow on a CI VM; log wBlock's CPU use each minute so a stall (idle) can be
+# told apart from slow progress (busy), and screenshot the progress dialog.
+ready=0
+for i in $(seq 1 240); do
+  n=$(find "$GC" -maxdepth 1 -name 'rules_*_macos.json' -size +100k 2>/dev/null | wc -l | tr -d ' ')
+  if [[ "$n" -ge 3 ]]; then echo "wBlock rules ready after $((i * 5))s"; ready=1; break; fi
+  if (( i % 12 == 0 )); then
+    m=$((i / 12))
+    echo "--- ${m} min: $n compiled rule files; wBlock processes (%CPU RSS command):"
+    ps -axo %cpu=,rss=,command= | grep -i '[w]Block' | cut -c1-160 | tee -a "$DIAG/wblock-cpu.txt"
+    (( m % 5 == 0 )) && screencapture -x "$DIAG/wblock-progress-${m}min.png"
+  fi
   sleep 5
 done
+[[ $ready == 1 ]] || echo "::warning::wBlock didn't finish compiling its rules within 20 minutes"
 sleep 20 # let the last lists finish and Safari reload the blockers
 screencapture -x "$DIAG/wblock-after-setup.png"
 ls -la "$GC" > "$DIAG/wblock-group-container.txt" 2>&1 || true

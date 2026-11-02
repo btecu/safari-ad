@@ -7,6 +7,7 @@ Safari keeps per-extension state, keyed "<bundle id> (<team id>)", in:
 under ~/Library/Containers/com.apple.Safari/Data/Library/Safari/. Safari must not be running.
 
 Usage: scripts/enable_in_safari.py "/Applications/Some Blocker.app"
+       scripts/enable_in_safari.py --check "/Applications/Some Blocker.app"   (print stored state)
 Exit code 2 if the Safari container can't be written (missing Full Disk Access / TCC).
 """
 import datetime
@@ -41,7 +42,36 @@ def save(path, data):
         plistlib.dump(data, f, fmt=plistlib.FMT_BINARY)
 
 
+def check(app):
+    """Print what Safari currently has stored for this app's extensions; exit 1 if any is off
+    or (for web extensions) lacks all-websites access. Safari rewrites these files when it quits."""
+    web = load(SAFARI / "WebExtensions/Extensions.plist")
+    cb = load(SAFARI / "AppExtensions/ContentBlockers.plist")
+    ok = True
+    for appex in sorted((app / "Contents/PlugIns").glob("*.appex")):
+        with open(appex / "Contents/Info.plist", "rb") as f:
+            info = plistlib.load(f)
+        point = info.get("NSExtension", {}).get("NSExtensionPointIdentifier", "")
+        key = f"{info['CFBundleIdentifier']} ({team_id(appex) or team_id(app)})"
+        if point == "com.apple.Safari.content-blocker":
+            e = cb.get(key, {})
+            good = bool(e.get("Enabled"))
+            print(f"{'OK ' if good else 'BAD'} content blocker {key}: Enabled={e.get('Enabled')}")
+        elif point == "com.apple.Safari.web-extension":
+            e = web.get(key, {})
+            origins = list(e.get("GrantedPermissionOrigins", {}))
+            good = bool(e.get("Enabled")) and "*://*/*" in origins
+            print(f"{'OK ' if good else 'BAD'} web extension   {key}: Enabled={e.get('Enabled')} "
+                  f"origins={origins} revoked={list(e.get('RevokedPermissionOrigins', {}))}")
+        else:
+            continue
+        ok &= good
+    return 0 if ok else 1
+
+
 def main():
+    if sys.argv[1] == "--check":
+        return check(Path(sys.argv[2]))
     app = Path(sys.argv[1])
     now = datetime.datetime.utcnow().replace(microsecond=0)
     web_path, cb_path = SAFARI / "WebExtensions/Extensions.plist", SAFARI / "AppExtensions/ContentBlockers.plist"

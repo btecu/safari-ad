@@ -26,8 +26,7 @@ def open_url(url):
 
 
 def quit_safari():
-    osa('tell application "Safari" to quit')
-    time.sleep(2)
+    subprocess.run([str(ROOT / "scripts/quit_safari.sh")], check=False)
 
 
 def screenshot(path):

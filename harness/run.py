@@ -102,8 +102,29 @@ return {
   load: nav.loadEventEnd || null,
   fcp: paint ? paint.startTime : null,
   transfer_bytes: res.reduce((a, r) => a + (r.transferSize || 0), 0) + (nav.transferSize || 0),
-  resources: res.map(r => r.name)
+  resources: res.map(r => r.name),
+  visible_ads: visibleAds()
 };
+
+// Visible ad slots: elements matching common ad-container selectors that are on screen and at least
+// 30x30px. Nested matches count once (only the outermost matching element).
+function visibleAds() {
+  const SEL = [
+    'ins.adsbygoogle', '[id^="div-gpt-ad"]', '[id^="google_ads_iframe"]', '[data-google-query-id]',
+    'iframe[src*="doubleclick.net"]', 'iframe[src*="googlesyndication.com"]', 'iframe[src*="amazon-adsystem.com"]',
+    'iframe[id^="google_ads"]', '[data-ad-slot]', '[data-ad-unit]', '[aria-label="Advertisement" i]',
+    '[id^="taboola-"]', '.trc_rbox_container', '.OUTBRAIN', '[data-widget-id][class*="ob-"]',
+    '.ad-slot', '.ad-container', '.ad-unit', '.advertisement', '[class^="ad-"][class*="slot"]'
+  ].join(',');
+  let n = 0;
+  for (const el of document.querySelectorAll(SEL)) {
+    if (el.parentElement && el.parentElement.closest(SEL)) continue;
+    const r = el.getBoundingClientRect(), cs = getComputedStyle(el);
+    if (r.width >= 30 && r.height >= 30 && cs.display !== 'none' && cs.visibility !== 'hidden'
+        && parseFloat(cs.opacity) > 0) n++;
+  }
+  return n;
+}
 """
 
 
@@ -210,7 +231,11 @@ def run_sites(s, sites, iterations, hosts):
                 t0 = time.time()
                 s.get(url)
                 wall = (time.time() - t0) * 1000
-                time.sleep(3)  # let late/lazy ad requests fire
+                # Scroll once to trigger lazy-loaded ads, come back, let late ad requests fire.
+                s.js("window.scrollTo(0, document.body.scrollHeight / 2)")
+                time.sleep(2)
+                s.js("window.scrollTo(0, 0)")
+                time.sleep(2)
                 m = s.js(PAGE_METRICS_JS)
                 third = [u for u in m["resources"] if urlparse(u).hostname
                          and not _same_site(urlparse(u).hostname, urlparse(url).hostname)]
@@ -219,6 +244,7 @@ def run_sites(s, sites, iterations, hosts):
                     "requests": len(m["resources"]), "third_party_requests": len(third),
                     "ad_requests": sum(is_ad(u, hosts) for u in m["resources"]),
                     "transfer_kb": round(m["transfer_bytes"] / 1024),
+                    "visible_ads": m["visible_ads"],
                 })
             except Exception as e:  # sites blocking CI IPs, timeouts, etc.
                 runs.append({"error": str(e)[:200]})

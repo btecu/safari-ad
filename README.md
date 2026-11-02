@@ -112,9 +112,10 @@ shared virtual machines GitHub hands out.
 | Test | How |
 |---|---|
 | **Ad/tracker requests blocked** | `fixtures/adtest.html` tries to load 25 well-known ad and tracker scripts. A request counts as blocked if it never shows up in the Resource Timing API. Only scripts that loaded in the baseline count, so a host that's unreachable from CI isn't scored as "blocked". |
-| **Ad elements hidden** | Elements on the same page that EasyList's generic hiding rules target (`.adsbygoogle`, `#ad_banner`, `div-gpt-ad-*`, …). |
+| **Generic hiding rules** | Elements on the same test page that EasyList's generic hiding rules target (`.adsbygoogle`, `#ad_banner`, `div-gpt-ad-*`, …). These rules apply on any site. Some blockers only use them in a non-default mode, so this can be 0 with default settings. |
 | **Breakage** | Two normal CDN scripts and a plain element on the page must still load and stay visible. |
 | **Ad requests on real sites** | Each site in `harness/sites.json` is loaded and every request to a domain in `harness/ad_hosts.txt` is counted. |
+| **Visible ads on real sites** | After each page loads (and is scrolled once to trigger lazy-loaded ads), visible ad slots are counted: Google ad tags and iframes, Taboola and Outbrain widgets, elements labelled "Advertisement", and similar. Only slots at least 30×30 px count, and nested slots count once. This captures both blocked ad requests and hidden ad elements. |
 | **Page load time** | `loadEventEnd` from the Navigation Timing API, median of N loads per site after one discarded warm-up load, then the median across sites. |
 | **Data transferred** | Sum of the `transferSize` values reported for the page. |
 | **Memory** | Resident memory (RSS) of Safari, the WebKit helper processes and the extension's own processes, measured idle and with 6 sites open in tabs (median of 5 samples). |

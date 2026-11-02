@@ -53,9 +53,10 @@ def summarize(ext_id, name, base, ext, nbase, next_):
     # Is the extension active at all? Compare the fixture in a normal window vs. a WebDriver window.
     s["active_normal"] = blocked_count((nbase or {}).get("adtest"), (next_ or {}).get("adtest"))
     s["active_webdriver"] = blocked_count(base["adtest"], ext["adtest"])
-    # Ad blocking: prefer the normal-window run (WebDriver windows may not load extensions).
-    # Only count probes that actually loaded in the baseline (reachable from the runner).
-    use_normal = bool(s["active_normal"])
+    # Ad blocking: use whichever window shows the blocker active (more probes blocked; ties go to
+    # the normal window). Only probes that loaded in the baseline (reachable from the runner) count.
+    use_normal = bool(s["active_normal"]) and (
+        not s["active_webdriver"] or s["active_normal"][0] >= s["active_webdriver"][0])
     s["blocking_source"] = "normal window" if use_normal else "WebDriver"
     bt, et = (nbase["adtest"], next_["adtest"]) if use_normal else (base["adtest"], ext["adtest"])
     reachable = [i for i, r in enumerate(bt["network"]) if r["requested"]]
@@ -68,11 +69,13 @@ def summarize(ext_id, name, base, ext, nbase, next_):
     s["missed"] = [et["network"][i]["url"] for i in reachable if i not in blocked]
 
     for key, label in [("load_ms", "load"), ("ad_requests", "ads"), ("requests", "requests"),
-                       ("transfer_kb", "transfer")]:
+                       ("transfer_kb", "transfer"), ("visible_ads", "visible_ads")]:
         b, e, n = paired(base, ext, key)
         s[f"{label}_baseline"], s[f"{label}_ext"], s["sites_compared"] = b, e, n
     s["load_delta_pct"] = pct(s["load_baseline"], s["load_ext"])
     s["ads_reduction_pct"] = -pct(s["ads_baseline"], s["ads_ext"]) if s["ads_baseline"] else None
+    s["visible_ads_reduction_pct"] = (-pct(s["visible_ads_baseline"], s["visible_ads_ext"])
+                                      if s["visible_ads_baseline"] else None)
     s["transfer_delta_pct"] = pct(s["transfer_baseline"], s["transfer_ext"])
 
     for phase in ("idle", "loaded"):
@@ -104,22 +107,29 @@ def render(rows, generated):
          f"measured on the same runner._", ""]
 
     L += ["### Was the blocker active?", "",
-          "Test-page requests blocked, in a normal Safari window vs. a WebDriver (automation) window. "
-          "If the WebDriver column is 0 but the normal column isn't, Safari isn't loading extensions in "
-          "automation windows, and the WebDriver-based speed/real-site numbers mostly reflect no blocking.", "",
+          "Test-page requests blocked in a normal Safari window and in a WebDriver (automation) window, "
+          "which runs the speed, real-site and test-site benchmarks. Both should be well above 0; a 0 means "
+          "the blocker wasn't active in that window for that run (see `results/diag/`).", "",
           "| Extension | Normal window | WebDriver window |", "|---|---|---|"]
     for r in rows:
         f = lambda t: f"{t[0]}/{t[1]}" if t else "—"
         L.append(f"| **{r['name']}** | {f(r['active_normal'])} | {f(r['active_webdriver'])} |")
 
     L += ["", "### Ad blocking", "",
-          "| Extension | Ad/tracker requests blocked | Ad elements hidden | Ad requests per page (none → with blocker) | Nothing broken |",
-          "|---|---|---|---|---|"]
+          "Real-site columns are medians across the sites in `harness/sites.json`, without → with the blocker.", "",
+          "| Extension | Ad/tracker requests blocked (test page) | Ad requests per page (real sites) "
+          "| Visible ads per page (real sites) | Generic hiding rules (test page) | Nothing broken |",
+          "|---|---|---|---|---|---|"]
     for r in rows:
         L.append(f"| **{r['name']}** | {fmt(r['network_block_pct'], '%')} ({r['network_blocked']}/{r['network_reachable']}) "
-                 f"| {fmt(r['cosmetic_pct'], '%')} ({r['cosmetic_hidden']}/{r['cosmetic_total']}) "
                  f"| {fmt(r['ads_baseline'])} → {fmt(r['ads_ext'])} ({fmt(r['ads_reduction_pct'], '% fewer')}) "
+                 f"| {fmt(r.get('visible_ads_baseline'))} → {fmt(r.get('visible_ads_ext'))} "
+                 f"({fmt(r.get('visible_ads_reduction_pct'), '% fewer')}) "
+                 f"| {r['cosmetic_hidden']}/{r['cosmetic_total']} "
                  f"| {'✅' if r['no_breakage'] else '⚠️'} |")
+    L += ["", "_Generic hiding rules hide ad-like elements on any site. Some blockers only use them in a "
+          "non-default mode (uBlock Origin Lite: \"Complete\"), so 0 there is expected with default settings. "
+          "Visible ads on real sites is the better measure of hidden ads._"]
 
     sites = sorted({k for r in rows for k in r["test_sites"]})
     if sites:
@@ -194,6 +204,12 @@ def main():
         # Screenshots -> results/screenshots/<id>/ (each job's "baseline" set overwrites the previous one).
         for sub in (d / "shots").glob("*") if (d / "shots").exists() else []:
             shutil.copytree(sub, shots_dir / sub.name, dirs_exist_ok=True)
+        # Raw per-run JSON, for digging into a result without downloading artifacts.
+        raw = ROOT / "results" / "raw" / d.name
+        shutil.rmtree(raw, ignore_errors=True)
+        raw.mkdir(parents=True)
+        for f in d.glob("*.json"):
+            shutil.copy(f, raw / f.name)
         diag = ROOT / "results" / "diag" / d.name
         shutil.rmtree(diag, ignore_errors=True)
         if (d / "diag").exists():

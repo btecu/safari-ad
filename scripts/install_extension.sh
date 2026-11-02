@@ -34,18 +34,17 @@ echo "::endgroup::"
 
 echo "::group::Enable in Safari"
 # Safari must be quit while its extension-state plists are edited.
-osascript -e 'tell application "Safari" to quit' 2>/dev/null || true
-sleep 2
+scripts/quit_safari.sh
 if ! python3 scripts/enable_in_safari.py "$APP_PATH"; then
   echo "::warning::Couldn't write Safari's settings files; falling back to clicking through Safari Settings"
   osascript scripts/enable_in_safari.applescript "$DIAG/safari-settings-ui.txt" "${NAMES[@]}" \
     || echo "::warning::Safari UI enable script failed (see diagnostics)"
-  osascript -e 'tell application "Safari" to quit' 2>/dev/null || true
+  scripts/quit_safari.sh
 fi
 # Launch Safari once so it loads the new state (apps querying "is my blocker enabled?" then see it).
 open -a Safari "http://127.0.0.1:8000/fixtures/adtest.html"
 sleep 10
-osascript -e 'tell application "Safari" to quit' 2>/dev/null || true
+scripts/quit_safari.sh
 echo "::endgroup::"
 
 # Launch the containing app once (some extensions only register / build rules after first launch),
@@ -59,11 +58,15 @@ if [[ -n "$HOOK" ]]; then
 fi
 
 # Screenshot the fixture with the blocker fully set up.
-osascript -e 'tell application "Safari" to quit' 2>/dev/null || true
+scripts/quit_safari.sh
 open -a Safari "http://127.0.0.1:8000/fixtures/adtest.html"
 sleep 10
 screencapture -x "$DIAG/after-enable.png" || true
-osascript -e 'tell application "Safari" to quit' 2>/dev/null || true
+scripts/quit_safari.sh
 
 pluginkit -mAvvv -p com.apple.Safari.content-blocker > "$DIAG/pluginkit-content-blockers.txt" 2>&1 || true
 pluginkit -mAvvv -p com.apple.Safari.web-extension  > "$DIAG/pluginkit-web-extensions.txt" 2>&1 || true
+
+echo "::group::Stored Safari extension state"
+scripts/ensure_enabled.sh "$APP_PATH"
+echo "::endgroup::"
