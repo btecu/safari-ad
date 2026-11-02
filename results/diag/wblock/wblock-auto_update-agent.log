@@ -1,0 +1,8 @@
+[2026-11-02T14:07:31Z] telemetry event=run_skip reason=already_running trigger=BecomeActive
+[2026-11-02T14:07:31Z] telemetry event=run_skip reason=onboarding_incomplete trigger=AppLaunch
+[2026-11-02T14:07:34Z] telemetry event=run_skip reason=onboarding_incomplete trigger=XPCService
+[2026-11-02T14:18:20Z] Auto-update started: trigger=XPCService, forced=false, intervalHours=6.0
+[2026-11-02T14:18:20Z] telemetry event=run_start forced=false interval_hours=6.0 trigger=XPCService
+[2026-11-02T14:18:21Z] Prepared removeparam DNR rules: generated=5878 source=5639 exceptions=131 skipped=200 truncated=0
+[2026-11-02T14:22:35Z] Cleared previous auto-update marker after acquiring kernel lease
+[2026-11-02T14:22:35Z] telemetry event=run_skip reason=throttled_legacy_interval remaining_seconds=21344 trigger=XPCService

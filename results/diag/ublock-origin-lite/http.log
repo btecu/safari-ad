@@ -1,9 +1,35 @@
-127.0.0.1 - - [02/Nov/2026 02:38:08] "GET /fixtures/adtest.html?report=normal-baseline HTTP/1.1" 200 -
-127.0.0.1 - - [02/Nov/2026 02:38:10] code 404, message File not found
-127.0.0.1 - - [02/Nov/2026 02:38:10] "GET /favicon.ico HTTP/1.1" 404 -
-127.0.0.1 - - [02/Nov/2026 02:38:11] "POST /report?name=normal-baseline HTTP/1.1" 204 -
-127.0.0.1 - - [02/Nov/2026 02:38:49] "GET /fixtures/adtest.html HTTP/1.1" 200 -
-127.0.0.1 - - [02/Nov/2026 02:48:08] "GET /fixtures/adtest.html HTTP/1.1" 200 -
-127.0.0.1 - - [02/Nov/2026 02:48:46] "GET /fixtures/adtest.html?report=normal-extension HTTP/1.1" 200 -
-127.0.0.1 - - [02/Nov/2026 02:48:48] "POST /report?name=normal-extension HTTP/1.1" 204 -
-127.0.0.1 - - [02/Nov/2026 02:49:27] "GET /fixtures/adtest.html HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2026 13:56:45] "GET /fixtures/adtest.html?report=normal-baseline HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2026 13:56:47] code 404, message File not found
+127.0.0.1 - - [02/Nov/2026 13:56:47] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [02/Nov/2026 13:56:48] "POST /report?name=normal-baseline HTTP/1.1" 204 -
+127.0.0.1 - - [02/Nov/2026 13:57:28] "GET /fixtures/adtest.html HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2026 14:09:34] "GET /fixtures/adtest.html HTTP/1.1" 200 -
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 49451)
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.15/3.15.1/Frameworks/Python.framework/Versions/3.15/lib/python3.15/socketserver.py", line 694, in process_request_thread
+    self.finish_request(request, client_address)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.15/3.15.1/Frameworks/Python.framework/Versions/3.15/lib/python3.15/socketserver.py", line 359, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.15/3.15.1/Frameworks/Python.framework/Versions/3.15/lib/python3.15/http/server.py", line 754, in __init__
+    super().__init__(*args, **kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.15/3.15.1/Frameworks/Python.framework/Versions/3.15/lib/python3.15/socketserver.py", line 763, in __init__
+    self.handle()
+    ~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.15/3.15.1/Frameworks/Python.framework/Versions/3.15/lib/python3.15/http/server.py", line 474, in handle
+    self.handle_one_request()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.15/3.15.1/Frameworks/Python.framework/Versions/3.15/lib/python3.15/http/server.py", line 442, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+                           ~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.15/3.15.1/Frameworks/Python.framework/Versions/3.15/lib/python3.15/socket.py", line 738, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [Errno 54] Connection reset by peer
+----------------------------------------
+127.0.0.1 - - [02/Nov/2026 14:10:12] "GET /fixtures/adtest.html?report=normal-extension HTTP/1.1" 200 -
+127.0.0.1 - - [02/Nov/2026 14:10:14] "POST /report?name=normal-extension HTTP/1.1" 204 -
+127.0.0.1 - - [02/Nov/2026 14:10:56] "GET /fixtures/adtest.html HTTP/1.1" 200 -
