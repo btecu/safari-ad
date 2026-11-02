@@ -1,23 +1,69 @@
-total 27104
-drwx------@ 22 runner  staff      704 Nov  2 00:27 .
-drwx------  82 runner  staff     2624 Nov  2 00:25 ..
--rw-r--r--   1 runner  staff      611 Nov  2 00:25 .com.apple.containermanagerd.metadata.plist
--rw-------@  1 runner  staff        0 Nov  2 00:27 .pending-filter-update-revisions.json.lock
--rw-r--r--@  1 runner  staff   135672 Nov  2 00:27 Actually Legitimate URL Shortener Tool.txt
--rw-r--r--@  1 runner  staff  3183747 Nov  2 00:27 AdGuard Base Filter.txt
--rw-r--r--@  1 runner  staff   965592 Nov  2 00:27 AdGuard Cookie Notices.txt
--rw-r--r--@  1 runner  staff  3090928 Nov  2 00:27 AdGuard Tracking Protection Filter.txt
--rw-r--r--@  1 runner  staff   106096 Nov  2 00:27 AdGuard URL Tracking Protection Filter.txt
--rw-r--r--@  1 runner  staff      369 Nov  2 00:40 auto_update.log
--rw-------@  1 runner  staff        0 Nov  2 00:27 auto-update.run.lock
--rw-r--r--@  1 runner  staff        2 Nov  2 00:27 blocked_count_dnr_rules.json
--rw-r--r--@  1 runner  staff  4928388 Nov  2 00:27 dnr-extraction-cache.json
--rw-------@  1 runner  staff        0 Nov  2 00:25 filter-update-popup.lock
-drwx------   6 runner  staff      192 Nov  2 00:25 Library
--rw-r--r--@  1 runner  staff     3676 Nov  2 00:27 pending-filter-update-revisions.json
--rw-r--r--@  1 runner  staff    70044 Nov  2 00:27 Peter Lowe's Blocklist.txt
-drwxr-xr-x@  5 runner  staff      160 Nov  2 00:27 ProtobufData
--rw-r--r--@  1 runner  staff        0 Nov  2 00:27 redirect_carveouts.txt
--rw-r--r--@  1 runner  staff  1356040 Nov  2 00:27 removeparam_dnr_rules.json
-drwxr-xr-x@  3 runner  staff       96 Nov  2 00:25 userscripts
--rw-r--r--@  1 runner  staff     1525 Nov  2 00:27 wBlock Ad and Tracking Hosts.txt
+total 111920
+drwx------@ 68 runner  staff      2176 Nov  2 03:00 .
+drwx------  82 runner  staff      2624 Nov  2 02:49 ..
+-rw-r--r--   1 runner  staff       612 Nov  2 02:49 .com.apple.containermanagerd.metadata.plist
+-rw-------@  1 runner  staff         0 Nov  2 02:50 .pending-filter-update-revisions.json.lock
+-rw-------@  1 runner  staff         0 Nov  2 03:00 .rules_ads_macos.base.json.lock
+-rw-------@  1 runner  staff         0 Nov  2 03:00 .rules_ads_macos.json.lock
+-rw-------@  1 runner  staff         0 Nov  2 03:00 .rules_custom_macos.base.json.lock
+-rw-------@  1 runner  staff         0 Nov  2 03:00 .rules_custom_macos.json.lock
+-rw-------@  1 runner  staff         0 Nov  2 03:00 .rules_foreign_experimental_macos.base.json.lock
+-rw-------@  1 runner  staff         0 Nov  2 03:00 .rules_foreign_experimental_macos.json.lock
+-rw-------@  1 runner  staff         0 Nov  2 03:00 .rules_privacy_macos.base.json.lock
+-rw-------@  1 runner  staff         0 Nov  2 03:00 .rules_privacy_macos.json.lock
+-rw-------@  1 runner  staff         0 Nov  2 03:00 .rules_security_annoyances_macos.base.json.lock
+-rw-------@  1 runner  staff         0 Nov  2 03:00 .rules_security_annoyances_macos.json.lock
+drwxr-xr-x@ 11 runner  staff       352 Nov  2 03:00 .webext
+-rw-r--r--@  1 runner  staff    135672 Nov  2 02:50 Actually Legitimate URL Shortener Tool.txt
+-rw-r--r--@  1 runner  staff   3181048 Nov  2 02:50 AdGuard Base Filter.txt
+-rw-r--r--@  1 runner  staff    965693 Nov  2 02:50 AdGuard Cookie Notices.txt
+-rw-r--r--@  1 runner  staff   3090948 Nov  2 02:50 AdGuard Tracking Protection Filter.txt
+-rw-r--r--@  1 runner  staff    106096 Nov  2 02:50 AdGuard URL Tracking Protection Filter.txt
+-rw-r--r--@  1 runner  staff      1196 Nov  2 03:00 auto_update.log
+-rw-------@  1 runner  staff         0 Nov  2 02:50 auto-update.run.lock
+-rw-r--r--@  1 runner  staff         2 Nov  2 03:00 blocked_count_dnr_rules.json
+-rw-r--r--@  1 runner  staff   4926111 Nov  2 02:50 dnr-extraction-cache.json
+-rw-------@  1 runner  staff         0 Nov  2 02:49 filter-update-popup.lock
+drwx------   6 runner  staff       192 Nov  2 02:49 Library
+-rw-r--r--@  1 runner  staff      3674 Nov  2 02:50 pending-filter-update-revisions.json
+-rw-r--r--@  1 runner  staff     70044 Nov  2 02:50 Peter Lowe's Blocklist.txt
+drwxr-xr-x@  5 runner  staff       160 Nov  2 03:00 ProtobufData
+-rw-r--r--@  1 runner  staff         0 Nov  2 03:00 redirect_carveouts.txt
+-rw-r--r--@  1 runner  staff   1356040 Nov  2 03:00 removeparam_dnr_rules.json
+-rw-r--r--@  1 runner  staff  12444229 Nov  2 03:00 rules_ads_macos.base.json
+-rw-r--r--@  1 runner  staff     77774 Nov  2 03:00 rules_ads_macos.base.json.advanced.txt
+-rw-r--r--@  1 runner  staff         6 Nov  2 03:00 rules_ads_macos.base.json.count
+-rw-r--r--@  1 runner  staff        64 Nov  2 03:00 rules_ads_macos.base.json.sha256
+-rw-r--r--@  1 runner  staff  12444229 Nov  2 03:00 rules_ads_macos.json
+-rw-r--r--@  1 runner  staff       108 Nov  2 03:00 rules_ads_macos.json.incremental-state.json
+-rw-r--r--@  1 runner  staff       230 Nov  2 03:00 rules_ads_macos.json.source-rule-provenance.json
+-rw-r--r--@  1 runner  staff     25849 Nov  2 03:00 rules_custom_macos.base.json
+-rw-r--r--@  1 runner  staff      2968 Nov  2 03:00 rules_custom_macos.base.json.advanced.txt
+-rw-r--r--@  1 runner  staff         3 Nov  2 03:00 rules_custom_macos.base.json.count
+-rw-r--r--@  1 runner  staff        64 Nov  2 03:00 rules_custom_macos.base.json.sha256
+-rw-r--r--@  1 runner  staff     25849 Nov  2 03:00 rules_custom_macos.json
+-rw-r--r--@  1 runner  staff       108 Nov  2 03:00 rules_custom_macos.json.incremental-state.json
+-rw-r--r--@  1 runner  staff       312 Nov  2 03:00 rules_custom_macos.json.source-rule-provenance.json
+-rw-r--r--@  1 runner  staff    835552 Nov  2 03:00 rules_foreign_experimental_macos.base.json
+-rw-r--r--@  1 runner  staff      3205 Nov  2 03:00 rules_foreign_experimental_macos.base.json.advanced.txt
+-rw-r--r--@  1 runner  staff         4 Nov  2 03:00 rules_foreign_experimental_macos.base.json.count
+-rw-r--r--@  1 runner  staff        64 Nov  2 03:00 rules_foreign_experimental_macos.base.json.sha256
+-rw-r--r--@  1 runner  staff    835552 Nov  2 03:00 rules_foreign_experimental_macos.json
+-rw-r--r--@  1 runner  staff       108 Nov  2 03:00 rules_foreign_experimental_macos.json.incremental-state.json
+-rw-r--r--@  1 runner  staff       310 Nov  2 03:00 rules_foreign_experimental_macos.json.source-rule-provenance.json
+-rw-r--r--@  1 runner  staff   6361989 Nov  2 03:00 rules_privacy_macos.base.json
+-rw-r--r--@  1 runner  staff   1144718 Nov  2 03:00 rules_privacy_macos.base.json.advanced.txt
+-rw-r--r--@  1 runner  staff         5 Nov  2 03:00 rules_privacy_macos.base.json.count
+-rw-r--r--@  1 runner  staff        64 Nov  2 03:00 rules_privacy_macos.base.json.sha256
+-rw-r--r--@  1 runner  staff   6361989 Nov  2 03:00 rules_privacy_macos.json
+-rw-r--r--@  1 runner  staff       108 Nov  2 03:00 rules_privacy_macos.json.incremental-state.json
+-rw-r--r--@  1 runner  staff       228 Nov  2 03:00 rules_privacy_macos.json.source-rule-provenance.json
+-rw-r--r--@  1 runner  staff   1118725 Nov  2 03:00 rules_security_annoyances_macos.base.json
+-rw-r--r--@  1 runner  staff    519345 Nov  2 03:00 rules_security_annoyances_macos.base.json.advanced.txt
+-rw-r--r--@  1 runner  staff         4 Nov  2 03:00 rules_security_annoyances_macos.base.json.count
+-rw-r--r--@  1 runner  staff        64 Nov  2 03:00 rules_security_annoyances_macos.base.json.sha256
+-rw-r--r--@  1 runner  staff   1118725 Nov  2 03:00 rules_security_annoyances_macos.json
+-rw-r--r--@  1 runner  staff       108 Nov  2 03:00 rules_security_annoyances_macos.json.incremental-state.json
+-rw-r--r--@  1 runner  staff       269 Nov  2 03:00 rules_security_annoyances_macos.json.source-rule-provenance.json
+drwxr-xr-x@  3 runner  staff        96 Nov  2 02:49 userscripts
+-rw-r--r--@  1 runner  staff      1525 Nov  2 02:50 wBlock Ad and Tracking Hosts.txt

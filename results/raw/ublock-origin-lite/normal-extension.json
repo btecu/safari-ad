@@ -5,127 +5,127 @@
       {
         "url": "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
         "event": "load",
-        "requested": false
+        "requested": true
       },
       {
         "url": "https://securepubads.g.doubleclick.net/tag/js/gpt.js",
         "event": "load",
-        "requested": false
+        "requested": true
       },
       {
         "url": "https://www.googletagservices.com/tag/js/gpt.js",
         "event": "load",
-        "requested": false
+        "requested": true
       },
       {
         "url": "https://static.doubleclick.net/instream/ad_status.js",
         "event": "load",
-        "requested": false
+        "requested": true
       },
       {
         "url": "https://www.google-analytics.com/analytics.js",
         "event": "load",
-        "requested": false
+        "requested": true
       },
       {
         "url": "https://www.googletagmanager.com/gtag/js?id=G-TEST000000",
         "event": "load",
-        "requested": false
+        "requested": true
       },
       {
         "url": "https://connect.facebook.net/en_US/fbevents.js",
-        "event": "error",
-        "requested": false
+        "event": "load",
+        "requested": true
       },
       {
         "url": "https://static.ads-twitter.com/uwt.js",
-        "event": "error",
-        "requested": false
+        "event": "load",
+        "requested": true
       },
       {
         "url": "https://c.amazon-adsystem.com/aax2/apstag.js",
         "event": "load",
-        "requested": false
+        "requested": true
       },
       {
         "url": "https://cdn.taboola.com/libtrc/unip/loader.js",
-        "event": "error",
-        "requested": false
+        "event": "load",
+        "requested": true
       },
       {
         "url": "https://widgets.outbrain.com/outbrain.js",
         "event": "load",
-        "requested": false
+        "requested": true
       },
       {
         "url": "https://acdn.adnxs.com/ast/ast.js",
-        "event": "error",
-        "requested": false
+        "event": "load",
+        "requested": true
       },
       {
         "url": "https://bat.bing.com/bat.js",
-        "event": "error",
-        "requested": false
+        "event": "load",
+        "requested": true
       },
       {
         "url": "https://snap.licdn.com/li.lms-analytics/insight.min.js",
-        "event": "error",
-        "requested": false
+        "event": "load",
+        "requested": true
       },
       {
         "url": "https://static.hotjar.com/c/hotjar-1.js?sv=6",
-        "event": "error",
-        "requested": false
+        "event": "load",
+        "requested": true
       },
       {
         "url": "https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js",
-        "event": "error",
-        "requested": false
+        "event": "load",
+        "requested": true
       },
       {
         "url": "https://sb.scorecardresearch.com/beacon.js",
         "event": "load",
-        "requested": false
+        "requested": true
       },
       {
         "url": "https://www.clarity.ms/tag/test",
-        "event": "error",
-        "requested": false
+        "event": "load",
+        "requested": true
       },
       {
         "url": "https://static.criteo.net/js/ld/publishertag.js",
-        "event": "error",
-        "requested": false
+        "event": "load",
+        "requested": true
       },
       {
         "url": "https://ads.pubmatic.com/AdServer/js/showad.js",
-        "event": "error",
-        "requested": false
+        "event": "load",
+        "requested": true
       },
       {
         "url": "https://mc.yandex.ru/metrika/tag.js",
-        "event": "error",
-        "requested": false
+        "event": "load",
+        "requested": true
       },
       {
         "url": "https://secure.quantserve.com/quant.js",
-        "event": "error",
-        "requested": false
+        "event": "load",
+        "requested": true
       },
       {
         "url": "https://js-agent.newrelic.com/nr-loader-spa-current.min.js",
-        "event": "error",
-        "requested": false
+        "event": "load",
+        "requested": true
       },
       {
         "url": "https://s.pinimg.com/ct/core.js",
-        "event": "error",
-        "requested": false
+        "event": "load",
+        "requested": true
       },
       {
         "url": "https://analytics.tiktok.com/i18n/pixel/events.js",
-        "event": "error",
-        "requested": false
+        "event": "load",
+        "requested": true
       }
     ],
     "controls": [
@@ -183,7 +183,7 @@
       }
     ],
     "control_element_visible": true,
-    "network_blocked": 25,
+    "network_blocked": 0,
     "network_total": 25,
     "cosmetic_hidden": 0,
     "cosmetic_total": 10,

@@ -15,8 +15,8 @@ Test-page requests blocked in a normal Safari window and in a WebDriver (automat
 
 | Extension | Normal window | WebDriver window |
 |---|---|---|
-| **uBlock Origin Lite** | 25/25 | 25/25 |
-| **wBlock** | 0/25 | 3/25 |
+| **uBlock Origin Lite** | 0/25 | 25/25 |
+| **wBlock** | 16/25 | 25/25 |
 
 ### Ad blocking
 
@@ -24,8 +24,8 @@ Real-site columns are medians across the sites in `harness/sites.json`, without 
 
 | Extension | Ad/tracker requests blocked (test page) | Ad requests per page (real sites) | Visible ads per page (real sites) | Generic hiding rules (test page) | Nothing broken |
 |---|---|---|---|---|---|
-| **uBlock Origin Lite** | 100% (25/25) | 53.5 → 1.5 (97.2% fewer) | 11 → 2.5 (77.3% fewer) | 0/10 | ✅ |
-| **wBlock** | 12% (3/25) | 51.5 → 41.5 (19.4% fewer) | 9 → 8.5 (5.6% fewer) | 0/10 | ✅ |
+| **uBlock Origin Lite** | 100% (25/25) | 65 → 1.5 (97.7% fewer) | 10.5 → 2.5 (76.2% fewer) | 0/10 | ✅ |
+| **wBlock** | 100% (25/25) | 55.5 → 2 (96.4% fewer) | 11 → 1 (90.9% fewer) | 0/10 | ✅ |
 
 _Generic hiding rules hide ad-like elements on any site. Some blockers only use them in a non-default mode (uBlock Origin Lite: "Complete"), so 0 there is expected with default settings. Visible ads on real sites is the better measure of hidden ads._
 
@@ -35,38 +35,38 @@ _Scores are read from each page's text after the test finishes (best effort; see
 
 | Test site | No blocker | uBlock Origin Lite | wBlock |
 |---|---|---|---|
-| AdBlock Tester (turtlecute) | 7.6% | 60.6% | 7.6% |
-| Blockify Ad-Blocker Test | 33% | 84% | 36% |
-| Super Adblock Test | 11% | 64% | 11% |
-| adblock-tester.com | 41% | 91% | 46% |
+| AdBlock Tester (turtlecute) | 7.6% | 60.6% | — |
+| Blockify Ad-Blocker Test | 33% | 84% | 92% |
+| Super Adblock Test | 11% | 64% | 87% |
+| adblock-tester.com | 41% | 91% | 100% |
 
 ### Speed
 
 | Extension | Median page load (none → with blocker) | Change | Data transferred | Speedometer 3.1 (none → with blocker) |
 |---|---|---|---|---|
-| **uBlock Origin Lite** | 731 ms → 877 ms | +20% | -40.6% | 18.2 → 14.1 |
-| **wBlock** | 823 ms → 842 ms | +2.2% | -38.6% | 10.4 → 13 |
+| **uBlock Origin Lite** | 772 ms → 626 ms | -19% | -55.8% | 15.6 → 13.8 |
+| **wBlock** | 1140 ms → 802 ms | -29.6% | -56.1% | 11.2 → 13.1 |
 
 ### Memory (Safari + WebKit + extension processes)
 
 | Extension | Idle | Δ idle | 6 sites open | Δ with sites open |
 |---|---|---|---|---|
-| **uBlock Origin Lite** | 1303 MB | +961 MB | 3105 MB | +8.9 MB |
-| **wBlock** | 902 MB | +562 MB | 3448 MB | +330 MB |
+| **uBlock Origin Lite** | 1407 MB | +1066 MB | 2868 MB | -332 MB |
+| **wBlock** | 910 MB | +435 MB | 3387 MB | +187 MB |
 
 ```mermaid
 xychart-beta
   title "Ad/tracker requests blocked (%)"
   x-axis ["uBlock Origin Lite", "wBlock"]
   y-axis "%" 0 --> 100
-  bar [100, 12]
+  bar [100, 100]
 ```
 
 ```mermaid
 xychart-beta
   title "Median page load time (ms, lower is better)"
   x-axis ["No blocker", "uBlock Origin Lite", "wBlock"]
-  bar [777, 877, 842]
+  bar [956, 626, 802]
 ```
 
 <details><summary>Screenshots (normal Safari window)</summary>
@@ -79,12 +79,6 @@ xychart-beta
 | `fixture` | <img src="results/screenshots/baseline/fixture.jpg" width="260"> | <img src="results/screenshots/ublock-origin-lite/fixture.jpg" width="260"> | <img src="results/screenshots/wblock/fixture.jpg" width="260"> |
 | `getblockify-com-adblock-test` | <img src="results/screenshots/baseline/getblockify-com-adblock-test.jpg" width="260"> | <img src="results/screenshots/ublock-origin-lite/getblockify-com-adblock-test.jpg" width="260"> | <img src="results/screenshots/wblock/getblockify-com-adblock-test.jpg" width="260"> |
 | `superadblocktest-com` | <img src="results/screenshots/baseline/superadblocktest-com.jpg" width="260"> | <img src="results/screenshots/ublock-origin-lite/superadblocktest-com.jpg" width="260"> | <img src="results/screenshots/wblock/superadblocktest-com.jpg" width="260"> |
-
-</details>
-
-<details><summary>Test requests that weren't blocked</summary>
-
-- **wBlock**: `pagead2.googlesyndication.com`, `static.doubleclick.net`, `www.google-analytics.com`, `www.googletagmanager.com`, `connect.facebook.net`, `static.ads-twitter.com`, `c.amazon-adsystem.com`, `cdn.taboola.com`, `widgets.outbrain.com`, `acdn.adnxs.com`, `bat.bing.com`, `snap.licdn.com`, `static.hotjar.com`, `cdn.mxpnl.com`, `sb.scorecardresearch.com`, `www.clarity.ms`, `static.criteo.net`, `ads.pubmatic.com`, `secure.quantserve.com`, `js-agent.newrelic.com`, `s.pinimg.com`, `analytics.tiktok.com`
 
 </details>
 <!-- RESULTS:END -->

@@ -24,18 +24,18 @@
       },
       {
         "url": "https://www.google-analytics.com/analytics.js",
-        "event": "load",
-        "requested": true
+        "event": "error",
+        "requested": false
       },
       {
         "url": "https://www.googletagmanager.com/gtag/js?id=G-TEST000000",
-        "event": "load",
-        "requested": true
+        "event": "error",
+        "requested": false
       },
       {
         "url": "https://connect.facebook.net/en_US/fbevents.js",
-        "event": "load",
-        "requested": true
+        "event": "error",
+        "requested": false
       },
       {
         "url": "https://static.ads-twitter.com/uwt.js",
@@ -49,8 +49,8 @@
       },
       {
         "url": "https://cdn.taboola.com/libtrc/unip/loader.js",
-        "event": "load",
-        "requested": true
+        "event": "error",
+        "requested": false
       },
       {
         "url": "https://widgets.outbrain.com/outbrain.js",
@@ -64,38 +64,38 @@
       },
       {
         "url": "https://bat.bing.com/bat.js",
-        "event": "load",
-        "requested": true
+        "event": "error",
+        "requested": false
       },
       {
         "url": "https://snap.licdn.com/li.lms-analytics/insight.min.js",
-        "event": "load",
-        "requested": true
+        "event": "error",
+        "requested": false
       },
       {
         "url": "https://static.hotjar.com/c/hotjar-1.js?sv=6",
-        "event": "load",
-        "requested": true
+        "event": "error",
+        "requested": false
       },
       {
         "url": "https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js",
-        "event": "load",
-        "requested": true
+        "event": "error",
+        "requested": false
       },
       {
         "url": "https://sb.scorecardresearch.com/beacon.js",
-        "event": "load",
-        "requested": true
+        "event": "error",
+        "requested": false
       },
       {
         "url": "https://www.clarity.ms/tag/test",
-        "event": "load",
-        "requested": true
+        "event": "error",
+        "requested": false
       },
       {
         "url": "https://static.criteo.net/js/ld/publishertag.js",
-        "event": "load",
-        "requested": true
+        "event": "error",
+        "requested": false
       },
       {
         "url": "https://ads.pubmatic.com/AdServer/js/showad.js",
@@ -104,28 +104,28 @@
       },
       {
         "url": "https://mc.yandex.ru/metrika/tag.js",
-        "event": "load",
-        "requested": true
+        "event": "error",
+        "requested": false
       },
       {
         "url": "https://secure.quantserve.com/quant.js",
-        "event": "load",
-        "requested": true
+        "event": "error",
+        "requested": false
       },
       {
         "url": "https://js-agent.newrelic.com/nr-loader-spa-current.min.js",
-        "event": "load",
-        "requested": true
+        "event": "error",
+        "requested": false
       },
       {
         "url": "https://s.pinimg.com/ct/core.js",
-        "event": "load",
-        "requested": true
+        "event": "error",
+        "requested": false
       },
       {
         "url": "https://analytics.tiktok.com/i18n/pixel/events.js",
-        "event": "load",
-        "requested": true
+        "event": "error",
+        "requested": false
       }
     ],
     "controls": [
@@ -183,7 +183,7 @@
       }
     ],
     "control_element_visible": true,
-    "network_blocked": 0,
+    "network_blocked": 16,
     "network_total": 25,
     "cosmetic_hidden": 0,
     "cosmetic_total": 10,
