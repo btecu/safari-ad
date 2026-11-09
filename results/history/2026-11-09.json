@@ -1,0 +1,141 @@
+{
+  "generated": "2026-11-09",
+  "results": [
+    {
+      "id": "ublock-origin-lite",
+      "name": "uBlock Origin Lite",
+      "safari_version": "27.2",
+      "macos": "26.7.2",
+      "active_normal": [
+        0,
+        25
+      ],
+      "active_webdriver": [
+        25,
+        25
+      ],
+      "blocking_source": "WebDriver",
+      "network_blocked": 25,
+      "network_reachable": 25,
+      "network_block_pct": 100,
+      "cosmetic_hidden": 0,
+      "cosmetic_total": 10,
+      "cosmetic_pct": 0,
+      "no_breakage": true,
+      "missed": [],
+      "load_baseline": 640.5,
+      "load_ext": 590.0,
+      "sites_compared": 2,
+      "ads_baseline": 50.5,
+      "ads_ext": 1.5,
+      "requests_baseline": 204.5,
+      "requests_ext": 100.5,
+      "transfer_baseline": 135.5,
+      "transfer_ext": 148.5,
+      "visible_ads_baseline": 11.0,
+      "visible_ads_ext": 2.0,
+      "load_delta_pct": -7.9,
+      "ads_reduction_pct": 97.0,
+      "visible_ads_reduction_pct": 81.8,
+      "transfer_delta_pct": 9.6,
+      "mem_idle_baseline": 514.1,
+      "mem_idle_ext": 1590.7,
+      "mem_idle_delta": 1076.6,
+      "mem_loaded_baseline": 4199.7,
+      "mem_loaded_ext": 3526.4,
+      "mem_loaded_delta": -673.3,
+      "speedometer_baseline": 14.4,
+      "speedometer_ext": 16.1,
+      "test_sites": {
+        "adblock-tester.com": {
+          "baseline": 41,
+          "ext": 91,
+          "raw": "91"
+        },
+        "AdBlock Tester (turtlecute)": {
+          "baseline": 6.9,
+          "ext": 60,
+          "raw": "Total: 130 | 78 blocked | 52 not blocked | Cosmetic Filter | Static Ad | Dynamic Ad | Why does the Cosmetic Filter test fail? | Ad Scripts Loading | ads.js | pagead.js | Why does the Ad Script Loading test fail? | Ad networks | Amazon | adtago.s3.amazonaws.com | analyticsengine.s3.amazonaws.com | an"
+        },
+        "Super Adblock Test": {
+          "baseline": 10,
+          "ext": 64,
+          "raw": "64"
+        },
+        "Blockify Ad-Blocker Test": {
+          "baseline": 33,
+          "ext": 84,
+          "raw": "At 84%, you have solid protection but some specialized trackers are bypassing your filters. Fine-tuning can get you to excellent protection."
+        }
+      }
+    },
+    {
+      "id": "wblock",
+      "name": "wBlock",
+      "safari_version": "27.2",
+      "macos": "26.7.2",
+      "active_normal": [
+        0,
+        25
+      ],
+      "active_webdriver": [
+        25,
+        25
+      ],
+      "blocking_source": "WebDriver",
+      "network_blocked": 25,
+      "network_reachable": 25,
+      "network_block_pct": 100,
+      "cosmetic_hidden": 0,
+      "cosmetic_total": 10,
+      "cosmetic_pct": 0,
+      "no_breakage": true,
+      "missed": [],
+      "load_baseline": 662.5,
+      "load_ext": 659.0,
+      "sites_compared": 1,
+      "ads_baseline": 58.0,
+      "ads_ext": 2.5,
+      "requests_baseline": 212.5,
+      "requests_ext": 100.5,
+      "transfer_baseline": 135.0,
+      "transfer_ext": 141.5,
+      "visible_ads_baseline": 8,
+      "visible_ads_ext": 1,
+      "load_delta_pct": -0.5,
+      "ads_reduction_pct": 95.7,
+      "visible_ads_reduction_pct": 87.5,
+      "transfer_delta_pct": 4.8,
+      "mem_idle_baseline": 516.1,
+      "mem_idle_ext": 1458.3,
+      "mem_idle_delta": 942.2,
+      "mem_loaded_baseline": 4060.6,
+      "mem_loaded_ext": 4061.1,
+      "mem_loaded_delta": 0.5,
+      "speedometer_baseline": 18,
+      "speedometer_ext": 15.4,
+      "test_sites": {
+        "adblock-tester.com": {
+          "baseline": 41,
+          "ext": 100,
+          "raw": "100"
+        },
+        "AdBlock Tester (turtlecute)": {
+          "baseline": 6.2,
+          "ext": null,
+          "raw": null
+        },
+        "Super Adblock Test": {
+          "baseline": 10,
+          "ext": 84,
+          "raw": "84"
+        },
+        "Blockify Ad-Blocker Test": {
+          "baseline": 33,
+          "ext": 92,
+          "raw": "92%"
+        }
+      }
+    }
+  ]
+}

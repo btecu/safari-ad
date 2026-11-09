@@ -7,7 +7,7 @@ they break pages.
 ## Results
 
 <!-- RESULTS:START -->
-_Last run: 2026-11-02 · Safari 26.6.2 · macOS 26.6.2 · GitHub-hosted runner. Deltas compare each blocker with a no-blocker baseline measured on the same runner._
+_Last run: 2026-11-09 · Safari 27.2 · macOS 26.7.2 · GitHub-hosted runner. Deltas compare each blocker with a no-blocker baseline measured on the same runner._
 
 ### Was the blocker active?
 
@@ -16,7 +16,7 @@ Test-page requests blocked in a normal Safari window and in a WebDriver (automat
 | Extension | Normal window | WebDriver window |
 |---|---|---|
 | **uBlock Origin Lite** | 0/25 | 25/25 |
-| **wBlock** | 0/25 | 0/25 |
+| **wBlock** | 0/25 | 25/25 |
 
 ### Ad blocking
 
@@ -24,8 +24,8 @@ Real-site columns are medians across the sites in `harness/sites.json`, without 
 
 | Extension | Ad/tracker requests blocked (test page) | Ad requests per page (real sites) | Visible ads per page (real sites) | Generic hiding rules (test page) | Nothing broken |
 |---|---|---|---|---|---|
-| **uBlock Origin Lite** | 100% (25/25) | 65.5 → 1.5 (97.7% fewer) | 11 → 2.5 (77.3% fewer) | 0/10 | ✅ |
-| **wBlock** | 0% (0/25) | 59 → 30 (49.2% fewer) | 9.5 → 8.5 (10.5% fewer) | 0/10 | ✅ |
+| **uBlock Origin Lite** | 100% (25/25) | 50.5 → 1.5 (97% fewer) | 11 → 2 (81.8% fewer) | 0/10 | ✅ |
+| **wBlock** | 100% (25/25) | 58 → 2.5 (95.7% fewer) | 8 → 1 (87.5% fewer) | 0/10 | ✅ |
 
 _Generic hiding rules hide ad-like elements on any site. Some blockers only use them in a non-default mode (uBlock Origin Lite: "Complete"), so 0 there is expected with default settings. Visible ads on real sites is the better measure of hidden ads._
 
@@ -35,38 +35,38 @@ _Scores are read from each page's text after the test finishes (best effort; see
 
 | Test site | No blocker | uBlock Origin Lite | wBlock |
 |---|---|---|---|
-| AdBlock Tester (turtlecute) | 7.6% | 60.6% | — |
-| Blockify Ad-Blocker Test | 33% | 83% | 37% |
-| Super Adblock Test | 11% | 64% | 14% |
+| AdBlock Tester (turtlecute) | 6.9% | 60% | — |
+| Blockify Ad-Blocker Test | 33% | 84% | 92% |
+| Super Adblock Test | 10% | 64% | 84% |
 | adblock-tester.com | 41% | 91% | 100% |
 
 ### Speed
 
 | Extension | Median page load (none → with blocker) | Change | Data transferred | Speedometer 3.1 (none → with blocker) |
 |---|---|---|---|---|
-| **uBlock Origin Lite** | 834 ms → 836 ms | +0.2% | -29.6% | 12.8 → 10.6 |
-| **wBlock** | 675 ms → 822 ms | +21.8% | +5% | 11.9 → 14.6 |
+| **uBlock Origin Lite** | 640 ms → 590 ms | -7.9% | +9.6% | 14.4 → 16.1 |
+| **wBlock** | 662 ms → 659 ms | -0.5% | +4.8% | 18 → 15.4 |
 
 ### Memory (Safari + WebKit + extension processes)
 
 | Extension | Idle | Δ idle | 6 sites open | Δ with sites open |
 |---|---|---|---|---|
-| **uBlock Origin Lite** | 1420 MB | +1054 MB | 2899 MB | -330 MB |
-| **wBlock** | 745 MB | +401 MB | 3510 MB | +543 MB |
+| **uBlock Origin Lite** | 1591 MB | +1077 MB | 3526 MB | -673 MB |
+| **wBlock** | 1458 MB | +942 MB | 4061 MB | +0.5 MB |
 
 ```mermaid
 xychart-beta
   title "Ad/tracker requests blocked (%)"
   x-axis ["uBlock Origin Lite", "wBlock"]
   y-axis "%" 0 --> 100
-  bar [100, 0]
+  bar [100, 100]
 ```
 
 ```mermaid
 xychart-beta
   title "Median page load time (ms, lower is better)"
   x-axis ["No blocker", "uBlock Origin Lite", "wBlock"]
-  bar [754, 836, 822]
+  bar [652, 590, 659]
 ```
 
 <details><summary>Screenshots (normal Safari window)</summary>
@@ -79,12 +79,6 @@ xychart-beta
 | `fixture` | <img src="results/screenshots/baseline/fixture.jpg" width="260"> | <img src="results/screenshots/ublock-origin-lite/fixture.jpg" width="260"> | <img src="results/screenshots/wblock/fixture.jpg" width="260"> |
 | `getblockify-com-adblock-test` | <img src="results/screenshots/baseline/getblockify-com-adblock-test.jpg" width="260"> | <img src="results/screenshots/ublock-origin-lite/getblockify-com-adblock-test.jpg" width="260"> | <img src="results/screenshots/wblock/getblockify-com-adblock-test.jpg" width="260"> |
 | `superadblocktest-com` | <img src="results/screenshots/baseline/superadblocktest-com.jpg" width="260"> | <img src="results/screenshots/ublock-origin-lite/superadblocktest-com.jpg" width="260"> | <img src="results/screenshots/wblock/superadblocktest-com.jpg" width="260"> |
-
-</details>
-
-<details><summary>Test requests that weren't blocked</summary>
-
-- **wBlock**: `pagead2.googlesyndication.com`, `securepubads.g.doubleclick.net`, `www.googletagservices.com`, `static.doubleclick.net`, `www.google-analytics.com`, `www.googletagmanager.com`, `connect.facebook.net`, `static.ads-twitter.com`, `c.amazon-adsystem.com`, `cdn.taboola.com`, `widgets.outbrain.com`, `acdn.adnxs.com`, `bat.bing.com`, `snap.licdn.com`, `static.hotjar.com`, `cdn.mxpnl.com`, `sb.scorecardresearch.com`, `www.clarity.ms`, `static.criteo.net`, `ads.pubmatic.com`, `mc.yandex.ru`, `secure.quantserve.com`, `js-agent.newrelic.com`, `s.pinimg.com`, `analytics.tiktok.com`
 
 </details>
 <!-- RESULTS:END -->

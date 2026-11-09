@@ -1,59 +1,24 @@
 --- app 1 min:
-  0.0 209152 /Applications/wBlock.app/Contents/MacOS/wBlock
-  0.0   1248 tee -a out/diag/wblock-cpu.txt
+  0.0 215600 /Applications/wBlock.app/Contents/MacOS/wBlock
+  0.0    384 tee -a out/diag/wblock-cpu.txt
 --- app 2 min:
-  0.0 209104 /Applications/wBlock.app/Contents/MacOS/wBlock
-  0.0   1408 tee -a out/diag/wblock-cpu.txt
+  0.0 215600 /Applications/wBlock.app/Contents/MacOS/wBlock
+  0.0   1424 tee -a out/diag/wblock-cpu.txt
 --- app 3 min:
-  0.0 209056 /Applications/wBlock.app/Contents/MacOS/wBlock
-  0.0   1408 tee -a out/diag/wblock-cpu.txt
+  0.0 215584 /Applications/wBlock.app/Contents/MacOS/wBlock
+  0.0    240 tee -a out/diag/wblock-cpu.txt
 --- app 4 min:
-  0.0 209040 /Applications/wBlock.app/Contents/MacOS/wBlock
+  0.0 215296 /Applications/wBlock.app/Contents/MacOS/wBlock
+  0.0     32 tee -a out/diag/wblock-cpu.txt
 --- app 5 min:
-  0.0 208784 /Applications/wBlock.app/Contents/MacOS/wBlock
-  0.0   1408 tee -a out/diag/wblock-cpu.txt
+  0.0 215296 /Applications/wBlock.app/Contents/MacOS/wBlock
+  0.0    656 tee -a out/diag/wblock-cpu.txt
 --- app 6 min:
-  0.0 208784 /Applications/wBlock.app/Contents/MacOS/wBlock
-  0.0   1408 tee -a out/diag/wblock-cpu.txt
+  0.0 215296 /Applications/wBlock.app/Contents/MacOS/wBlock
+  0.0   1424 tee -a out/diag/wblock-cpu.txt
 --- app 7 min:
-  0.0 208784 /Applications/wBlock.app/Contents/MacOS/wBlock
-  0.0   1424 tee -a out/diag/wblock-cpu.txt
---- app 8 min:
-  0.0 208784 /Applications/wBlock.app/Contents/MacOS/wBlock
-  0.0      0 tee -a out/diag/wblock-cpu.txt
---- agent 1 min:
-  0.0  10976 /Applications/wBlock.app/Contents/MacOS/FilterUpdateAgent
-  0.0 280896 /Applications/wBlock.app/Contents/XPCServices/FilterUpdateService.xpc/Contents/MacOS/FilterUpdateService
-  0.0     32 tee -a out/diag/wblock-cpu.txt
---- agent 2 min:
-  0.0  10976 /Applications/wBlock.app/Contents/MacOS/FilterUpdateAgent
-  0.0 280896 /Applications/wBlock.app/Contents/XPCServices/FilterUpdateService.xpc/Contents/MacOS/FilterUpdateService
-  0.0   1248 tee -a out/diag/wblock-cpu.txt
---- agent 3 min:
-  0.0  10976 /Applications/wBlock.app/Contents/MacOS/FilterUpdateAgent
-  0.0 280896 /Applications/wBlock.app/Contents/XPCServices/FilterUpdateService.xpc/Contents/MacOS/FilterUpdateService
-  0.0    832 tee -a out/diag/wblock-cpu.txt
---- agent 4 min:
-  0.0    688 tee -a out/diag/wblock-cpu.txt
---- agent 5 min:
-  0.0    688 tee -a out/diag/wblock-cpu.txt
---- agent 6 min:
-  0.0    272 tee -a out/diag/wblock-cpu.txt
---- relaunch 1 min:
-  0.0 180224 /Applications/wBlock.app/Contents/MacOS/wBlock
-  0.0    112 tee -a out/diag/wblock-cpu.txt
---- relaunch 2 min:
-  0.0 180224 /Applications/wBlock.app/Contents/MacOS/wBlock
-  0.0     32 tee -a out/diag/wblock-cpu.txt
---- relaunch 3 min:
-  0.0 179968 /Applications/wBlock.app/Contents/MacOS/wBlock
-  0.0     32 tee -a out/diag/wblock-cpu.txt
---- relaunch 4 min:
-  0.0 179968 /Applications/wBlock.app/Contents/MacOS/wBlock
+  0.0 215296 /Applications/wBlock.app/Contents/MacOS/wBlock
   0.0   1440 tee -a out/diag/wblock-cpu.txt
---- relaunch 5 min:
-  0.0 182192 /Applications/wBlock.app/Contents/MacOS/wBlock
-  0.0     32 tee -a out/diag/wblock-cpu.txt
---- relaunch 6 min:
-  0.0 182192 /Applications/wBlock.app/Contents/MacOS/wBlock
-  0.0   1424 tee -a out/diag/wblock-cpu.txt
+--- app 8 min:
+  0.0 215296 /Applications/wBlock.app/Contents/MacOS/wBlock
+  0.0      0 tee -a out/diag/wblock-cpu.txt
