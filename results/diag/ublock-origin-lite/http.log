@@ -1,9 +1,9 @@
-127.0.0.1 - - [09/Nov/2026 14:28:32] "GET /fixtures/adtest.html?report=normal-baseline HTTP/1.1" 200 -
-127.0.0.1 - - [09/Nov/2026 14:28:36] code 404, message File not found
-127.0.0.1 - - [09/Nov/2026 14:28:36] "GET /favicon.ico HTTP/1.1" 404 -
-127.0.0.1 - - [09/Nov/2026 14:28:37] "POST /report?name=normal-baseline HTTP/1.1" 204 -
-127.0.0.1 - - [09/Nov/2026 14:29:17] "GET /fixtures/adtest.html HTTP/1.1" 200 -
-127.0.0.1 - - [09/Nov/2026 14:42:36] "GET /fixtures/adtest.html HTTP/1.1" 200 -
-127.0.0.1 - - [09/Nov/2026 14:43:14] "GET /fixtures/adtest.html?report=normal-extension HTTP/1.1" 200 -
-127.0.0.1 - - [09/Nov/2026 14:43:17] "POST /report?name=normal-extension HTTP/1.1" 204 -
-127.0.0.1 - - [09/Nov/2026 14:43:57] "GET /fixtures/adtest.html HTTP/1.1" 200 -
+127.0.0.1 - - [16/Nov/2026 14:05:17] "GET /fixtures/adtest.html?report=normal-baseline HTTP/1.1" 200 -
+127.0.0.1 - - [16/Nov/2026 14:05:19] code 404, message File not found
+127.0.0.1 - - [16/Nov/2026 14:05:19] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [16/Nov/2026 14:05:20] "POST /report?name=normal-baseline HTTP/1.1" 204 -
+127.0.0.1 - - [16/Nov/2026 14:06:18] "GET /fixtures/adtest.html HTTP/1.1" 200 -
+127.0.0.1 - - [16/Nov/2026 14:18:47] "GET /fixtures/adtest.html HTTP/1.1" 200 -
+127.0.0.1 - - [16/Nov/2026 14:19:37] "GET /fixtures/adtest.html?report=normal-extension HTTP/1.1" 200 -
+127.0.0.1 - - [16/Nov/2026 14:19:40] "POST /report?name=normal-extension HTTP/1.1" 204 -
+127.0.0.1 - - [16/Nov/2026 14:20:30] "GET /fixtures/adtest.html HTTP/1.1" 200 -

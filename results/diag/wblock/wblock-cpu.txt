@@ -1,24 +1,20 @@
 --- app 1 min:
-  0.0 215600 /Applications/wBlock.app/Contents/MacOS/wBlock
-  0.0    384 tee -a out/diag/wblock-cpu.txt
+  0.0 220704 /Applications/wBlock.app/Contents/MacOS/wBlock
 --- app 2 min:
-  0.0 215600 /Applications/wBlock.app/Contents/MacOS/wBlock
-  0.0   1424 tee -a out/diag/wblock-cpu.txt
+  0.0 220656 /Applications/wBlock.app/Contents/MacOS/wBlock
+  0.0   1392 tee -a out/diag/wblock-cpu.txt
 --- app 3 min:
-  0.0 215584 /Applications/wBlock.app/Contents/MacOS/wBlock
-  0.0    240 tee -a out/diag/wblock-cpu.txt
+  0.0 220688 /Applications/wBlock.app/Contents/MacOS/wBlock
+  0.0    672 tee -a out/diag/wblock-cpu.txt
 --- app 4 min:
-  0.0 215296 /Applications/wBlock.app/Contents/MacOS/wBlock
-  0.0     32 tee -a out/diag/wblock-cpu.txt
+  0.0 220672 /Applications/wBlock.app/Contents/MacOS/wBlock
 --- app 5 min:
-  0.0 215296 /Applications/wBlock.app/Contents/MacOS/wBlock
-  0.0    656 tee -a out/diag/wblock-cpu.txt
+  0.0 215200 /Applications/wBlock.app/Contents/MacOS/wBlock
+  0.0    784 tee -a out/diag/wblock-cpu.txt
 --- app 6 min:
-  0.0 215296 /Applications/wBlock.app/Contents/MacOS/wBlock
-  0.0   1424 tee -a out/diag/wblock-cpu.txt
+  0.0 215200 /Applications/wBlock.app/Contents/MacOS/wBlock
+  0.0    736 tee -a out/diag/wblock-cpu.txt
 --- app 7 min:
-  0.0 215296 /Applications/wBlock.app/Contents/MacOS/wBlock
-  0.0   1440 tee -a out/diag/wblock-cpu.txt
+  0.0 215200 /Applications/wBlock.app/Contents/MacOS/wBlock
 --- app 8 min:
-  0.0 215296 /Applications/wBlock.app/Contents/MacOS/wBlock
-  0.0      0 tee -a out/diag/wblock-cpu.txt
+  0.0 215200 /Applications/wBlock.app/Contents/MacOS/wBlock

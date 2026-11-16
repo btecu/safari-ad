@@ -1,6 +1,9 @@
-[2026-11-09T14:40:43Z] telemetry event=run_skip reason=already_running trigger=BecomeActive
-[2026-11-09T14:40:43Z] telemetry event=run_skip reason=onboarding_incomplete trigger=AppLaunch
-[2026-11-09T14:40:46Z] telemetry event=run_skip reason=onboarding_incomplete trigger=XPCService
-[2026-11-09T14:51:31Z] Auto-update started: trigger=XPCService, forced=false, intervalHours=6.0
-[2026-11-09T14:51:31Z] telemetry event=run_start forced=false interval_hours=6.0 trigger=XPCService
-[2026-11-09T14:51:32Z] Prepared removeparam DNR rules: generated=5892 source=5653 exceptions=132 skipped=200 truncated=0
+[2026-11-16T14:20:04Z] telemetry event=run_skip reason=already_running trigger=BecomeActive
+[2026-11-16T14:20:04Z] telemetry event=run_skip reason=onboarding_incomplete trigger=AppLaunch
+[2026-11-16T14:20:07Z] telemetry event=run_skip reason=onboarding_incomplete trigger=XPCService
+[2026-11-16T14:30:42Z] Auto-update started: trigger=XPCService, forced=false, intervalHours=6.0
+[2026-11-16T14:30:42Z] telemetry event=run_start forced=false interval_hours=6.0 trigger=XPCService
+[2026-11-16T14:30:43Z] Prepared removeparam DNR rules: generated=5918 source=5679 exceptions=132 skipped=200 truncated=0
+[2026-11-16T14:30:46Z] Applied 7 filter update(s): AdGuard Tracking Protection Filter, wBlock Ad and Tracking Hosts, AdGuard URL Tracking Protection Filter, ....
+[2026-11-16T14:30:46Z] Rebuild summary: targets 5, cache 0/5, rules 164963, input 0 B written in 0ms, conversion 6.92s, reload 0ms, slowest write n/a, slowest rebuild wBlock 2@2.74s, userscripts +0/-0, next check in 6.0h.
+[2026-11-16T14:30:46Z] telemetry checked_filters=7 duration_ms=4462 error_count=0 event=run_result forced=false next_check_seconds=21600 result=staged_updates scripts_failed=0 scripts_updated=0 trigger=XPCService updated_filters=7

@@ -1,7 +1,7 @@
 +    net.raymondhill.uBlock-Origin-Lite.Extension(2026.1026.1812)
 	            Path = /Applications/uBlock Origin Lite.app/Contents/PlugIns/uBlock Origin Lite Extension.appex
-	            UUID = CC8A2E3D-5F8F-4924-96EB-BE466E5724F6
-	       Timestamp = 2026-11-09 14:42:28 +0000
+	            UUID = D2346B3B-7870-4854-9CC6-993A9EC1A3CF
+	       Timestamp = 2026-11-16 14:18:30 +0000
 	             SDK = com.apple.Safari.web-extension
 	   Parent Bundle = /Applications/uBlock Origin Lite.app
 	    Display Name = uBlock Origin Lite Extension

@@ -7,7 +7,7 @@ they break pages.
 ## Results
 
 <!-- RESULTS:START -->
-_Last run: 2026-11-09 · Safari 27.2 · macOS 26.7.2 · GitHub-hosted runner. Deltas compare each blocker with a no-blocker baseline measured on the same runner._
+_Last run: 2026-11-16 · Safari 27.2 · macOS 26.7.2 · GitHub-hosted runner. Deltas compare each blocker with a no-blocker baseline measured on the same runner._
 
 ### Was the blocker active?
 
@@ -24,8 +24,8 @@ Real-site columns are medians across the sites in `harness/sites.json`, without 
 
 | Extension | Ad/tracker requests blocked (test page) | Ad requests per page (real sites) | Visible ads per page (real sites) | Generic hiding rules (test page) | Nothing broken |
 |---|---|---|---|---|---|
-| **uBlock Origin Lite** | 100% (25/25) | 50.5 → 1.5 (97% fewer) | 11 → 2 (81.8% fewer) | 0/10 | ✅ |
-| **wBlock** | 100% (25/25) | 58 → 2.5 (95.7% fewer) | 8 → 1 (87.5% fewer) | 0/10 | ✅ |
+| **uBlock Origin Lite** | 100% (25/25) | 48 → 1.5 (96.9% fewer) | 11 → 2 (81.8% fewer) | 0/10 | ✅ |
+| **wBlock** | 100% (25/25) | 61 → 2 (96.7% fewer) | — → — (—) | 0/10 | ✅ |
 
 _Generic hiding rules hide ad-like elements on any site. Some blockers only use them in a non-default mode (uBlock Origin Lite: "Complete"), so 0 there is expected with default settings. Visible ads on real sites is the better measure of hidden ads._
 
@@ -35,24 +35,24 @@ _Scores are read from each page's text after the test finishes (best effort; see
 
 | Test site | No blocker | uBlock Origin Lite | wBlock |
 |---|---|---|---|
-| AdBlock Tester (turtlecute) | 6.9% | 60% | — |
-| Blockify Ad-Blocker Test | 33% | 84% | 92% |
-| Super Adblock Test | 10% | 64% | 84% |
+| AdBlock Tester (turtlecute) | 6.2% | 60% | — |
+| Blockify Ad-Blocker Test | 33% | 81% | 92% |
+| Super Adblock Test | 11% | 64% | 87% |
 | adblock-tester.com | 41% | 91% | 100% |
 
 ### Speed
 
 | Extension | Median page load (none → with blocker) | Change | Data transferred | Speedometer 3.1 (none → with blocker) |
 |---|---|---|---|---|
-| **uBlock Origin Lite** | 640 ms → 590 ms | -7.9% | +9.6% | 14.4 → 16.1 |
-| **wBlock** | 662 ms → 659 ms | -0.5% | +4.8% | 18 → 15.4 |
+| **uBlock Origin Lite** | 918 ms → 672 ms | -26.9% | +6.5% | 13.5 → 14.6 |
+| **wBlock** | 581 ms → 592 ms | +1.9% | -20.5% | 16.2 → 13.4 |
 
 ### Memory (Safari + WebKit + extension processes)
 
 | Extension | Idle | Δ idle | 6 sites open | Δ with sites open |
 |---|---|---|---|---|
-| **uBlock Origin Lite** | 1591 MB | +1077 MB | 3526 MB | -673 MB |
-| **wBlock** | 1458 MB | +942 MB | 4061 MB | +0.5 MB |
+| **uBlock Origin Lite** | 1612 MB | +1096 MB | 3515 MB | -512 MB |
+| **wBlock** | 1240 MB | +726 MB | 4011 MB | +51 MB |
 
 ```mermaid
 xychart-beta
@@ -66,7 +66,7 @@ xychart-beta
 xychart-beta
   title "Median page load time (ms, lower is better)"
   x-axis ["No blocker", "uBlock Origin Lite", "wBlock"]
-  bar [652, 590, 659]
+  bar [750, 672, 592]
 ```
 
 <details><summary>Screenshots (normal Safari window)</summary>
